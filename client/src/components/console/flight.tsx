@@ -8,7 +8,7 @@ interface AppProps {};
 
 const flight: React.FC<AppProps> = () => {
   return(
-         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example"  >
+         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example" style={{ float: "right"}}  >
         
           <Tab eventKey="FLIGHT_1" title="Mission Status">
             <img src={flight_1} style={{width:"300px"}}/> 

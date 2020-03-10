@@ -8,7 +8,7 @@ interface AppProps {};
 
 const capcom: React.FC<AppProps> = () => {
   return(
-         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example"  >
+         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example" style={{ float: "right"}} >
         
           <Tab eventKey="CAPCOM_1" title="Script">
             <img src={capcom_1} style={{width:"300px"}}/> 

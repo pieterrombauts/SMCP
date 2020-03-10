@@ -13,8 +13,10 @@ interface AppProps {};
 
 const console: React.FC<AppProps> = () => {
   return(
-    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example"  className="flex-column">
-        
+    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example"  
+      className="flex-column"
+      style={{width: "200px",
+              backgroundColor: "Black"}}  >
       <Tab eventKey="SPARTAN" title="SPARTAN">
         <Spartan />
       </Tab>

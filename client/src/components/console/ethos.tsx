@@ -10,7 +10,7 @@ interface AppProps {};
 
 const ethos: React.FC<AppProps> = () => {
   return(
-         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example"  >
+         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example" style={{ float: "right"}} >
         
           <Tab eventKey="ETHOS_1" title="Life Support System ">
             <img src={ethos_1} style={{width:"300px"}}/> 

@@ -9,7 +9,7 @@ interface AppProps {};
 
 const spartan: React.FC<AppProps> = () => {
   return(
-         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example"  >
+         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example" style={{ float: "right"}}  >
         
           <Tab eventKey="SPARTAN_1" title="Power Console">
             <img src={spartan_1} style={{width:"300px"}}/> 

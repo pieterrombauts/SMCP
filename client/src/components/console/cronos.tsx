@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
@@ -12,7 +13,7 @@ interface AppProps {};
 
 const cronos: React.FC<AppProps> = () => {
   return(
-         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example"  >
+         <Tabs  defaultActiveKey="Cronos_console" id="uncontrolled-tab-example" style={{ float: "right"}} >
         
           <Tab eventKey="CRONOS_1" title="Computer Network">
             <img src={cronos_1} style={{width:"300px"}}/> 
@@ -39,4 +40,8 @@ const cronos: React.FC<AppProps> = () => {
   );
 }
 
-export const Cronos = cronos;
+export const Cronos = styled(cronos)`
+  #uncontrolled-tab-example {
+    width: 200px;
+  }
+`;
