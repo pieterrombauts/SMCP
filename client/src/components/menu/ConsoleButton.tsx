@@ -1,10 +1,10 @@
 import React from "react";
 import styled from 'styled-components';
 import Button from "react-bootstrap/Button";
-import socket from './Socket';
-import { RootState } from '../reducers';
+import socket from '../Socket';
+import { RootState } from '../../reducers';
 import { connect, ConnectedProps } from 'react-redux';
-import { updateUserRole } from '../slices/lobbySlice'
+import { updateUserRole } from '../../slices/lobbySlice'
 
 interface ConsoleButtonProps {
   className?: string;

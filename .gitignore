@@ -4,8 +4,8 @@
 node_modules/
 /.pnp
 .pnp.js
-smcp-client/package-lock.json
-smcp-server/package-lock.json
+package-lock.json
+yarn.lock
 
 # testing
 /coverage

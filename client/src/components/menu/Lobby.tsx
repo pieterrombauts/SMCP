@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Button from 'react-bootstrap/Button';
-import socket from './Socket';
-import { RootState } from '../reducers';
+import socket from '../Socket';
+import { RootState } from '../../reducers';
 import { connect, ConnectedProps } from 'react-redux';
-import { animateMenus } from '../slices/menuAnimationSlice'
-import { updateConsoles, updateLobbyID, updateUserRole } from '../slices/lobbySlice'
+import { animateMenus } from '../../slices/menuAnimationSlice'
+import { updateConsoles, updateLobbyID, updateUserRole } from '../../slices/lobbySlice'
 import ConsoleButton from './ConsoleButton'
 
 interface LobbyProps {

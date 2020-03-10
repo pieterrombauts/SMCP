@@ -2,8 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { GlobalStyle } from './components/GlobalStyle';
 import { StarBackground } from './components/StarBackground'
-import Menu from './components/Menu'
-import Spartan from './components/consoles/Spartan';
+import Menu from './components/menu/Menu'
 
 interface AppProps {};
 
@@ -11,8 +10,7 @@ const App: React.FC<AppProps> = () => {
   return(
     <>
       <GlobalStyle />
-      <Spartan />
-      {/* <Menu /> */}
+      <Menu />
       <StarBackground />
     </>
   )
