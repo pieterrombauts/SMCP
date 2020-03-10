@@ -2,8 +2,9 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import spartan_1 from "./../../media/Spartan_1.png"
-import spartan_2 from "./../../media/Spartan_2.png"
+import ethos_1 from "./../../media/Ethos_1.png"
+import ethos_2 from "./../../media/Ethos_2.png"
+import ethos_3 from "./../../media/Ethos_3.png"
 
 interface AppProps {};
 
@@ -11,14 +12,18 @@ const ethos: React.FC<AppProps> = () => {
   return(
          <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example"  >
         
-          <Tab eventKey="SPARTAN_1" title="Power Console">
-            <img src={spartan_1} style={{width:"300px"}}/> 
+          <Tab eventKey="ETHOS_1" title="Life Support System ">
+            <img src={ethos_1} style={{width:"300px"}}/> 
           </Tab>
 
-          <Tab eventKey="SPARTAN_2" title="External Thermal Control">
-          <img src={spartan_2} style={{width:"300px"}}/> 
-
+          <Tab eventKey="Ethos_2" title="Thermal System Display">
+            <img src={ethos_2} style={{width:"300px"}}/> 
           </Tab>
+
+          <Tab eventKey="ETHOS_3" title="Regenerative Life Support ">
+            <img src={ethos_3} style={{width:"300px"}}/> 
+          </Tab>
+
         </Tabs>
   );
 }
