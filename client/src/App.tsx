@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import spartan_1 from "./media/Spartan_1.png"
+import spartan_2 from "./media/Spartan_2.png"
 
 interface AppProps {};
 
@@ -16,12 +17,27 @@ const App: React.FC<AppProps> = () => {
       <GlobalStyle />
       {/* <Menu /> */}
 
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example"  className="flex-column">
         
         <Tab eventKey="SPARTAN" title="SPARTAN">
-          <img src={spartan_1} style={{width:"300px"}}/> 
 
+         <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example"  >
+        
+          <Tab eventKey="SPARTAN_1" title="Power Console">
+            <img src={spartan_1} style={{width:"300px"}}/> 
+          </Tab>
+
+
+          <Tab eventKey="SPARTAN_2" title="External Thermal Control">
+          <img src={spartan_2} style={{width:"300px"}}/> 
+
+          </Tab>
           
+         
+        
+        </Tabs>
+
+          {/* <img src={spartan_1} style={{width:"300px"}}/>  */}
         </Tab>
         <Tab eventKey="CRONOS" title="CRONOS">
          <p> Title 2 </p>
