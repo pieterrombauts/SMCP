@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Button from 'react-bootstrap/Button';
-import socket from './Socket';
+import socket from '../Socket';
 import { connect, ConnectedProps } from 'react-redux';
-import { animateMenus } from '../slices/menuAnimationSlice'
-import { updateLobbyID, updateUserRole } from '../slices/lobbySlice'
-import { RootState } from '../reducers';
+import { animateMenus } from '../../slices/menuAnimationSlice'
+import { updateLobbyID, updateUserRole } from '../../slices/lobbySlice'
+import { RootState } from '../../reducers';
 
 interface HomeProps {
   className?: string;

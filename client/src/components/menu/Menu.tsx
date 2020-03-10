@@ -2,10 +2,10 @@ import React from 'react';
 import Home from './Home'
 import Join from './Join'
 import Lobby from './Lobby'
-import socket from './Socket';
+import socket from '../Socket';
 import { CSSTransition } from 'react-transition-group'
-import { RootState } from '../reducers';
-import { animateMenus } from '../slices/menuAnimationSlice'
+import { RootState } from '../../reducers';
+import { animateMenus } from '../../slices/menuAnimationSlice'
 import { connect, ConnectedProps } from 'react-redux';
 
 interface MenuProps {};
