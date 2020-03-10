@@ -9,6 +9,11 @@ import Tab from 'react-bootstrap/Tab'
 import spartan_1 from "./media/Spartan_1.png"
 import spartan_2 from "./media/Spartan_2.png"
 import {Spartan} from './components/console/spartan';
+import {Capcom} from './components/console/capcom';
+import {Cronos} from './components/console/cronos';
+import {Ethos} from './components/console/ethos';
+import {Flight} from './components/console/flight';
+import {Bme} from './components/console/bme';
 
 interface AppProps {};
 
@@ -24,19 +29,19 @@ const App: React.FC<AppProps> = () => {
           <Spartan />
         </Tab>
         <Tab eventKey="CRONOS" title="CRONOS">
-         <p> Title 2 </p>
+          <Cronos />
         </Tab>
         <Tab eventKey="ETHOS" title="ETHOS">
-          <p> Title 3 </p>
+          <Ethos />
         </Tab>
         <Tab eventKey="FLIGHT" title="FLIGHT">
-          <p> Title 3 </p>
+         <Flight />
         </Tab>
         <Tab eventKey="CAPCOM" title="CAPCOM">
-          <p> Title 3 </p>
+          <Capcom />
         </Tab>
         <Tab eventKey="BME" title="BME">
-          <p> Title 3 </p>
+          <Bme />
         </Tab>
        
       </Tabs>
