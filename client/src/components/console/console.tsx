@@ -38,7 +38,7 @@ const console: React.FC<AppProps> = ( props ) => {
               <Nav.Link eventKey="capcom">CAPCOM</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="BME">BME</Nav.Link>
+              <Nav.Link eventKey="bme">BME</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
