@@ -24,11 +24,40 @@ const cronus: React.FC<AppProps> = (props) => {
               <img src={cronus_1} style={{ width: "1200px" }} />
             </Tab.Pane>
             <Tab.Pane eventKey="uhf-comms">
-              <img src={cronus_2} style={{ width: "1200px" }} />
+            <img src={cronus_2} style={{width:"1200px",position:"absolute"}}/>  
+              <svg width="1000" height="1000" style={{position:"absolute"}}>
+                
+                <rect x="50" y="350" rx="5" ry="5" width="460" height="182" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5"}} />
+                
+                <text x="6%" y="38%" fill="white" font-size="25" font-family="Verdana">Space to Space Station</text>
+
+                <text x="8%" y="43%" fill="white" font-size="20" font-family="Verdana">Radio1 Power</text>
+                <text x="25%" y="43%" fill="#d6ab62" font-size="20" font-family="Verdana">Off</text>
+
+                <text x="8%" y="46%" fill="white" font-size="20" font-family="Verdana">Radio1 Power</text>
+                <text x="25%" y="46%" fill="#d6ab62" font-size="20" font-family="Verdana">Off</text>
+
+                <text x="6%" y="51%" fill="white" font-size="25" font-family="Verdana">UHF Sync Lcok</text>
+                <text x="28%" y="51%" fill="#d6ab62" font-size="20" font-family="Verdana">Frame Sync</text>
+                
+              </svg>
+
+              <svg width="100%" height="100%" style={{position:"absolute"}}>
+                
+                <rect x="740" y="370" rx="5" ry="5" width="390" height="135" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5"}} />
+                
+                <text x="62%" y="46%" fill="white" font-size="20" font-family="Verdana">IAC1 Power</text>
+                <text x="75%" y="46%" fill="#d6ab62" font-size="20" font-family="Verdana">Active</text>
+
+                <text x="62%" y="49%" fill="white" font-size="20" font-family="Verdana">IAC2 Power</text>
+                <text x="75%" y="49%" fill="#d6ab62" font-size="20" font-family="Verdana">Active</text>
+
+              </svg>
             </Tab.Pane>
+            
             <Tab.Pane eventKey="s-band-comms">
             <img src={cronus_3} style={{width:"1200px",position:"absolute"}}/>  
-              <svg width="1000" height="1000" id="s-band-svg" style={{position:"absolute"}}>
+              <svg width="1000" height="1000" style={{position:"absolute"}}>
                 
                 <rect x="415" y="265" rx="5" ry="5" width="415" height="380" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5"}} />
                 
@@ -65,12 +94,12 @@ const cronus: React.FC<AppProps> = (props) => {
             </Tab.Pane>
 
             <Tab.Pane eventKey="vid-comms-1">
-              {/* <img src={cronus_4} style={{ position:"absolute", width: "1200px" }} /> */}
-              <svg width="1000" height="1000" id="s-band-svg">
+              <img src={cronus_4} style={{ position:"absolute", width: "1200px" }} />
+              <svg width="1000" height="1000" style={{position:"absolute"}}>
                 
-                <rect rx="20" ry="20" width="415" height="380" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5",opacity:"0.5", position:"absolute", left:"400px"}}/>
+                <rect x="415" y="265" rx="5" ry="5" width="405" height="375" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5"}}/>
                 
-                <text x="42.5%" y="30%" fill="white" font-size="45" font-family="Verdana">Ku-Band Status</text>
+                <text x="42.5%" y="31.5%" fill="white" font-size="45" font-family="Verdana">Ku-Band Status</text>
 
                 <text x="42.5%" y="35%" fill="white" font-size="20" font-family="Verdana">Downlink 1 Status</text>
                 <text x="65%" y="35%" fill="#d6ab62" font-size="20" font-family="Verdana">ACTIVE</text>
