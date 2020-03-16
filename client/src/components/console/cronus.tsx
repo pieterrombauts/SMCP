@@ -27,12 +27,12 @@ const cronus: React.FC<AppProps> = (props) => {
               <img src={cronus_2} style={{ width: "1200px" }} />
             </Tab.Pane>
             <Tab.Pane eventKey="s-band-comms">
-            {/* <img src={cronus_3} style={{width:"1200px",display:"block"}}/>   */}
-              <svg width="1000" height="1000" id="s-band-svg">
+            <img src={cronus_3} style={{width:"1200px",position:"absolute"}}/>  
+              <svg width="1000" height="1000" id="s-band-svg" style={{position:"absolute"}}>
                 
-                <rect x="400" y="250" rx="20" ry="20" width="415" height="380" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5",opacity:"0.5"}} />
-                {/* <text x="50%" y="50%" fill="white" dominant-baseline="middle" text-anchor="middle">TEXT</text> */}
-                <text x="42.5%" y="30%" fill="white" font-size="45" font-family="Verdana">S-Band Status</text>
+                <rect x="415" y="265" rx="5" ry="5" width="415" height="380" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5"}} />
+                
+                <text x="42.5%" y="31.5%" fill="white" font-size="45" font-family="Verdana">S-Band Status</text>
 
                 <text x="42.5%" y="35%" fill="white" font-size="20" font-family="Verdana">Active S-Band</text>
                 <text x="65%" y="35%" fill="#d6ab62" font-size="20" font-family="Verdana">1</text>
@@ -63,9 +63,40 @@ const cronus: React.FC<AppProps> = (props) => {
               </svg>
               
             </Tab.Pane>
+
             <Tab.Pane eventKey="vid-comms-1">
-              <img src={cronus_4} style={{ width: "1200px" }} />
+              {/* <img src={cronus_4} style={{ position:"absolute", width: "1200px" }} /> */}
+              <svg width="1000" height="1000" id="s-band-svg">
+                
+                <rect rx="20" ry="20" width="415" height="380" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5",opacity:"0.5", position:"absolute", left:"400px"}}/>
+                
+                <text x="42.5%" y="30%" fill="white" font-size="45" font-family="Verdana">Ku-Band Status</text>
+
+                <text x="42.5%" y="35%" fill="white" font-size="20" font-family="Verdana">Downlink 1 Status</text>
+                <text x="65%" y="35%" fill="#d6ab62" font-size="20" font-family="Verdana">ACTIVE</text>
+
+                <text x="42.5%" y="38%" fill="white" font-size="20" font-family="Verdana">Downlink 2 Status</text>
+                <text x="65%" y="38%" fill="#d6ab62" font-size="20" font-family="Verdana">ACTIVE</text>
+
+                <text x="42.5%" y="41%" fill="white" font-size="20" font-family="Verdana">Downlink 3 Status</text>
+                <text x="65%" y="41%" fill="#d6ab62" font-size="20" font-family="Verdana">ACTIVE</text>
+
+                <text x="42.5%" y="44%" fill="white" font-size="20" font-family="Verdana">Downlink 4 Status</text>
+                <text x="65%" y="44%" fill="#d6ab62" font-size="20" font-family="Verdana">ACTIVE</text>
+
+
+                <text x="42.5%" y="55%" fill="white" font-size="20" font-family="Verdana">Elevation Gimbal</text>
+                <text x="67%" y="55%" fill="#d6ab62" font-size="20" font-family="Verdana">-48.85</text>
+                <text x="75%" y="55%" fill="white" font-size="20" font-family="Verdana">°</text>
+
+                <text x="42.5%" y="58%" fill="white" font-size="20" font-family="Verdana">Cross-Elevation Gimbal</text>
+                <text x="67%" y="58%" fill="#d6ab62" font-size="20" font-family="Verdana">36.39</text>
+                <text x="75%" y="58%" fill="white" font-size="20" font-family="Verdana">°</text>
+              </svg>
+
             </Tab.Pane>
+            
+            
             <Tab.Pane eventKey="vid-comms-2">
               <img src={cronus_5} style={{ width: "1200px" }} />
             </Tab.Pane>
