@@ -15,8 +15,6 @@ interface AppProps {
 const spartanExtThermal: React.FC<AppProps> = ( props ) => {
   return(
   
-      // <img src={spartan_2} style={{width:"200px"}}/> 
-
       <Container style={{paddingTop:"20%"}}>
         <Row>
           <Col ></Col>

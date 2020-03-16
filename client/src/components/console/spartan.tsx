@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import spartan_1 from "./../../media/Spartan_1.png";
 import spartan_2 from "./../../media/Spartan_2.png";
 import {SpartanExtThermal} from "./spartanExtThermal"
+import {SpartanPower} from "./spartanPower"
 
 interface AppProps {
   className?: string;
@@ -19,7 +20,7 @@ const spartan: React.FC<AppProps> = ( props ) => {
         <Col id="spartan-content" sm={10}>
           <Tab.Content>
             <Tab.Pane eventKey="power">
-              <img src={spartan_1} style={{width:"1200px"}}/>
+              < SpartanPower />
             </Tab.Pane>
             <Tab.Pane eventKey="ext-thermal">
               < SpartanExtThermal />
