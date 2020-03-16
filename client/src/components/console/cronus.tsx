@@ -59,7 +59,7 @@ const cronus: React.FC<AppProps> = (props) => {
             <img src={cronus_3} style={{width:"1200px",position:"absolute"}}/>  
               <svg width="1000" height="1000" style={{position:"absolute"}}>
                 
-                <rect x="415" y="265" rx="5" ry="5" width="415" height="380" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5"}} />
+                <rect x="415" y="265" rx="5" ry="5" width="415" height="385" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5"}} />
                 
                 <text x="42.5%" y="31.5%" fill="white" font-size="45" font-family="Verdana">S-Band Status</text>
 
@@ -127,8 +127,28 @@ const cronus: React.FC<AppProps> = (props) => {
             
             
             <Tab.Pane eventKey="vid-comms-2">
-              <img src={cronus_5} style={{ width: "1200px" }} />
+            <img src={cronus_5} style={{ position:"absolute", width: "1200px" }} />
+              <svg width="1000" height="1000" style={{position:"absolute"}}>
+                
+                <rect x="570" y="550" rx="5" ry="5" width="370" height="160" style={{fill:"#36485b",stroke:"#2a3a3f",strokeWidth:"5"}}/>
+                
+                <text x="58%" y="58%" fill="white" font-size="17" font-family="Verdana">1)</text>
+                <text x="61%" y="58%" fill="#d6ab62" font-size="20" font-family="Verdana">P1 Upper Outboard (P1UPOB)</text>
+
+                <text x="58%" y="62%" fill="white" font-size="17" font-family="Verdana">1)</text>
+                <text x="61%" y="62%" fill="#d6ab62" font-size="20" font-family="Verdana">P1 Lower Outboard (P1LOOB)</text>
+
+                <text x="58%" y="66%" fill="white" font-size="17" font-family="Verdana">1)</text>
+                <text x="61%" y="66%" fill="#d6ab62" font-size="20" font-family="Verdana">Labs Starboard (LABS)</text>
+
+                <text x="58%" y="70%" fill="white" font-size="17" font-family="Verdana">1)</text>
+                <text x="61%" y="70%" fill="#d6ab62" font-size="20" font-family="Verdana">0E</text>
+
+                
+                
+              </svg>
             </Tab.Pane>
+          
           </Tab.Content>
         </Col>
         <Col id="cronus-buttons" sm={2}>
