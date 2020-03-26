@@ -8,7 +8,7 @@ import Nav from 'react-bootstrap/Nav'
 import {Spartan} from './spartan';
 import {Capcom} from './capcom';
 import {Cronus} from './cronus';
-import {Ethos} from './ethos';
+import {Ethos} from './ethos/ethos';
 import {Flight} from './flight';
 import {Bme} from './bme';
 
