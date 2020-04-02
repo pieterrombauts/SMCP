@@ -7,8 +7,8 @@ import Tab from 'react-bootstrap/Tab'
 import Nav from 'react-bootstrap/Nav'
 import {Spartan} from './spartan';
 import {Capcom} from './capcom';
-import {Cronus} from './cronus';
-import {Ethos} from './ethos/ethos'
+import {Cronus1} from './cronus/cronus';
+import {Ethos} from './ethos/ethos';
 import {Flight} from './flight';
 import {Bme} from './bme';
 
@@ -48,7 +48,7 @@ const UConsole: React.FC<AppProps> = ( props ) => {
               <Spartan />
             </Tab.Pane>
             <Tab.Pane eventKey="cronus">
-              <Cronus />
+              <Cronus1 />
             </Tab.Pane>
             <Tab.Pane eventKey="ethos">
               <Ethos />
@@ -74,20 +74,17 @@ export const Console = styled(UConsole)`
   height: 100%;
   position: absolute;
   z-index: 1;
-
   #console-buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-
   #console-buttons .nav {
     margin-left: 20px;
     max-width: 150px;
     background-color: #f8f9fa;
     border-radius: 3px;
   }
-
   #console-buttons .nav-item a {
     padding: 20px 30px;
   }
