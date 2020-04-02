@@ -16,7 +16,7 @@ interface AppProps {
   className?: string;
 };
 
-const console: React.FC<AppProps> = ( props ) => {
+const UConsole: React.FC<AppProps> = ( props ) => {
   return(
     <Tab.Container id="console-tabs">
       <Row className={props.className}>
@@ -66,34 +66,10 @@ const console: React.FC<AppProps> = ( props ) => {
         </Col>
       </Row>
     </Tab.Container>
-
-  //   <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example"  
-  //     className="flex-column"
-  //     style={{width: "200px",
-  //             backgroundColor: "Black"}}  >
-  //     <Tab eventKey="SPARTAN" title="SPARTAN">
-  //       <Spartan />
-  //     </Tab>
-  //     <Tab eventKey="CRONOS" title="CRONOS">
-  //       <Cronos />
-  //     </Tab>
-  //     <Tab eventKey="ETHOS" title="ETHOS">
-  //       <Ethos />
-  //     </Tab>
-  //     <Tab eventKey="FLIGHT" title="FLIGHT">
-  //     <Flight />
-  //     </Tab>
-  //     <Tab eventKey="CAPCOM" title="CAPCOM">
-  //       <Capcom />
-  //     </Tab>
-  //     <Tab eventKey="BME" title="BME">
-  //       <Bme />
-  //     </Tab>
-  //  </Tabs>
   );
 }
 
-export const Console = styled(console)`
+export const Console = styled(UConsole)`
   width: 100%;
   height: 100%;
   position: absolute;
