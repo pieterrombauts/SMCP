@@ -2,26 +2,25 @@ import React from 'react';
 import styled from 'styled-components'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
-import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import ethos_1 from "./../../media/Ethos_1.png"
-import ethos_2 from "./../../media/Ethos_2.png"
-import ethos_3 from "./../../media/Ethos_3.png"
+import EthosLifeSupportDisplay from './EthosLifeSupportDisplay';
+import ethos_2 from "./../../../media/Ethos_2.png"
+import ethos_3 from "./../../../media/Ethos_3.png"
 
 interface AppProps {
   className?: string;
 };
 
-const ethos: React.FC<AppProps> = ( props ) => {
+const UEthos: React.FC<AppProps> = ( props ) => {
   return(
         <Tab.Container id="ethos-tabs" defaultActiveKey="life-support">
         <Row className={props.className}>
           <Col id="ethos-content" sm={10}>
             <Tab.Content>
-              <Tab.Pane eventKey="life-support">
-                <img src={ethos_1} style={{width:"1200px"}}/>
+              <Tab.Pane eventKey="life-support" className="tab-content-flex-centered">
+                <EthosLifeSupportDisplay />
               </Tab.Pane>
               <Tab.Pane eventKey="thermal-system">
                 <img src={ethos_2} style={{width:"1200px"}}/> 
@@ -67,10 +66,20 @@ const ethos: React.FC<AppProps> = ( props ) => {
   );
 }
 
-export const Ethos = styled(ethos)`
-width: 100%;
+export const Ethos = styled(UEthos)`
+  width: 100%;
   height: 100%;
   position: absolute;
+
+  .tab-content, .tab-pane {
+    height: 100%;
+  }
+
+  #ethos-tabs-tabpane-life-support {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
   #ethos-buttons {
     display: flex;

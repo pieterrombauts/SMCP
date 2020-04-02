@@ -7,8 +7,8 @@ import Tab from 'react-bootstrap/Tab'
 import Nav from 'react-bootstrap/Nav'
 import {Spartan} from './spartan';
 import {Capcom} from './capcom';
-import {Cronus} from './cronus';
-import {Ethos} from './ethos';
+import {Cronus1} from './cronus/cronus';
+import {Ethos} from './ethos/ethos';
 import {Flight} from './flight';
 import {Bme} from './bme';
 
@@ -16,7 +16,7 @@ interface AppProps {
   className?: string;
 };
 
-const console: React.FC<AppProps> = ( props ) => {
+const UConsole: React.FC<AppProps> = ( props ) => {
   return(
     <Tab.Container id="console-tabs">
       <Row className={props.className}>
@@ -48,7 +48,7 @@ const console: React.FC<AppProps> = ( props ) => {
               <Spartan />
             </Tab.Pane>
             <Tab.Pane eventKey="cronus">
-              <Cronus />
+              <Cronus1 />
             </Tab.Pane>
             <Tab.Pane eventKey="ethos">
               <Ethos />
@@ -66,52 +66,25 @@ const console: React.FC<AppProps> = ( props ) => {
         </Col>
       </Row>
     </Tab.Container>
-
-  //   <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example"  
-  //     className="flex-column"
-  //     style={{width: "200px",
-  //             backgroundColor: "Black"}}  >
-  //     <Tab eventKey="SPARTAN" title="SPARTAN">
-  //       <Spartan />
-  //     </Tab>
-  //     <Tab eventKey="CRONOS" title="CRONOS">
-  //       <Cronos />
-  //     </Tab>
-  //     <Tab eventKey="ETHOS" title="ETHOS">
-  //       <Ethos />
-  //     </Tab>
-  //     <Tab eventKey="FLIGHT" title="FLIGHT">
-  //     <Flight />
-  //     </Tab>
-  //     <Tab eventKey="CAPCOM" title="CAPCOM">
-  //       <Capcom />
-  //     </Tab>
-  //     <Tab eventKey="BME" title="BME">
-  //       <Bme />
-  //     </Tab>
-  //  </Tabs>
   );
 }
 
-export const Console = styled(console)`
+export const Console = styled(UConsole)`
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 1;
-
   #console-buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-
   #console-buttons .nav {
     margin-left: 20px;
     max-width: 150px;
     background-color: #f8f9fa;
     border-radius: 3px;
   }
-
   #console-buttons .nav-item a {
     padding: 20px 30px;
   }

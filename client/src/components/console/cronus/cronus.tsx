@@ -1,39 +1,83 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav'
 import Tab from 'react-bootstrap/Tab'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import cronus_1 from "./../../media/Cronus_1.png"
-import cronus_2 from "./../../media/Cronus_2.png"
-import cronus_3 from "./../../media/Cronus_3.png"
-import cronus_4 from "./../../media/Cronus_4.png"
-import cronus_5 from "./../../media/Cronus_5.png"
+import CronusCompNetDisplay from './CronusCompNetDisplay'
+import CronusUHFCommsDisplay from './CronusUHFCommsDisplay'
+import CronusSBandCommsDisplay from './CronusSBandCommsDisplay'
+import CronusVidComm1Display from './CronusVidComm1Display'
+import CronusVidComm2Display from './CronusVidComm2Display'
+import { generateRandVal } from '../../../dataGenerator';
 
 interface AppProps {
   className?: string;
 };
 
-const cronus: React.FC<AppProps> = ( props ) => {
+const defaultValues = {
+  compNet: {
+    time: '053/05:25:01',
+    standardCmds: 10466,
+    loadCmds: 11248
+  },
+  sBand: {
+    elevationGimbal: 0,
+    azimuthGimbal: 0
+  },
+  vComms1: {
+    elevationGimbal: 0,
+    crossElevationGimbal: 0
+  }
+}
+
+const Cronus: React.FC<AppProps> = ( props ) => {
+  var [values, setValues] = useState(defaultValues)
+  const intervalRef = useRef(0);
+
+  useEffect(() => {
+    if (intervalRef.current !== 0) {
+      clearInterval(intervalRef.current);
+    }
+    const id = setInterval(() => {
+      var newValues = {
+        compNet: {
+          time: '053/05:25:01',
+          standardCmds: 10466,
+          loadCmds: 11248
+        },
+        sBand: {
+          elevationGimbal: generateRandVal(45, 90).toFixed(2),
+          azimuthGimbal: generateRandVal(1.59, 103.5).toFixed(2)
+        },
+        vComms1: {
+          elevationGimbal: generateRandVal(27, 48).toFixed(2),
+          crossElevationGimbal: generateRandVal(36, 45).toFixed(2),
+        }
+      }
+      setValues(newValues);
+    }, 5000);
+    intervalRef.current = id;
+  },[])
   return(
     <Tab.Container id="cronus-tabs" defaultActiveKey="comp-net">
       <Row className={props.className}>
         <Col id="cronus-content" sm={10}>
           <Tab.Content>
             <Tab.Pane eventKey="comp-net">
-              <img src={cronus_1} style={{width:"1200px"}}/>
+              <CronusCompNetDisplay values={values}/>
             </Tab.Pane>
             <Tab.Pane eventKey="uhf-comms">
-              <img src={cronus_2} style={{width:"1200px"}}/> 
+              <CronusUHFCommsDisplay />
             </Tab.Pane>
             <Tab.Pane eventKey="s-band-comms">
-              <img src={cronus_3} style={{width:"1200px"}}/> 
+              <CronusSBandCommsDisplay values={values} />
             </Tab.Pane>
             <Tab.Pane eventKey="vid-comms-1">
-              <img src={cronus_4} style={{width:"1200px"}}/> 
+              <CronusVidComm1Display values={values} />
             </Tab.Pane>
             <Tab.Pane eventKey="vid-comms-2">
-              <img src={cronus_5} style={{width:"1200px"}}/> 
+              <CronusVidComm2Display />
             </Tab.Pane>
           </Tab.Content>
         </Col>
@@ -58,35 +102,10 @@ const cronus: React.FC<AppProps> = ( props ) => {
         </Col>
       </Row>
     </Tab.Container>
-
-        //  <Tabs  defaultActiveKey="Cronus_console" id="uncontrolled-tab-example" style={{ float: "right"}} >
-        
-        //   <Tab eventKey="CRONUS_1" title="Computer Network">
-        //     <img src={cronus_1} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        //   <Tab eventKey="CRONUS_2" title="UHF Communication">
-        //     <img src={cronus_2} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        //   <Tab eventKey="CRONUS_3" title="S-Band Communication">
-        //     <img src={cronus_3} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        //   <Tab eventKey="CRONUS_4" title="Video Communication">
-        //     <img src={cronus_4} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        //   <Tab eventKey="CRONUS_5" title="Video Communication 2">
-        //     <img src={cronus_5} style={{width:"300px"}}/> 
-        //   </Tab>
-
-         
-        // </Tabs>
   );
 }
 
-export const Cronus = styled(cronus)`
+export const Cronus1 = styled(Cronus)`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -107,4 +126,5 @@ export const Cronus = styled(cronus)`
   #cronus-buttons .nav-item a {
     padding: 20px 30px;
   }
+
 `;
