@@ -25,3 +25,17 @@ export interface ethosLifeSupportDisplay {
     O2: number
   }
 }
+export interface sBandDisplay {
+  sBand: {
+    elevationGimbal: number,
+    azimuthGimbal: number
+  }
+
+}
+
+export interface vComm1Display {
+  vComms1: {
+    elevationGimbal: number,
+    crossElevationGimbal: number
+  }
+}
