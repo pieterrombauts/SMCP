@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -6,12 +6,43 @@ import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import spartanPowerCrew from "./../../media/spartanPowerCrew.png";
+import { generateRandVal } from '../../dataGenerator';
 
-interface AppProps {
+
+interface SpartanPowerInt {
   className?: string;
 };
 
-const spartanPower: React.FC<AppProps> = ( props ) => {
+const defaultValues = {
+  Spartan: {
+    voltage1: 0,
+    voltage2: 0,
+    voltage3: 0,
+    voltage4: 0
+  }
+}
+
+const USpartanPower: React.FC<SpartanPowerInt> = ( props ) => {
+  var [values, setValues] = useState(defaultValues)
+  const intervalRef = useRef(0);
+  useEffect(() => {
+    if (intervalRef.current != 0) {
+      clearInterval(intervalRef.current);
+    }
+    const id = setInterval(() => {
+      var newValues = {
+        Spartan: {
+          voltage1: generateRandVal(158, 160).toFixed(2),
+          voltage2: generateRandVal(160, 162).toFixed(2),
+          voltage3: generateRandVal(161, 163).toFixed(2),
+          voltage4: generateRandVal(161, 163).toFixed(2)
+        }
+      }
+      setValues(newValues);
+    }, 5000);
+    intervalRef.current = id;
+  },[])
+
   return(
   
       <Container style={{paddingTop:"20%"}}>
@@ -24,10 +55,10 @@ const spartanPower: React.FC<AppProps> = ( props ) => {
         </Row>
         <Row>
           <Col style={{border:"white solid 1px", color:"white"}}>Voltage (V)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 158.63</Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> 160.47</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 161.14</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 160.99</Col>
+          <Col id='voltage1' style={{border:"white solid 1px", color:"gold"}}>  {values.Spartan.voltage1}</Col>
+          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage2}</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage3}</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage4}</Col>
         </Row>
 
         <Row>
@@ -87,7 +118,7 @@ const spartanPower: React.FC<AppProps> = ( props ) => {
   );
 }
 
-export const SpartanPower = styled(spartanPower)`
+export const SpartanPower = styled(USpartanPower)`
   width: 100%;
   height: 100%;
   position: absolute;
