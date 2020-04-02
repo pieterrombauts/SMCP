@@ -25,7 +25,16 @@ export interface ethosLifeSupportDisplay {
     O2: number
   }
 }
-export interface sBandDisplay {
+
+export interface cronusCompNetDisplay {
+  compNet: {
+    time: string,
+    standardCmds: number,
+    loadCmds: number
+  },
+}
+
+export interface cronusSBandDisplay {
   sBand: {
     elevationGimbal: number,
     azimuthGimbal: number
@@ -33,7 +42,7 @@ export interface sBandDisplay {
 
 }
 
-export interface vComm1Display {
+export interface cronusVComm1Display {
   vComms1: {
     elevationGimbal: number,
     crossElevationGimbal: number
