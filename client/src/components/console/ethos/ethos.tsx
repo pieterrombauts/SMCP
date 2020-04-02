@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
-import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -14,7 +13,7 @@ interface AppProps {
   className?: string;
 };
 
-const ethos: React.FC<AppProps> = ( props ) => {
+const UEthos: React.FC<AppProps> = ( props ) => {
   return(
         <Tab.Container id="ethos-tabs" defaultActiveKey="life-support">
         <Row className={props.className}>
@@ -67,7 +66,7 @@ const ethos: React.FC<AppProps> = ( props ) => {
   );
 }
 
-export const Ethos = styled(ethos)`
+export const Ethos = styled(UEthos)`
   width: 100%;
   height: 100%;
   position: absolute;
