@@ -8,6 +8,8 @@ import Col from 'react-bootstrap/Col';
 import spartanPowerCrew from "./../../media/spartanPowerCrew.png";
 import { generateRandVal } from '../../dataGenerator';
 
+import spartan_1 from "./../../media/Spartan_1.png"
+
 
 interface SpartanPowerInt {
   className?: string;
@@ -15,32 +17,37 @@ interface SpartanPowerInt {
 
 const defaultValues = {
   Spartan: {
-    voltage1: 0,
-    voltage2: 0,
-    voltage3: 0,
-    voltage4: 0,
-    current1: 0,
-    current2: 0,
-    current3: 0,
-    current4: 0,
-    array1: 0,
-    array2: 0,
-    array3: 0,
-    array4: 0,
-
-    voltage1b: 0,
     voltage2b: 0,
-    voltage3b: 0,
-    voltage4b: 0,
-    current1b: 0,
     current2b: 0,
-    current3b: 0,
-    current4b: 0,
-    array1b: 0,
     array2b: 0,
-    array3b: 0,
-    array4b: 0
-    
+
+    voltage4b: 0,
+    current4b: 0,
+    array4b: 0,
+
+    voltage4a: 0,
+    current4a: 0,
+    array4a: 0,
+
+    voltage2a: 0,
+    current2a: 0,
+    array2a: 0,
+
+    voltage1a: 0,
+    current1a: 0,
+    array1a: 0,
+
+    voltage3a: 0,
+    current3a: 0,
+    array3a: 0,
+
+    voltage3b: 0,
+    current3b: 0,
+    array3b:0,
+
+    voltage1b:  0,
+    current1b:  0,
+    array1b:  0
   }
 }
 
@@ -54,35 +61,37 @@ const USpartanPower: React.FC<SpartanPowerInt> = ( props ) => {
     const id = setInterval(() => {
       var newValues = {
         Spartan: {
-          voltage1: generateRandVal(158, 160).toFixed(2),
-          voltage2: generateRandVal(160, 162).toFixed(2),
-          voltage3: generateRandVal(161, 163).toFixed(2),
-          voltage4: generateRandVal(161, 163).toFixed(2),
+          voltage2b: generateRandVal(158, 160).toFixed(2),
+          current2b: generateRandVal(-45, -43).toFixed(2),
+          array2b: generateRandVal(335, 340).toFixed(2),
 
-          current1: generateRandVal(-45, -43).toFixed(2),
-          current2: generateRandVal(-37, -35).toFixed(2),
-          current3: generateRandVal(-29, -27).toFixed(2),
-          current4: generateRandVal(-39, -37).toFixed(2),
-
-          array1: generateRandVal(335, 340).toFixed(2),
-          array2: generateRandVal(340, 345).toFixed(2),
-          array3: generateRandVal(160, 165).toFixed(2),
-          array4: generateRandVal(155, 160).toFixed(2),
-
-          voltage1b: generateRandVal(150, 152).toFixed(2),
-          voltage2b: generateRandVal(162, 162).toFixed(2),
-          voltage3b: generateRandVal(161, 163).toFixed(2),
           voltage4b: generateRandVal(161, 163).toFixed(2),
+          current4b: generateRandVal(-37, -35).toFixed(2),
+          array4b: generateRandVal(155, 160).toFixed(2),
 
-          current1b: generateRandVal(-40, -38).toFixed(2),
-          current2b: generateRandVal(-26, -23).toFixed(2),
-          current3b: generateRandVal(-46, -44).toFixed(2),
-          current4b: generateRandVal(-51, -49).toFixed(2),
+          voltage4a: generateRandVal(160, 162).toFixed(2),
+          current4a: generateRandVal(-37, -35).toFixed(2),
+          array4a: generateRandVal(340, 345).toFixed(2),
 
-          array1b: generateRandVal(20, 25).toFixed(2),
-          array2b: generateRandVal(20, 25).toFixed(2),
-          array3b: generateRandVal(200, 220).toFixed(2),
-          array4b: generateRandVal(210, 230).toFixed(2)
+          voltage2a: generateRandVal(150, 152).toFixed(2),
+          current2a: generateRandVal(-26, -23).toFixed(2),
+          array2a: generateRandVal(20, 25).toFixed(2),
+
+          voltage1a: generateRandVal(161, 163).toFixed(2),
+          current1a: generateRandVal(-29, -27).toFixed(2),
+          array1a: generateRandVal(160, 165).toFixed(2),
+
+          voltage3a:  generateRandVal(161, 163).toFixed(2),
+          current3a: generateRandVal(-29, -27).toFixed(2),
+          array3a: generateRandVal(160, 165).toFixed(2),
+
+          voltage3b:  generateRandVal(161, 163).toFixed(2),
+          current3b: generateRandVal(-29, -27).toFixed(2),
+          array3b: generateRandVal(155, 160).toFixed(2),
+
+          voltage1b:  generateRandVal(161, 163).toFixed(2),
+          current1b:  generateRandVal(-51, -49).toFixed(2),
+          array1b:  generateRandVal(210, 230).toFixed(2)
         }
       }
       setValues(newValues);
@@ -91,79 +100,77 @@ const USpartanPower: React.FC<SpartanPowerInt> = ( props ) => {
   },[])
 
   return(
-  
-      <Container style={{paddingTop:"20%"}}>
-        <Row>
-          <Col style={{border:"white solid 1px", color:"white"}}>Channel Name</Col>
-          <Col style={{border:"white solid 1px", color:"white"}}>2B</Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"white"}}>4A</Col>
-          <Col style={{border:"white solid 1px", color:"white"}}>1A</Col>
-          <Col style={{border:"white solid 1px", color:"white"}}>3B</Col>
-        </Row>
-        <Row>
-          <Col style={{border:"white solid 1px", color:"white"}}>Voltage (V)</Col>
-          <Col id='voltage1' style={{border:"white solid 1px", color:"gold"}}>  {values.Spartan.voltage1}</Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage2}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage3}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage4}</Col>
-        </Row>
 
-        <Row>
-          <Col style={{border:"white solid 1px", color:"white"}}>Current (A)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.current1}</Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.current2}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.current3}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.current4}</Col>
-        </Row>
+    
+      <div>
 
-        <Row>
-          <Col style={{border:"white solid 1px", color:"white"}}>Array Position (degrees)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array1} </Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array2}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array3}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array4}</Col>
-        </Row>
 
-        <Row>
-          <img src={spartanPowerCrew} style={{width:"950px", height:"50px"}}/> 
-        </Row>
-
+      <img src={spartan_1} style={{width:"100%",position:"absolute"}}/>  
+        <svg width="1000" height="1000" style={{position:"absolute"}}>
         
-      
-        <Row>
-          <Col style={{border:"white solid 1px", color:"white"}}>Channel Name</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 4B</Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}>2A</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 3A</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 1B</Col>
-        </Row>
+            <rect x="20%" y="21.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="20.5%" y="23%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.voltage2b}</text>
+            <rect x="20%" y="24.5%" rx="5" ry="5" width="5%" height="2%" style={{fill:"#000000"}} />
+            <text x="20.5%" y="26%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.current2b}</text>
+            <rect x="20%" y="28.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="20.5%" y="30%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.array2b}</text>
 
-        <Row>
-          <Col style={{border:"white solid 1px", color:"white"}}>Voltage (V)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage1b}</Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage2b}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage3b}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.voltage4b}</Col>
-        </Row>
+            <rect x="20%" y="50.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="20.5%" y="51.5%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.voltage4b}</text>
+            <rect x="20%" y="53.5%" rx="5" ry="5" width="5%" height="2%" style={{fill:"#000000"}} />
+            <text x="20.5%" y="55%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.current4b}</text>
+            <rect x="20%" y="57.5%" rx="5" ry="5" width="5%" height="2%" style={{fill:"#000000"}} />
+            <text x="20.5%" y="58%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.array4b}</text> 
 
-        <Row>
-          <Col style={{border:"white solid 1px", color:"white"}}>Current (A)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.current1b}</Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.current2b}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.current3b}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.current4b}</Col>
-        </Row>
 
-        <Row>
-          <Col style={{border:"white solid 1px", color:"white"}}>Array Position (degrees)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array1b}</Col>
-          <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array2b}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}>{values.Spartan.array3b}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}>{values.Spartan.array4b}</Col>
-        </Row>
+            <rect x="34%" y="21.5%" rx="5" ry="5" width="7%" height="2%" style={{fill:"#000000"}} />
+            <text x="34.5%" y="23%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.voltage4b}</text>
+            <rect x="34%" y="24.5%" rx="5" ry="5" width="7%" height="2%" style={{fill:"#000000"}} />
+            <text x="34.5%" y="26%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.current4b}</text>
+            <rect x="34%" y="28.5%" rx="5" ry="5" width="7%" height="2%" style={{fill:"#000000"}} />
+            <text x="34.5%" y="30%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.array4b}</text>
+            
+            <rect x="34%" y="50.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="34.5%" y="51.5%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.voltage2a}</text>
+            <rect x="34%" y="53.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="34.5%" y="55%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.current2a}</text>
+            <rect x="34%" y="57.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="34.5%" y="58%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.array2a}</text>
+            
 
-       </Container>
-         
+            <rect x="73%" y="21.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="73.5%" y="23%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.voltage1a}</text>
+            <rect x="73%" y="24.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="73.5%" y="26%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.current1a}</text>
+            <rect x="73%" y="28.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="73.5%" y="30%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.array1a}</text> 
+            
+            <rect x="73%" y="50.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="73.5%" y="51.5%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.voltage3a}</text>
+            <rect x="73%" y="53.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="73.5%" y="55.5%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.current3a}</text>
+            <rect x="73%" y="57.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="73.5%" y="58%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.array3a}</text>
+
+
+            <rect x="87%" y="21.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="87.5%" y="23%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.voltage3b}</text>
+            <rect x="87%" y="24.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="87.5%" y="26%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.current3b}</text>
+            <rect x="87%" y="28.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="87.5%" y="30%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.array3b}</text> 
+            
+            <rect x="87%" y="50.5%" rx="5" ry="5" width="6%" height="1.5%" style={{fill:"#000000"}} />
+            <text x="87.5%" y="51.5%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.voltage1b}</text>
+            <rect x="87%" y="53.5%" rx="5" ry="5" width="6%" height="2%" style={{fill:"#000000"}} />
+            <text x="87.5%" y="55%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.current1b}</text>
+            <rect x="87%" y="57.5%" rx="5" ry="5" width="6%" height="1.5%" style={{fill:"#000000"}} />
+            <text x="87.5%" y="58%" fill="gold" font-size="17" font-family="Verdana">{values.Spartan.array1b}</text>   
+       
+       
+        </svg>
+
+      </div>
   );
 }
 
