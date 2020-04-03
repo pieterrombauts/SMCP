@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import EthosLifeSupportDisplay from './EthosLifeSupportDisplay';
 import EthosThermalSystemDisplay from './EthosThermalSystemDisplay'
+import EthosRegenLifeSupportDisplay from './EthosRegenLifeSupportDisplay'
 
 
 interface AppProps {
@@ -26,6 +27,7 @@ return (
             <EthosThermalSystemDisplay />
           </Tab.Pane>
           <Tab.Pane eventKey="regenerative-life-support">
+          <EthosRegenLifeSupportDisplay />
           </Tab.Pane>
         </Tab.Content>
       </Col>

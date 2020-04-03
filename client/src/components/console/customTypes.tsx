@@ -51,6 +51,21 @@ export interface ethosThermalSystemDisplay
 
 }
 
+export interface ethosRegenLifeSupportDisplay {
+  upa: {
+    urineTankLevel: number
+  }
+
+  wpa: { 
+    wastewaterTankLevel: number,
+    cleanWaterTankLevel: number
+  }
+
+  oga: {
+    oxygenProductionRate: number
+  }
+}
+
 export interface cronusCompNetDisplay {
   compNet: {
     time: string,
