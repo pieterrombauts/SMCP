@@ -26,6 +26,31 @@ export interface ethosLifeSupportDisplay {
   }
 }
 
+export interface ethosThermalSystemDisplay
+{
+  destinyLab: {
+    lowTLoop: number;
+    moderateTLoop: number,
+    lowTemp: number;
+    moderateTemp: number
+  },
+
+  harmonyNode : {
+    lowTLoop: number;
+    moderateTLoop: number,
+    lowTemp: number;
+    moderateTemp: number
+  }
+
+  tranquilityNode : {
+    lowTLoop: number;
+    moderateTLoop: number,
+    lowTemp: number;
+    moderateTemp: number
+  }
+
+}
+
 export interface cronusCompNetDisplay {
   compNet: {
     time: string,
