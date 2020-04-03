@@ -84,9 +84,9 @@ const UEthosThermalSystemDisplay: React.FC<EthosTSDProps> = (props) => {
         <text x="80%" y="68%" fill="white" font-size="20" font-family="Verdana">Moderate Temp</text>
         <text x="81.5%" y="70%" fill="white" font-size="20" font-family="Verdana">Loop (°C)</text>
 
-        <DestinyLab origin={[45, 60]} values={values} />
-        <HarmonyNode origin={[50, 70]} values={values} />
-        <TranquilityNode origin={[70, 80]} values={values} />
+        <DestinyLab values={values} />
+        <HarmonyNode values={values} />
+        <TranquilityNode values={values} />
 
       </svg>
     </div>

@@ -2,12 +2,10 @@ import React from 'react';
 import { ethosThermalSystemDisplay } from '../customTypes'
 
 interface TranquilityNodeProps {
-    origin: number[];
     values: ethosThermalSystemDisplay;
 };
 
 const TranquilityNode: React.FC<TranquilityNodeProps> = (props) => {
-    var [originX, originY] = props.origin;
     return (
         <g id="ethos-thermal-system-display-density-lab">
             <text x="5%" y="93%" fill="white" font-size="20" font-family="Verdana">Tranquility Node</text>
