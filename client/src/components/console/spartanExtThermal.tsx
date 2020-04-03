@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -7,12 +7,58 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import spartan_2 from "./../../media/Spartan_2.png";
 import spartanExtDiagram from "./../../media/spartanExtDiagram.png";
+import { generateRandVal } from '../../dataGenerator';
 
 interface AppProps {
   className?: string;
 };
 
-const spartanExtThermal: React.FC<AppProps> = ( props ) => {
+const defaultValues = {
+  Spartan: {
+    NH3Flow1: 0,
+    NH3Flow2: 0,
+
+    NH3Out1: 0,
+    NH3Out2: 0,
+
+    NH3OutTemp1: 0,
+    NH3OutTemp2: 0,
+
+    rotDeg1: 0,
+    rotDeg2: 0
+  }
+}
+
+const USpartanExtThermal: React.FC<AppProps> = ( props ) => {
+
+  var [values, setValues] = useState(defaultValues)
+  const intervalRef = useRef(0);
+  useEffect(() => {
+    if (intervalRef.current != 0) {
+      clearInterval(intervalRef.current);
+    }
+    const id = setInterval(() => {
+      var newValues = {
+        Spartan: {
+          NH3Flow1: generateRandVal(3489, 3500).toFixed(2),
+          NH3Flow2: generateRandVal(4400, 4500).toFixed(2),
+
+          NH3Out1: generateRandVal(2100, 2200).toFixed(2),
+          NH3Out2: generateRandVal(2200, 2300).toFixed(2),
+
+          NH3OutTemp1: generateRandVal(4, 4.5).toFixed(2),
+          NH3OutTemp2: generateRandVal(4.5, 5).toFixed(2),
+
+          rotDeg1: generateRandVal(25, 30).toFixed(2),
+          rotDeg2: generateRandVal(-40, -35).toFixed(2),
+
+        }
+      }
+      setValues(newValues);
+    }, 5000);
+    intervalRef.current = id;
+  },[])
+
   return(
   
       <Container style={{paddingTop:"20%"}}>
@@ -23,29 +69,29 @@ const spartanExtThermal: React.FC<AppProps> = ( props ) => {
         </Row>
         <Row>
           <Col style={{border:"white solid 1px", color:"white"}}>NH3 Flowrate (kg/hr)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 3489.20 </Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 4367.55</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.NH3Flow1} </Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.NH3Flow2}</Col>
         </Row>
 
         <Row>
           <Col style={{border:"white solid 1px", color:"white"}}>NH3 Outlet Pressure (kPa)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 2107.94</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 2171.32</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.NH3Out1}</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.NH3Out2}</Col>
         </Row>
 
         <Row>
           <Col style={{border:"white solid 1px", color:"white"}}> NH3 Outlet Temperature (*C)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 4.14</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 4.52</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.NH3OutTemp1}</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.NH3OutTemp2}</Col>
         </Row>
 
         <Row>
           <Col style={{border:"white solid 1px", color:"white"}}> Rotating Radiator Position (deg)</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> 25.09</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> -39.95</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.rotDeg1}</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.rotDeg2}</Col>
         </Row>
       
-         <img src={spartanExtDiagram} style={{width:"950px"}}/> 
+         <img src={spartanExtDiagram} style={{width:"100%"}}/> 
 
        </Container>
 
@@ -54,7 +100,7 @@ const spartanExtThermal: React.FC<AppProps> = ( props ) => {
   );
 }
 
-export const SpartanExtThermal = styled(spartanExtThermal)`
+export const SpartanExtThermal = styled(USpartanExtThermal)`
   width: 100%;
   height: 100%;
   position: absolute;

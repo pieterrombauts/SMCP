@@ -69,8 +69,6 @@ const USpartanPower: React.FC<SpartanPowerInt> = ( props ) => {
           array3: generateRandVal(160, 165).toFixed(2),
           array4: generateRandVal(155, 160).toFixed(2),
 
-
-
           voltage1b: generateRandVal(150, 152).toFixed(2),
           voltage2b: generateRandVal(162, 162).toFixed(2),
           voltage3b: generateRandVal(161, 163).toFixed(2),
@@ -123,7 +121,7 @@ const USpartanPower: React.FC<SpartanPowerInt> = ( props ) => {
           <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array1} </Col>
           <Col xs={5} style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array2}</Col>
           <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array3}</Col>
-          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array1}</Col>
+          <Col style={{border:"white solid 1px", color:"gold"}}> {values.Spartan.array4}</Col>
         </Row>
 
         <Row>
