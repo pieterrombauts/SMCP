@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Tab from 'react-bootstrap/Tab'
 import Nav from 'react-bootstrap/Nav'
 import { CSSTransition } from 'react-transition-group'
-import {Spartan} from './spartan';
+import {Spartan} from './spartan/spartan';
 import {Capcom} from './capcom';
 import {Cronus1} from './cronus/cronus';
 import {Ethos} from './ethos/ethos';
