@@ -46,23 +46,6 @@ const UEthos: React.FC<AppProps> = ( props ) => {
           </Col>
         </Row>
       </Tab.Container>
-
-      //  <Tab.Container id="ethos-tabs" defaultActiveKey="life-support" id="uncontrolled-tab-example" style={{ float: "right"}} >
-        
-        //   <Tab eventKey="ETHOS_1" title="Life Support System ">
-        //     <img src={ethos_1} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        //   <Tab eventKey="Ethos_2" title="Thermal System Display">
-        //     <img src={ethos_2} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        //   <Tab eventKey="ETHOS_3" title="Regenerative Life Support ">
-        //     <img src={ethos_3} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        // </Tabs>
-
   );
 }
 
@@ -70,16 +53,6 @@ export const Ethos = styled(UEthos)`
   width: 100%;
   height: 100%;
   position: absolute;
-
-  .tab-content, .tab-pane {
-    height: 100%;
-  }
-
-  #ethos-tabs-tabpane-life-support {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 
   #ethos-buttons {
     display: flex;
