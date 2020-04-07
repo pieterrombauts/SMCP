@@ -8,14 +8,48 @@ interface AppProps {
   className?: string;
 };
 
+
+function handleStatusClose(){
+  console.log("Hello world");
+
+  // console.log(console);
+  // console.log(statusReport);
+
+  setTimeout(() => {
+    document.getElementById("status-modal")!.style.visibility = "hidden";
+  }, 500)
+
+  // document.getElementById("console")!.value = "";
+
+
+
+}
+
 const USTATUS: React.FC<AppProps> = ( props ) => {
   return(
     <div className={props.className}>
 
      
-      <table>
+      <table style={{marginLeft: "500px"}}>
 
-        
+        <tr>
+          <th>Status Update</th>
+        </tr>
+
+        <tr>
+          <td> <input id='console' type='text' name='console' placeholder='Console Name'></input></td>
+        </tr>
+
+
+        <tr>
+          <td> 
+            <textarea id='statusReport'  name='statusReport'> </textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <td> <input onClick={handleStatusClose} type='submit' value='Submit status report' ></input></td>
+        </tr>
 
       </table>
 
