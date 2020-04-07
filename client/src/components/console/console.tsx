@@ -12,6 +12,7 @@ import {Capcom} from './capcom';
 import {Cronus1} from './cronus/cronus';
 import {Ethos} from './ethos/ethos';
 import {OSTPVModal} from './OSTPVModal'
+import {STATUSModal} from './STATUSModal'
 import {Flight} from './flight';
 import {Bme} from './bme';
 
@@ -21,6 +22,8 @@ interface AppProps {
 
 const UConsole: React.FC<AppProps> = ( props ) => {
   const [ ostpvModal, setOstpvModal ] = useState(false);
+  const [ statusModal, setStatusModal] = useState(false);
+
   function handleOSTPVOpen(event: React.MouseEvent<HTMLButtonElement>) {
     setOstpvModal(true);
     console.log(document.getElementById("ostpv-modal"));
@@ -32,6 +35,25 @@ const UConsole: React.FC<AppProps> = ( props ) => {
       document.getElementById("ostpv-modal")!.style.visibility = "hidden";
     }, 500)
   }
+
+  function handleStatusOpen(event: React.MouseEvent<HTMLButtonElement>) {
+    setStatusModal(true);
+    console.log(document.getElementById("status-modal"));
+    document.getElementById("status-modal")!.style.visibility = "visible";
+  }
+  function handleStatusClose() {
+    setStatusModal(false);
+    setTimeout(() => {
+      document.getElementById("status-modal")!.style.visibility = "hidden";
+    }, 500)
+  }
+
+
+
+
+
+
+
   function animateCSS(element: string, animationName: string, animationModifiers?: string[]) {
     const node = document.querySelector(element);
     if (node) {
@@ -78,6 +100,7 @@ const UConsole: React.FC<AppProps> = ( props ) => {
               </Nav.Item>
             </Nav>
             <Button variant="outline-primary" className={`${ostpvModal ? 'selected' : ''}`} onClick={handleOSTPVOpen}>OSTPV</Button>
+            <Button variant="outline-primary" className={`${statusModal ? 'selected' : ''}`} onClick={handleStatusOpen}>STATUS</Button>
           </Col>
           <Col id="console-content" sm={10}>
             <Tab.Content>
@@ -112,6 +135,19 @@ const UConsole: React.FC<AppProps> = ( props ) => {
       >
         <OSTPVModal show={ostpvModal} closeFunction={handleOSTPVClose}/>
       </CSSTransition>
+
+      <CSSTransition 
+        in={statusModal === true}
+        timeout={500}
+        classNames="modal"
+        onEnter={() => {animateCSS("#modal-overlay-status", "fadeIn", ["faster"])}}
+        onExit={() => {animateCSS("#modal-overlay-status", "fadeOut", ["faster"])}}
+      >
+          <STATUSModal show={statusModal} closeFunction={handleStatusClose}/>
+
+      </CSSTransition>
+
+
     </>
   );
 }
