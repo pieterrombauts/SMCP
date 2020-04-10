@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import capcom_1 from "./../../media/Capcom_1.png"
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 
 interface AppProps {
@@ -27,34 +29,53 @@ function handleStatusClose(){
 
 const USTATUS: React.FC<AppProps> = ( props ) => {
   return(
-    <div className={props.className}>
+    // <div className={props.className}>
 
      
-      <table style={{marginLeft: "500px"}}>
+    //   <table style={{marginLeft: "500px"}}>
 
-        <tr>
-          <th>Status Update</th>
-        </tr>
+    //     <tr>
+    //       <th>Status Update</th>
+    //     </tr>
 
-        <tr>
-          <td> <input id='console' type='text' name='console' placeholder='Console Name'></input></td>
-        </tr>
-
-
-        <tr>
-          <td> 
-            <textarea id='statusReport'  name='statusReport'> </textarea>
-          </td>
-        </tr>
-
-        <tr>
-          <td> <input onClick={handleStatusClose} type='submit' value='Submit status report' ></input></td>
-        </tr>
-
-      </table>
+    //     <tr>
+    //       <td> <input id='console' type='text' name='console' placeholder='Console Name'></input></td>
+    //     </tr>
 
 
-    </div>
+    //     <tr>
+    //       <td> 
+    //         <textarea id='statusReport'  name='statusReport'> </textarea>
+    //       </td>
+    //     </tr>
+
+    //     <tr>
+    //       <td> <input onClick={handleStatusClose} type='submit' value='Submit status report' ></input></td>
+    //     </tr>
+
+    //   </table>
+
+
+    // </div>
+
+
+
+    <Form style={{marginLeft: "300px"}}>
+      <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Label> Console Name </Form.Label>
+        <Form.Control type="text" placeholder="CAPCOM, CRONOS, etc. " />
+      </Form.Group>
+     
+      <Form.Group controlId="exampleForm.ControlTextarea1">
+        <Form.Label>Status Report </Form.Label>
+        <Form.Control as="textarea" rows="5" />
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Submit Report
+      </Button>
+    </Form>
+
   );
 }
 
