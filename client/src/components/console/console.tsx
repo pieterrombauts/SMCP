@@ -8,7 +8,7 @@ import Tab from 'react-bootstrap/Tab'
 import Nav from 'react-bootstrap/Nav'
 import { CSSTransition } from 'react-transition-group'
 import {Spartan} from './spartan/spartan';
-import {Capcom} from './capcom';
+import {Capcom} from './capcom/capcom';
 import {Cronus1} from './cronus/cronus';
 import {Ethos} from './ethos/ethos';
 import {OSTPVModal} from './OSTPVModal'
