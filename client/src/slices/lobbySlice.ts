@@ -6,18 +6,12 @@ const lobbySlice = createSlice({
     lobbyID: "",
     userRole: "",
     consoles: { 
-      cosmo: false,
-      spartan: false,
-      cronus: false,
-      ethos: false,
-      payload: false,
-      ops: false,
-      adco: false,
-      robo: false,
-      eva: false,
-      bme: false,
-      flight: false,
-      capcom: false
+      spartan: 0,
+      cronus: 0,
+      ethos: 0,
+      bme: 0,
+      flight: 0,
+      capcom: 0
     }
   },
   reducers: {

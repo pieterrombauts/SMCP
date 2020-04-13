@@ -53,7 +53,7 @@ const UConsole: React.FC<AppProps> = ( props ) => {
   }
 
   return(
-    <>
+    <div id="game-container">
       <Tab.Container id="console-tabs">
         <Row className={props.className}>
           <Col id="console-buttons" sm={2}>
@@ -112,7 +112,7 @@ const UConsole: React.FC<AppProps> = ( props ) => {
       >
         <OSTPVModal show={ostpvModal} closeFunction={handleOSTPVClose}/>
       </CSSTransition>
-    </>
+    </div>
   );
 }
 

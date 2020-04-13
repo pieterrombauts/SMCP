@@ -17,6 +17,7 @@ const UOSTPV: React.FC<AppProps> = ( props ) => {
       <FullCalendar
         nowIndicator
         now='2019-11-19T09:00:00'
+        eventClick={(info) => { alert(info.event.title) } }
         height={482}
         header={{left: '', center: '', right: ''}}
         resourceLabelText=' '
