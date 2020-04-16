@@ -1,98 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import capcom_1 from "./../../media/Capcom_1.png"
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import socket from '../Socket';
 
 interface AppProps {
   className?: string;
+  lobbyID: string;
+  userRole: string;
+  time: string;
+  closeFunction: () => void;
 };
 
-
-function handleStatusClose(){
-  console.log("Hello world");
-
-  // console.log(console);
-  // console.log(statusReport);
-
-  setTimeout(() => {
-    document.getElementById("status-modal")!.style.visibility = "hidden";
-  }, 500)
-
-  // document.getElementById("console")!.value = "";
-
-
-
-}
-
 const USTATUS: React.FC<AppProps> = ( props ) => {
+  const [formValues, setFormValues] = useState({ sender: "", subject: "test", status: "test 2", time: ""})
+  function sendStatusReport(e: React.FormEvent) {
+    e.preventDefault();
+    var newValues = formValues;
+    newValues["sender"] = props.userRole;
+    newValues["time"] = props.time;
+    setFormValues(newValues);
+    socket.emit("STATUS_REPORT", formValues, props.lobbyID);
+    setFormValues({ sender: "", subject: "", status: "", time: ""})
+    console.log("Cleared form");
+    props.closeFunction();
+  }
+  function updateValues(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log(formValues["subject"]);
+    console.log(e.currentTarget.value);
+    var newValues = formValues;
+    var name: "subject"|"status" = e.currentTarget.name === "subject" ? "subject" : "status";
+    newValues[name] = e.currentTarget.value;
+    setFormValues(newValues);
+    console.log(e.currentTarget.value);
+    console.log(formValues["subject"])
+  }
   return(
-    // <div className={props.className}>
-
-     
-    //   <table style={{marginLeft: "500px"}}>
-
-    //     <tr>
-    //       <th>Status Update</th>
-    //     </tr>
-
-    //     <tr>
-    //       <td> <input id='console' type='text' name='console' placeholder='Console Name'></input></td>
-    //     </tr>
-
-
-    //     <tr>
-    //       <td> 
-    //         <textarea id='statusReport'  name='statusReport'> </textarea>
-    //       </td>
-    //     </tr>
-
-    //     <tr>
-    //       <td> <input onClick={handleStatusClose} type='submit' value='Submit status report' ></input></td>
-    //     </tr>
-
-    //   </table>
-
-
-    // </div>
-
-
-
-    <Form style={{marginLeft: "300px"}}>
-      <Form.Group controlId="exampleForm.ControlInput1">
-        <Form.Label> Console Name </Form.Label>
-        <Form.Control type="text" placeholder="CAPCOM, CRONOS, etc. " />
+    <Form onSubmit={sendStatusReport}>
+      <Form.Group controlId="EFN.Subject">
+        <Form.Label> Subject </Form.Label>
+        <Form.Control type="text" name="subject" value={formValues["subject"]} placeholder="Brief description of the status report" onChange={updateValues} />
       </Form.Group>
-     
-      <Form.Group controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Status Report </Form.Label>
-        <Form.Control as="textarea" rows="5" />
+      <Form.Group controlId="EFN.Body">
+        <Form.Label>Status Report</Form.Label>
+        <Form.Control as="textarea" name="status" value={formValues["status"]} rows="5" onChange={updateValues} />
       </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Submit Report
-      </Button>
+      <Button variant="primary" type="submit">Submit Report</Button>
     </Form>
-
   );
 }
 
-export const STATUS = styled(USTATUS)`
-  tr[data-resource-id=ku] div, tr[data-resource-id=s] div, tr[data-resource-id=dn] div, tr[data-resource-id=do] div {
-    height: 25px !important;
-  }
-  tr[data-resource-id=ku] div, tr[data-resource-id=s] div, tr[data-resource-id=dn] div, tr[data-resource-id=do] .fc-cell-content {
-    padding: 0px !important;
-  }
-  tr[data-resource-id=astro1], tr[data-resource-id=astro2], tr[data-resource-id=astro3], tr[data-resource-id=astro4] {
-    height: 75px;
-  }
-  tr[data-resource-id=astro1] > td, tr[data-resource-id=astro2] > td, tr[data-resource-id=astro3] > td, tr[data-resource-id=astro4] > td {
-    vertical-align: middle;
-  }
-  tr[data-resource-id=astro1] .fc-event, tr[data-resource-id=astro2] .fc-event, tr[data-resource-id=astro3] .fc-event, tr[data-resource-id=astro4] .fc-event {
-    height: 60px;
-  }
-`;
+export const STATUS = styled(USTATUS)``;

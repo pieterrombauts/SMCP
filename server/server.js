@@ -176,8 +176,25 @@ io.on('connection', socket => {
         socket.to(roomID).emit('SHOW_DISPLAY');
         rooms[roomID].time_interval_id = setInterval(() => {
             rooms[roomID].current_time = rooms[roomID].current_time.add(1, 'seconds');
-            socket.to(roomID).emit('UPDATE_TIME', rooms[roomID].current_time);
+            socket.to(roomID).emit('UPDATE_TIME', rooms[roomID].current_time.format("DD/MM/YYYY HH:mm:ss"));
         }, 1000)
+    })
+
+    socket.on('STATUS_REPORT', (values, roomID) => {
+        console.log(values.time + ": " + players[socket.id].name + " submitted status report with subject: " + values.subject);
+        io.in(roomID).emit('UPDATE_REPORTS', values);
+    })
+
+    socket.on('CALL_REQUEST', (target, sender, roomID) => {
+        console.log(target, sender)
+        console.log(rooms[roomID].consoles[target])
+        var recipients = rooms[roomID].consoles[target];
+        if (recipients.length === 1) {
+            io.to(`${recipients[0]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
+        } else if (recipients.length === 2) {
+            io.to(`${recipients[0]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
+            io.to(`${recipients[1]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
+        }
     })
 })
 

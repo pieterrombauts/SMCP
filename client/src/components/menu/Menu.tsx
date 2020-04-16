@@ -2,7 +2,6 @@ import React from 'react';
 import Home from './Home'
 import Join from './Join'
 import Lobby from './Lobby'
-import socket from '../Socket';
 import { animateCSS } from '../../animation'
 import { CSSTransition } from 'react-transition-group'
 import { RootState } from '../../reducers';

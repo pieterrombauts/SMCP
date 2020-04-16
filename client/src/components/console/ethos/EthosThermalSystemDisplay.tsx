@@ -70,19 +70,19 @@ const UEthosThermalSystemDisplay: React.FC<EthosTSDProps> = (props) => {
         <image x={0} y={0} width={1300} height={990} href={'/media/Ethos_2.png'}></image>
         <rect x={45} y={635} rx="5" ry="5" width="1205" height="305" style={{ fill: "#36485b", stroke: "#2a3a3f", strokeWidth: "5" }} />
 
-        <text x="25%" y="68%" fill="white" font-size="20" font-family="Verdana">Low T Loop</text>
-        <text x="23%" y="70%" fill="white" font-size="20" font-family="Verdana">Coolant Quality</text>
-        <text x="27.25%" y="72%" fill="white" font-size="20" font-family="Verdana">(%)</text>
+        <text x="25%" y="68%" fill="white" fontSize="20" fontFamily="Verdana">Low T Loop</text>
+        <text x="23%" y="70%" fill="white" fontSize="20" fontFamily="Verdana">Coolant Quality</text>
+        <text x="27.25%" y="72%" fill="white" fontSize="20" fontFamily="Verdana">(%)</text>
 
-        <text x="44%" y="68%" fill="white" font-size="20" font-family="Verdana">Moderate T Loop</text>
-        <text x="44%" y="70%" fill="white" font-size="20" font-family="Verdana">Coolant Quality</text>
-        <text x="48.25%" y="72%" fill="white" font-size="20" font-family="Verdana">(%)</text>
+        <text x="44%" y="68%" fill="white" fontSize="20" fontFamily="Verdana">Moderate T Loop</text>
+        <text x="44%" y="70%" fill="white" fontSize="20" fontFamily="Verdana">Coolant Quality</text>
+        <text x="48.25%" y="72%" fill="white" fontSize="20" fontFamily="Verdana">(%)</text>
 
-        <text x="65%" y="68%" fill="white" font-size="20" font-family="Verdana">Low Temp</text>
-        <text x="65.5%" y="70%" fill="white" font-size="20" font-family="Verdana">Loop (°C)</text>
+        <text x="65%" y="68%" fill="white" fontSize="20" fontFamily="Verdana">Low Temp</text>
+        <text x="65.5%" y="70%" fill="white" fontSize="20" fontFamily="Verdana">Loop (°C)</text>
 
-        <text x="80%" y="68%" fill="white" font-size="20" font-family="Verdana">Moderate Temp</text>
-        <text x="81.5%" y="70%" fill="white" font-size="20" font-family="Verdana">Loop (°C)</text>
+        <text x="80%" y="68%" fill="white" fontSize="20" fontFamily="Verdana">Moderate Temp</text>
+        <text x="81.5%" y="70%" fill="white" fontSize="20" fontFamily="Verdana">Loop (°C)</text>
 
         <DestinyLab values={values} />
         <HarmonyNode values={values} />

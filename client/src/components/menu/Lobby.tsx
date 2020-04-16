@@ -121,8 +121,8 @@ const Lobby = styled(ULobby)`
       45deg,
       #f8f9fa,
       #f8f9fa 10px,
-      rgba(0,0,0,0) 10px,
-      rgba(0,0,0,0) 20px
+      rgba(248,249,250,0.7) 10px,
+      rgba(248,249,250,0.7) 20px
     ) !important;
   }
 

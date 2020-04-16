@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Button from 'react-bootstrap/Button';
 import socket from '../Socket';
@@ -36,7 +36,7 @@ const UJoin: React.FC<Props> = ( props ) => {
   function handleJoinSubmit() {
     const roomIDTextbox = document.querySelector('#game-pin-input') as HTMLInputElement;
     const usernameTextbox = document.querySelector('#username-input') as HTMLInputElement;
-    if (roomIDTextbox.value == '200769') {
+    if (roomIDTextbox.value === '200769') {
       props.animateMenus({home: "hide", join: "hide", lobby: "hide", game: "show"})           // Secret backdoor to demo the consoles
       return;                                                                                 // without having to connect 6 clients
     }

@@ -41,7 +41,7 @@ export const OSTPVModal = styled(UOSTPVModal)`
   #modal-content {
     background-color: #FFF;
     position: absolute;
-    width: 1500px;
+    width: 75%;
     height: 70%;
     left: 50%;
     top: 50%;

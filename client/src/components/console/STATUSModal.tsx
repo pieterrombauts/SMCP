@@ -7,6 +7,9 @@ interface AppProps {
   className?: string;
   show: boolean;
   closeFunction: () => void;
+  lobbyID: string;
+  userRole: string;
+  time: string;
 };
 
 const USTATUSModal: React.FC<AppProps> = ( props ) => {
@@ -19,11 +22,7 @@ const USTATUSModal: React.FC<AppProps> = ( props ) => {
     <div id="status-modal" className={props.className}>
       <div id="modal-overlay-status" onMouseUp={handleOverlayClick}>
         <div id="modal-content-status">
-
-          
-
-
-          <STATUS />
+          <STATUS lobbyID={props.lobbyID} userRole={props.userRole} time={props.time} closeFunction={props.closeFunction}/>
         </div>
       </div>
     </div>
@@ -45,8 +44,7 @@ export const STATUSModal = styled(USTATUSModal)`
   #modal-content-status {
     background-color: #FFF;
     position: absolute;
-    width: 1500px;
-    height: 70%;
+    width: 75%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);

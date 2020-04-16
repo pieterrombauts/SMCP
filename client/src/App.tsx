@@ -7,7 +7,7 @@ import Menu from './components/menu/Menu'
 import { animateCSS } from './animation'
 import { CSSTransition } from 'react-transition-group'
 import { animateMenus } from './slices/menuAnimationSlice'
-import { Console } from './components/console/console'
+import Console from './components/console/console'
 import { connect, ConnectedProps } from 'react-redux';
 
 

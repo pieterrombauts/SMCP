@@ -1,68 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Nav from 'react-bootstrap/Nav';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Tab from 'react-bootstrap/Tab'
-import flight_1 from "./../../media/Flight_1.png"
+import Table from 'react-bootstrap/Table';
+import socket from '../Socket'
+import { statusReport } from '../console/customTypes';
 
 interface AppProps {
   className?: string;
 };
 
-const flight: React.FC<AppProps> = ( props ) => {
+const UFlight: React.FC<AppProps> = ( props ) => {
+  const [reports, setReports] = useState<statusReport[]>([]);
+  useEffect(() => {
+    socket.off('UPDATE_REPORTS');
+    socket.on('UPDATE_REPORTS', ( report: statusReport ) => {
+      addReport(report);
+    })
+  }, [])
+  function addReport(report: statusReport) {
+    console.log(reports);
+    var updatedReports = reports;
+    updatedReports.push(report);
+    setReports(updatedReports)
+  }
   return(
-        <Tab.Container id="flight-tabs" defaultActiveKey="flight">
-      <Row className={props.className}>
-        <Col id="flight-content" sm={10}>
-          <Tab.Content>
-            <Tab.Pane eventKey="flight">
-              <img src={flight_1} style={{width:"1200px"}}/>
-            </Tab.Pane>
-           </Tab.Content>
-        </Col>
-        <Col id="flight-buttons" sm={2}>
-          <Nav variant="pills" className="flex-column">
-            <Nav.Item>
-              <Nav.Link eventKey="flight">FLIGHT</Nav.Link>
-            </Nav.Item>
-           </Nav>
-        </Col>
-      </Row>
-    </Tab.Container>
-
-    //  <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example" style={{ float: "right"}}  >
-        
-        //   <Tab eventKey="FLIGHT_1" title="Mission Status">
-        //     <img src={flight_1} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        // </Tabs>
-
-    
+    <div id="flight-container" className={props.className}>
+      <div id="table-container">
+        <Table id="report-table" striped bordered>
+          <thead>
+            <tr>
+              <th>From</th>
+              <th>Subject</th>
+              <th>Status</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {reports.map((report, i) => {
+              return (
+                <tr key={i}>
+                  <td>{report.sender.toUpperCase}</td>
+                  <td>{report.subject}</td>
+                  <td>{report.status}</td>
+                  <td>{report.time + " GMT"}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </Table>
+      </div>
+    </div>
   );
 }
 
-export const Flight = styled(flight)`
-width: 100%;
-  height: 100%;
-  position: absolute;
+export const Flight = styled(UFlight)`
+  height: 80%;
+  width: 85%;
+  margin-top: 5%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
 
-  #flight-buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  #flight-buttons .nav {
-    margin-left: 20px;
-    max-width: 300px;
-    background-color: #f8f9fa;
-    border-radius: 3px;
-  }
-
-  #flight-buttons .nav-item a {
-    padding: 20px 30px;
+  #table-container {
+    max-height: 100%;
+    overflow: auto;
   }
 `;

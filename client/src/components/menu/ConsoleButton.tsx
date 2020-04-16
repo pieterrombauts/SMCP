@@ -24,10 +24,10 @@ type Props = PropsFromRedux & ConsoleButtonProps
 const UConsoleButton: React.FC<Props> = ( props ) => {
   var variant = "";
   const buttonType = props.count === 0 ? "outline-light" : "light";
-  if (props.count == 1) {
+  if (props.count === 1) {
     variant = "takenOne";
   }
-  const disabled = (props.count == 2 || (props.userRole !== ""))
+  const disabled = (props.count === 2 || (props.userRole !== ""))
   function handleSelectConsole(e: React.MouseEvent<HTMLButtonElement>) {
     if (e) {
       const target = e.currentTarget as HTMLButtonElement
