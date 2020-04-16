@@ -11,7 +11,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 import { CSSTransition } from 'react-transition-group'
 import { animateCSS } from '../../animation'
 import {Spartan} from './spartan/spartan';
-import {Capcom} from './capcom';
+import {Capcom} from './capcom/capcom';
 import {Cronus1} from './cronus/cronus';
 import {Ethos} from './ethos/ethos';
 import {OSTPVModal} from './OSTPVModal'
