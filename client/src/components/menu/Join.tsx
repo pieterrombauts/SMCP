@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Button from 'react-bootstrap/Button';
 import socket from '../Socket';
@@ -21,25 +21,33 @@ type Props = PropsFromRedux & JoinProps
 
 const UJoin: React.FC<Props> = ( props ) => {
   function handleJoinCancel() {
-    props.animateMenus({home: "show", join: "hide", lobby: "hide"})
+    props.animateMenus({home: "show", join: "hide", lobby: "hide", game: "hide"})
     const textbox = document.querySelector("#game-pin-input") as HTMLInputElement;
     if (textbox) { textbox.value = "" }
   }
 
   function getConsoleAvailability(roomID: string) {
-    socket.emit('get consoles', roomID, (data: object) => {
+    socket.emit('GET_CONSOLES', roomID, (data: object) => {
+      console.log(data);
       props.updateConsoles({ consoles: data })
     })
   }
 
   function handleJoinSubmit() {
-    const textbox = document.querySelector('#game-pin-input') as HTMLInputElement;
-    socket.emit('get rooms', (data: object) => {
-      if (data.hasOwnProperty(textbox.value)) {
-        props.updateLobbyID({ lobbyID: textbox.value })
-        getConsoleAvailability(textbox.value);
-        props.animateMenus({home: "hide", join: "hide", lobby: "show"})
-        textbox.value = "";
+    const roomIDTextbox = document.querySelector('#game-pin-input') as HTMLInputElement;
+    const usernameTextbox = document.querySelector('#username-input') as HTMLInputElement;
+    if (roomIDTextbox.value === '200769') {
+      props.animateMenus({home: "hide", join: "hide", lobby: "hide", game: "show"})           // Secret backdoor to demo the consoles
+      return;                                                                                 // without having to connect 6 clients
+    }
+    socket.emit('GET_ROOMS', (data: object) => {
+      console.log(data)
+      if (data.hasOwnProperty(roomIDTextbox.value)) {
+        socket.emit('JOIN_ROOM', roomIDTextbox.value, usernameTextbox.value);
+        props.updateLobbyID({ lobbyID: roomIDTextbox.value })
+        getConsoleAvailability(roomIDTextbox.value);
+        props.animateMenus({home: "hide", join: "hide", lobby: "show", game: "hide"})
+        roomIDTextbox.value = "";
       } else {
         alert('Error: Room does not exist!');
       }
@@ -48,6 +56,8 @@ const UJoin: React.FC<Props> = ( props ) => {
 
   return (
     <div id='join-container' className={props.className}>
+      <label>Enter a username</label>
+      <input id='username-input' type='text'/>
       <label>Enter the Game PIN</label>
       <input id='game-pin-input' type="text" maxLength={6}/>
       <div id='join-buttons'>
@@ -72,6 +82,17 @@ const Join = styled(UJoin)`
   #join-buttons button {
     margin: 20px  10px;
     min-width: 100px;
+  }
+
+  #username-input {
+    color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 0.25rem;
+    background: transparent;
+    padding: 10px 10px;
+    width: 220px;
+    text-align: center;
+    margin-bottom: 15px;
   }
 
   #game-pin-input {

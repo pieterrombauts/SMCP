@@ -88,3 +88,10 @@ export interface cronusVComm1Display {
     crossElevationGimbal: number
   }
 }
+
+export interface statusReport {
+  sender: string,
+  subject: string,
+  status: string,
+  time: string
+}

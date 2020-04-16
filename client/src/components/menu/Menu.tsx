@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './Home'
 import Join from './Join'
 import Lobby from './Lobby'
-import socket from '../Socket';
+import { animateCSS } from '../../animation'
 import { CSSTransition } from 'react-transition-group'
 import { RootState } from '../../reducers';
 import { animateMenus } from '../../slices/menuAnimationSlice'
@@ -21,28 +21,8 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux & MenuProps
 
 const Menu: React.FC<Props> = ( props ) => {  
-  function animateCSS(element: string, animationName: string, animationModifiers?: string[]) {
-    const node = document.querySelector(element);
-    if (node) {
-      node.classList.add("animated", animationName)
-      if (animationModifiers) { node.classList.add(...animationModifiers) };
-    }
-    
-    function handleAnimationEnd() {
-      if (node) {
-        node.classList.remove('animated', animationName);
-        if (animationModifiers) { node.classList.remove(...animationModifiers) }
-        node.removeEventListener('animationend', handleAnimationEnd);
-      }
-    }
-
-    if (node) {
-      node.addEventListener('animationend', handleAnimationEnd)
-    }
-  }
-  
   return (
-    <>
+    <div id="menu-container">
       <CSSTransition 
         in={props.homeState === "show"}
         timeout={1000}
@@ -73,7 +53,7 @@ const Menu: React.FC<Props> = ( props ) => {
       >
         <Lobby />
       </CSSTransition>
-    </>
+    </div>
   );
 }
 

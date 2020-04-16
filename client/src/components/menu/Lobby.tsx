@@ -26,69 +26,64 @@ type Props = PropsFromRedux & LobbyProps
 
 const ULobby: React.FC<Props> = ( props ) => { 
   useEffect(() => {
-    socket.off('update consoles');
-    socket.off('host disconnect');
-    socket.on('update consoles', ( data: object ) => {
-      console.log("Update function ran... again")
+    socket.off('UPDATE_CONSOLES');
+    socket.off('HOST_LEFT');
+    socket.off('SHOW_DISPLAY')
+    socket.on('UPDATE_CONSOLES', ( data: object ) => {
       props.updateConsoles({ consoles: data })
     })
-    socket.on('host disconnect', () => {
+    socket.on('HOST_LEFT', () => {
+      console.log('Host disconnected')
       handleLobbyExit()
+    })
+    socket.on('SHOW_DISPLAY', ()=> {
+      props.animateMenus({home: "hide", join: "hide", lobby: "hide", game: "show"})
     })
   }, [ props.lobbyID ])
   
   function handleLobbyExit() {
+    socket.emit('LEAVE_ROOM', props.lobbyID)
     if (props.userRole === "display") {
-      socket.emit('host leave room', props.lobbyID, props.userRole);
-      props.animateMenus({home: "show", join: "hide", lobby: "hide"})
+      props.animateMenus({home: "show", join: "hide", lobby: "hide", game: "hide"})
     } else {
-      socket.emit('leave room', props.lobbyID, props.userRole);
-      props.animateMenus({home: "hide", join: "show", lobby: "hide"})
+      props.animateMenus({home: "hide", join: "show", lobby: "hide", game: "hide"})
     }
     props.updateLobbyID({ lobbyID: "" })
     props.updateUserRole({ userRole: "" })
   }
 
   function handleGameLaunch() {
-
+    socket.emit('GAME_START', props.lobbyID)
   }
   
   return (
     <div id='lobby-container' className={props.className}>
-            <div className='console-row'>
-              <h1 id='game-pin-display'>Game PIN: {props.lobbyID !== "" && props.lobbyID}</h1>
-            </div>
-            {props.userRole !== 'display' && 
-            <div className='console-row'>
-              <label>Please pick a position to play as:</label>
-            </div>}
-            <div className='console-row'>
-              <ConsoleButton console={"flight"} taken={props.consoles.flight} />
-              <ConsoleButton console={"capcom"} taken={props.consoles.capcom} />
-            </div>
-            <div className='console-row'>
-              <ConsoleButton console={"cosmo"} taken={props.consoles.cosmo} />
-              <ConsoleButton console={"spartan"} taken={props.consoles.spartan} />
-              <ConsoleButton console={"cronus"} taken={props.consoles.cronus} />
-              <ConsoleButton console={"ethos"} taken={props.consoles.ethos} />
-              <ConsoleButton console={"payload"} taken={props.consoles.payload} />
-            </div>
-            <div className='console-row'>
-              <ConsoleButton console={"ops"} taken={props.consoles.ops} />
-              <ConsoleButton console={"adco"} taken={props.consoles.adco} />
-              <ConsoleButton console={"robo"} taken={props.consoles.robo} />
-              <ConsoleButton console={"eva"} taken={props.consoles.eva} />
-              <ConsoleButton console={"bme"} taken={props.consoles.bme} />
-            </div>
-            <div className='console-row'>
-              <Button variant='outline-light' className='cancel-btn' onClick={handleLobbyExit}>Cancel</Button>
-            </div>
-            {Object.values(props.consoles).every(Boolean) && props.userRole === "display" &&
-            <div className="console-row">
-              <Button variant='light' className='launch-btn' onClick={handleGameLaunch}>GO FOR LAUNCH</Button>
-            </div>
-            }
-          </div>
+      <div className='console-row'>
+        <h1 id='game-pin-display'>Game PIN: {props.lobbyID !== "" && props.lobbyID}</h1>
+      </div>
+      {props.userRole !== 'display' && 
+      <div className='console-row'>
+        <label>Please pick a position to play as:</label>
+      </div>}
+      <div className='console-row'>
+        <ConsoleButton console={"spartan"} count={props.consoles.spartan} />
+        <ConsoleButton console={"cronus"} count={props.consoles.cronus} />
+        <ConsoleButton console={"ethos"} count={props.consoles.ethos} />
+      </div>
+      <div className='console-row'>
+        <ConsoleButton console={"flight"} count={props.consoles.flight} />
+        <ConsoleButton console={"capcom"} count={props.consoles.capcom} />
+        <ConsoleButton console={"bme"} count={props.consoles.bme} />
+      </div>
+      <div className='console-row'>
+        <Button variant='outline-light' className='cancel-btn' onClick={handleLobbyExit}>Cancel</Button>
+      </div>
+      {props.userRole === "display" &&
+      <div className="console-row">
+        <Button variant='light' className='launch-btn' onClick={handleGameLaunch}>GO FOR LAUNCH</Button>
+      </div>
+      }
+    </div>
   );
 }
 
@@ -119,6 +114,26 @@ const Lobby = styled(ULobby)`
 
   button:disabled, button[disabled] {
     cursor: default;
+  }
+
+  .takenOne, .takenOne[disabled]:hover {
+    background: repeating-linear-gradient(
+      45deg,
+      #f8f9fa,
+      #f8f9fa 10px,
+      rgba(248,249,250,0.7) 10px,
+      rgba(248,249,250,0.7) 20px
+    ) !important;
+  }
+
+  .takenOne > span {
+    padding: 2px 5px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+
+  .takenOne:hover {
+    background-color: #f8f9fa !important;
   }
 `;
 

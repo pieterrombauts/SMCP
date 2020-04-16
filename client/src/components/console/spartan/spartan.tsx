@@ -4,8 +4,6 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import spartan_1 from "./../../media/Spartan_1.png";
-import spartan_2 from "./../../media/Spartan_2.png";
 import {SpartanExtThermal} from "./spartanExtThermal"
 import {SpartanPower} from "./spartanPower"
 
@@ -39,17 +37,6 @@ const spartan: React.FC<AppProps> = ( props ) => {
         </Col>
       </Row>
     </Tab.Container>
-        //  <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example" style={{ float: "right"}}  >
-        
-        //   <Tab eventKey="SPARTAN_1" title="Power Console">
-        //     <img src={spartan_1} style={{width:"300px"}}/> 
-        //   </Tab>
-
-        //   <Tab eventKey="SPARTAN_2" title="External Thermal Control">
-        //   <img src={spartan_2} style={{width:"300px"}}/> 
-
-        //   </Tab>
-        // </Tabs>
   );
 }
 

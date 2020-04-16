@@ -8,11 +8,11 @@ interface DestinyLabProps {
 const DestinyLab: React.FC<DestinyLabProps> = (props) => {
   return (
     <g id="ethos-thermal-system-display-density-lab">
-      <text x="5%" y="78%" fill="white" font-size="20" font-family="Verdana">Density Lab</text>
-      <text x="27.25%" y="78%" fill="#d6ab62" font-size="20" font-family="Verdana">{props.values.destinyLab.lowTLoop}</text>
-      <text x="48.25%" y="78%" fill="#d6ab62" font-size="20" font-family="Verdana">{props.values.destinyLab.moderateTLoop}</text>
-      <text x="67.5%" y="78%" fill="#d6ab62" font-size="20" font-family="Verdana">{props.values.destinyLab.lowTemp}</text>
-      <text x="83%" y="78%" fill="#d6ab62" font-size="20" font-family="Verdana">{props.values.destinyLab.moderateTemp}</text>
+      <text x="5%" y="78%" fill="white" fontSize="20" fontFamily="Verdana">Density Lab</text>
+      <text x="27.25%" y="78%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">{props.values.destinyLab.lowTLoop}</text>
+      <text x="48.25%" y="78%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">{props.values.destinyLab.moderateTLoop}</text>
+      <text x="67.5%" y="78%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">{props.values.destinyLab.lowTemp}</text>
+      <text x="83%" y="78%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">{props.values.destinyLab.moderateTemp}</text>
     </g>
   )
 };

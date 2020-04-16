@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button'
@@ -6,24 +6,55 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Tab from 'react-bootstrap/Tab'
 import Nav from 'react-bootstrap/Nav'
+import DropdownItem from 'react-bootstrap/DropdownItem'
+import DropdownButton from 'react-bootstrap/DropdownButton'
 import { CSSTransition } from 'react-transition-group'
+import { animateCSS } from '../../animation'
 import {Spartan} from './spartan/spartan';
 import {Capcom} from './capcom';
 import {Cronus1} from './cronus/cronus';
 import {Ethos} from './ethos/ethos';
 import {OSTPVModal} from './OSTPVModal'
+import {STATUSModal} from './STATUSModal'
 import {Flight} from './flight';
 import {Bme} from './bme';
+import { CallRequestGroup } from './CallRequestGroup'
+import { RootState } from '../../reducers';
+import socket from '../Socket'
+import { connect, ConnectedProps } from 'react-redux';
+import SafeAnchor from 'react-bootstrap/SafeAnchor';
 
-interface AppProps {
+interface consoleProps {
   className?: string;
 };
 
-const UConsole: React.FC<AppProps> = ( props ) => {
+const mapState = (state: RootState ) => ({
+  lobbyID: state.lobbyPositionsReducer.lobbyID,
+  userRole: state.lobbyPositionsReducer.userRole
+})
+
+const connector = connect(mapState)
+type PropsFromRedux = ConnectedProps<typeof connector>
+type Props = PropsFromRedux & consoleProps
+
+const UConsole: React.FC<Props> = ( props ) => {
   const [ ostpvModal, setOstpvModal ] = useState(false);
+  const [ statusModal, setStatusModal ] = useState(false);
+  const [ callRequests, setCallRequests ] = useState({spartan: false, cronus: false, ethos: false, flight: false, capcom: false, bme: false})
+  const [ time, setTime ] = useState("");
+  useEffect(() => {
+    socket.off('UPDATE_TIME');
+    socket.off('CALL_REQUESTED')
+    socket.on('UPDATE_TIME', ( time: string ) => {
+      setTime(time);
+    })
+    socket.on('CALL_REQUESTED', (sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme", time: string) => {
+      showCallRequest(sender);
+    })
+  }, [])
+
   function handleOSTPVOpen(event: React.MouseEvent<HTMLButtonElement>) {
     setOstpvModal(true);
-    console.log(document.getElementById("ostpv-modal"));
     document.getElementById("ostpv-modal")!.style.visibility = "visible";
   }
   function handleOSTPVClose() {
@@ -32,28 +63,39 @@ const UConsole: React.FC<AppProps> = ( props ) => {
       document.getElementById("ostpv-modal")!.style.visibility = "hidden";
     }, 500)
   }
-  function animateCSS(element: string, animationName: string, animationModifiers?: string[]) {
-    const node = document.querySelector(element);
-    if (node) {
-      node.classList.add("animated", animationName)
-      if (animationModifiers) { node.classList.add(...animationModifiers) };
-    }
-    
-    function handleAnimationEnd() {
-      if (node) {
-        node.classList.remove('animated', animationName);
-        if (animationModifiers) { node.classList.remove(...animationModifiers) }
-        node.removeEventListener('animationend', handleAnimationEnd);
-      }
-    }
 
-    if (node) {
-      node.addEventListener('animationend', handleAnimationEnd)
-    }
+  function handleStatusOpen(event: React.MouseEvent<HTMLButtonElement>) {
+    setStatusModal(true);
+    document.getElementById("status-modal")!.style.visibility = "visible";
+  }
+  function handleStatusClose() {
+    setStatusModal(false);
+    setTimeout(() => {
+      document.getElementById("status-modal")!.style.visibility = "hidden";
+    }, 500)
+  }
+
+  function handleCallRequest(event: React.MouseEvent<DropdownItem>) {
+    const currTarget = event.currentTarget as unknown as HTMLAnchorElement;
+    socket.emit("CALL_REQUEST", currTarget.text.toLowerCase(), props.userRole, props.lobbyID)
+  }
+  function showCallRequest(sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme") {
+    var newCallRequests = callRequests;
+    newCallRequests[sender] = true;
+    setCallRequests(newCallRequests);
+  }
+  function hideCallRequest(sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme") {
+    var newCallRequests = callRequests;
+    newCallRequests[sender] = false;
+    console.log(newCallRequests);
+    setCallRequests(newCallRequests);
   }
 
   return(
-    <>
+    <div id="game-container">
+      <div style={{position: "relative", zIndex: 20}}>
+        <CallRequestGroup callRequests={callRequests} onHide={hideCallRequest}/>
+      </div>
       <Tab.Container id="console-tabs">
         <Row className={props.className}>
           <Col id="console-buttons" sm={2}>
@@ -78,9 +120,23 @@ const UConsole: React.FC<AppProps> = ( props ) => {
               </Nav.Item>
             </Nav>
             <Button variant="outline-primary" className={`${ostpvModal ? 'selected' : ''}`} onClick={handleOSTPVOpen}>OSTPV</Button>
+            <Button variant="outline-primary" className={`${statusModal ? 'selected' : ''}`} onClick={handleStatusOpen}>STATUS</Button>
+            <DropdownButton 
+              id="call-request-button" 
+              title="CALL REQ."
+              drop="right"
+              variant="primary"
+            >
+              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>SPARTAN</DropdownItem>
+              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>CRONUS</DropdownItem>
+              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>ETHOS</DropdownItem>
+              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>FLIGHT</DropdownItem>
+              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>CAPCOM</DropdownItem>
+              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>BME</DropdownItem>
+            </DropdownButton>
           </Col>
           <Col id="console-content" sm={10}>
-            <Tab.Content>
+            <Tab.Content id="tab-content">
               <Tab.Pane eventKey="spartan">
                 <Spartan />
               </Tab.Pane>
@@ -90,7 +146,7 @@ const UConsole: React.FC<AppProps> = ( props ) => {
               <Tab.Pane eventKey="ethos">
                 <Ethos />
               </Tab.Pane>
-              <Tab.Pane eventKey="flight">
+              <Tab.Pane eventKey="flight" id="flight-tab">
                 <Flight />
               </Tab.Pane>
               <Tab.Pane eventKey="capcom">
@@ -101,6 +157,7 @@ const UConsole: React.FC<AppProps> = ( props ) => {
               </Tab.Pane>
             </Tab.Content>
           </Col>
+
         </Row>
       </Tab.Container>
       <CSSTransition 
@@ -112,11 +169,20 @@ const UConsole: React.FC<AppProps> = ( props ) => {
       >
         <OSTPVModal show={ostpvModal} closeFunction={handleOSTPVClose}/>
       </CSSTransition>
-    </>
+      <CSSTransition 
+        in={statusModal === true}
+        timeout={500}
+        classNames="modal"
+        onEnter={() => {animateCSS("#modal-overlay-status", "fadeIn", ["faster"])}}
+        onExit={() => {animateCSS("#modal-overlay-status", "fadeOut", ["faster"])}}
+      >
+        <STATUSModal userRole={props.userRole} lobbyID={props.lobbyID} time={time} show={statusModal} closeFunction={handleStatusClose}/>
+      </CSSTransition>
+    </div>
   );
 }
 
-export const Console = styled(UConsole)`
+const Console = styled(UConsole)`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -148,4 +214,13 @@ export const Console = styled(UConsole)`
     background-color: #007BFF !important;
     border-color: #007BFF !important;
   }
+  #console-content, #tab-content, #console-tabs-tabpane-flight {
+    height: 100%;
+  }
+  #call-request-button {
+    min-width: 150px;
+    color: #007BFF;
+  }
 `;
+
+export default connector(Console);
