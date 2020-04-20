@@ -1,8 +1,8 @@
 const moment = require('moment');
 const app = require('express')();
 const server = require('http').Server(app);
-const io = require('socket.io')(server);
-
+const io = require('socket.io')(server, { origins: '*:*'});
+ 
 const port = process.env.PORT || 4001;
 const index = require('./routes/index');
 
@@ -64,6 +64,7 @@ class Room {
     set time_interval_id(new_time_interval_id) { if (new_time_interval_id) this._time_interval_id}
     add_position(position, value)  { this._consoles[position] = [ ...this._consoles[position], value ] }
     remove_position(position, value) { this._consoles[position] = this._consoles[position].filter(e => e !== value) }
+    add_efn(new_efn)  { this._flight_notes = [ ...this._flight_notes, new_efn ] }
     consoles_taken() {
         return {
             spartan: (this._consoles['spartan'].length),
@@ -74,6 +75,29 @@ class Room {
             capcom: (this._consoles['capcom'].length)
         }
     }
+}
+
+class EFN {
+    constructor(ID, sender, subject, content, time) {
+        this._ID = ID;
+        this._sender = sender;
+        this._subject = subject;
+        this._content = content;
+        this._status = "open";
+        this._time = time;
+    }
+    get ID() { return this._ID }
+    get sender() { return this._sender }
+    get subject() { return this._subject }
+    get content() { return this._content }
+    get status() { return this._status }
+    get time() { return this._time }
+    set ID(new_ID) { if (new_ID) this._ID = new_ID }
+    set sender(new_sender) { if (new_sender) this._sender = new_sender }
+    set subject(new_subject) { if (new_subject) this._subject = new_subject }
+    set content(new_content) { if (new_content) this._content = new_content }
+    set status(new_status) { if (new_status) this._status = new_status }
+    set time(new_time) { if (new_time) this._time = new_time }
 }
 
 var players = {};
@@ -176,13 +200,35 @@ io.on('connection', socket => {
         socket.to(roomID).emit('SHOW_DISPLAY');
         rooms[roomID].time_interval_id = setInterval(() => {
             rooms[roomID].current_time = rooms[roomID].current_time.add(1, 'seconds');
-            socket.to(roomID).emit('UPDATE_TIME', rooms[roomID].current_time.format("DD/MM/YYYY HH:mm:ss"));
+            socket.to(roomID).emit('UPDATE_TIME', rooms[roomID].current_time.format("DDDD/HH:mm"));
         }, 1000)
     })
 
     socket.on('STATUS_REPORT', (values, roomID) => {
         console.log(values.time + ": " + players[socket.id].name + " submitted status report with subject: " + values.subject);
-        io.in(roomID).emit('UPDATE_REPORTS', values);
+        rooms[roomID].add_efn(new EFN("EFN" + (rooms[roomID].flight_notes.length+1).toString().padStart(4, '0'),
+                                      players[socket.id].console,
+                                      values.subject,
+                                      values.content,
+                                      values.time
+                                    ))
+        console.log(rooms[roomID].flight_notes);
+        io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes);
+    })
+
+    socket.on('UPDATE_EFN_STATUS', (efnID, newStatus) => {
+        var roomID = players[socket.id].current_room;
+        var old_enfs = rooms[roomID].flight_notes;
+        var updated_efns = old_enfs.map(efn => {
+            console.log(efn.ID, efnID)
+            if (efn.ID == efnID) {
+                efn.status = newStatus;
+            }
+            return efn;
+        })
+        console.log(updated_efns);
+        rooms[roomID].flight_notes = updated_efns;
+        io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
     })
 
     socket.on('CALL_REQUEST', (target, sender, roomID) => {

@@ -49,7 +49,7 @@ export const STATUSModal = styled(USTATUSModal)`
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    padding: 20px;
+    padding: 40px;
     z-index: 10;
   }
 `;

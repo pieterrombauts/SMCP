@@ -63,5 +63,8 @@
   },
   "devDependencies": {
     "redux-devtools": "^3.5.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.5.5"
   }
 }

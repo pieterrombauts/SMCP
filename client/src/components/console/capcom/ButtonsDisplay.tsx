@@ -7,8 +7,7 @@ interface ButtonsProps {
 
 const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
   return(
-    <div className={props.className}>
-      <svg preserveAspectRatio='xMidYMid meet' viewBox='0 0 1300 990'>
+    <svg className={props.className}preserveAspectRatio='xMidYMid meet' viewBox='0 0 700 500'>
       <rect y='20' rx="5" ry="5" width="700" height="400" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
       
       <rect x="20" y="40" rx="5" ry="5" width="110" height="90" style={{fill:"red", stroke:"#393939", strokeWidth:5}} />
@@ -28,16 +27,14 @@ const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
 
       <rect x="580" y="200" rx="5" ry="5" width="110" height="90" style={{fill:"yellow", stroke:"#393939", strokeWidth:5}} />
       <text x="595" y="255" fill="black" fontSize="30" fontFamily="Verdana">TEST</text>
-      </svg>
-    </div>
+    </svg>
   )
 };
 
 const ButtonsDisplay = styled(UButtonsDisplay)`
-  svg {
-    width: 100%;
-    height: 100%;
-  }
+  height: 100%;
+  position: absolute;
+  left: 0;
 `;
 
 export default ButtonsDisplay;

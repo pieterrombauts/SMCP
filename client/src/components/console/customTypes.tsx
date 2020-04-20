@@ -90,8 +90,10 @@ export interface cronusVComm1Display {
 }
 
 export interface statusReport {
-  sender: string,
-  subject: string,
-  status: string,
-  time: string
+  _ID: string,
+  _sender: string,
+  _subject: string,
+  _content: string,
+  _status: string,
+  _time: string
 }
