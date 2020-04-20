@@ -19,7 +19,7 @@ import {STATUSModal} from './STATUSModal'
 import {ViewEFNModal} from './ViewEFNModal';
 import {statusReport} from './customTypes'
 import {Flight} from './flight';
-import {Bme} from './bme';
+import {Bme} from './bme/bme';
 import { CallRequestGroup } from './CallRequestGroup'
 import { RootState } from '../../reducers';
 import socket from '../Socket'
