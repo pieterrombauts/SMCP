@@ -135,16 +135,14 @@ export interface bmeEVASuitDisplay {
     helmetPressure: number,
     o2: number,
     water: number,
-    batteryCharge: number,
-    pressure: number
+    batteryCharge: number
   },
 
   eva2: {
     helmetPressure: number,
     o2: number,
     water: number,
-    batteryCharge: number,
-    pressure: number
+    batteryCharge: number
   }
 
 }
