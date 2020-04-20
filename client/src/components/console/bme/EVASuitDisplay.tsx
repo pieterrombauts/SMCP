@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import EVA1 from './EVA1';
 import EVA2 from './EVA2';
 import { generateRandVal } from '../../../dataGenerator';
-import { decreaseVal } from '../../../dataDecrease'
+// import { decreaseVal } from '../../../dataDecrease'
 import { bmeEVASuitDisplay } from '../customTypes'
 
 
