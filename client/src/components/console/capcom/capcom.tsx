@@ -19,32 +19,16 @@ const capcom: React.FC<AppProps> = (props) => {
         <Col id="capcom-content" sm={10}>
           <Tab.Content>
 
-            <Tab.Pane eventKey="capcom">
+            <Tab.Pane eventKey="capcom"> */}
               <WarningSummary />
-            </Tab.Pane>
-
-            <Tab.Pane eventKey="capcom">
-            <SignalDisplay />
               <ButtonsDisplay />
-
-            </Tab.Pane>
-
-            <Tab.Pane eventKey="capcom">
-              
             </Tab.Pane>
 
           </Tab.Content>
         </Col>
       </Row>
     </Tab.Container>
-    //  <Tabs defaultActiveKey="Spartan_console" id="uncontrolled-tab-example" style={{ float: "right"}} >
-
-    //   <Tab eventKey="CAPCOM_1" title="Script">
-    //     <img src={capcom_1} style={{width:"300px"}}/> 
-    //   </Tab>
-
-
-    // </Tabs>
+   
   );
 }
 
