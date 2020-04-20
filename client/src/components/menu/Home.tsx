@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Button from 'react-bootstrap/Button';
 import socket from '../Socket';
@@ -21,14 +21,14 @@ type Props = PropsFromRedux & HomeProps
 
 const UHome: React.FC<Props> = ( props ) => {
   function createLobby() {
-    socket.emit('get rooms', (data: object) => {
-      var lobbyID: string = Math.floor(100000 + Math.random() * 900000).toString();
-      while(data.hasOwnProperty(lobbyID)) {
-        lobbyID = Math.floor(100000 + Math.random() * 900000).toString();
+    socket.emit('GET_ROOMS', (data: object) => {
+      var roomID: string = Math.floor(100000 + Math.random() * 899999).toString();      // Generate a random 6 digit room ID
+      while(data.hasOwnProperty(roomID) || roomID === '200769') {                       // If room ID already exists or is equal to secret backdoor
+        roomID = Math.floor(100000 + Math.random() * 899999).toString();                // Then calculate a new room ID
       }
-      socket.emit('create room', lobbyID);
-      props.updateLobbyID({ lobbyID: lobbyID })
-      props.updateUserRole({ userRole: "display" })
+      socket.emit('CREATE_ROOM', roomID);                                               // Emit socket event to create a new room
+      props.updateLobbyID({ lobbyID: roomID })
+      props.updateUserRole({ userRole: "display" })                                     // Animate menus and set room ID and user role
       props.animateMenus({ home: "hide", join: "hide", lobby: "show"})
     });
   }

@@ -47,7 +47,7 @@ const USpartanPower: React.FC<SpartanPowerInt> = ( props ) => {
   var [values, setValues] = useState(defaultValues)
   const intervalRef = useRef(0);
   useEffect(() => {
-    if (intervalRef.current != 0) {
+    if (intervalRef.current !== 0) {
       clearInterval(intervalRef.current);
     }
     const id = setInterval(() => {
@@ -95,63 +95,63 @@ const USpartanPower: React.FC<SpartanPowerInt> = ( props ) => {
     <svg preserveAspectRatio='xMidYMid meet' viewBox='0 0 1300 990'>
       <image x={0} y={0} width={1300} height={990} href={'/media/Spartan_1.png'}></image>
       <rect x="21%" y="32%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="20.5%" y="34.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.voltage2b}</text>
+      <text x="20.5%" y="34.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.voltage2b}</text>
       <rect x="21%" y="37%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="20.5%" y="39.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.current2b}</text>
+      <text x="20.5%" y="39.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.current2b}</text>
       <rect x="21%" y="42%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="20.5%" y="44.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.array2b}</text>
+      <text x="20.5%" y="44.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.array2b}</text>
 
       <rect x="21%" y="72%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="20.5%" y="74.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.voltage4b}</text>
+      <text x="20.5%" y="74.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.voltage4b}</text>
       <rect x="21%" y="77%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="20.5%" y="79.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.current4b}</text>
+      <text x="20.5%" y="79.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.current4b}</text>
       <rect x="21%" y="82%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="20.5%" y="84.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.array4b}</text> 
+      <text x="20.5%" y="84.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.array4b}</text> 
 
 
       <rect x="36%" y="32%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="35.8%" y="34.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.voltage4b}</text>
+      <text x="35.8%" y="34.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.voltage4b}</text>
       <rect x="36%" y="37%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="35.8%" y="39.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.current4b}</text>
+      <text x="35.8%" y="39.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.current4b}</text>
       <rect x="36%" y="42%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="35.8%" y="44.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.array4b}</text>
+      <text x="35.8%" y="44.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.array4b}</text>
       
       <rect x="36%" y="72%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="35.8%" y="74.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.voltage2a}</text>
+      <text x="35.8%" y="74.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.voltage2a}</text>
       <rect x="36%" y="77%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="35.8%" y="79.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.current2a}</text>
+      <text x="35.8%" y="79.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.current2a}</text>
       <rect x="36%" y="82%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="35.8%" y="84.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.array2a}</text>
+      <text x="35.8%" y="84.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.array2a}</text>
       
 
       <rect x="76.5%" y="32%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="76.5%" y="34.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.voltage1a}</text>
+      <text x="76.5%" y="34.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.voltage1a}</text>
       <rect x="76.5%" y="37%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="76.5%" y="39.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.current1a}</text>
+      <text x="76.5%" y="39.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.current1a}</text>
       <rect x="76.5%" y="42%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="76.5%" y="44.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.array1a}</text> 
+      <text x="76.5%" y="44.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.array1a}</text> 
       
       <rect x="76.5%" y="72%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="76.5%" y="74.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.voltage3a}</text>
+      <text x="76.5%" y="74.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.voltage3a}</text>
       <rect x="76.5%" y="77%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="76.5%" y="79.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.current3a}</text>
+      <text x="76.5%" y="79.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.current3a}</text>
       <rect x="76.5%" y="82%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="76.5%" y="84.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.array3a}</text>
+      <text x="76.5%" y="84.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.array3a}</text>
 
 
       <rect x="92%" y="32%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="92%" y="34.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.voltage3b}</text>
+      <text x="92%" y="34.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.voltage3b}</text>
       <rect x="92%" y="37%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="92%" y="39.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.current3b}</text>
+      <text x="92%" y="39.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.current3b}</text>
       <rect x="92%" y="42%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="92%" y="44.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.array3b}</text> 
+      <text x="92%" y="44.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.array3b}</text> 
       
       <rect x="92%" y="72%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="92%" y="74.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.voltage1b}</text>
+      <text x="92%" y="74.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.voltage1b}</text>
       <rect x="92%" y="77%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="92%" y="79.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.current1b}</text>
+      <text x="92%" y="79.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.current1b}</text>
       <rect x="92%" y="82%" rx="5" ry="5" width="8%" height="3%" style={{fill:"#000000"}} />
-      <text x="92%" y="84.4%" fill="#d6ab62" font-size="17" font-family="Verdana">{values.Spartan.array1b}</text>   
+      <text x="92%" y="84.4%" fill="#d6ab62" fontSize="17" fontFamily="Verdana">{values.Spartan.array1b}</text>   
     </svg>
   );
 }
