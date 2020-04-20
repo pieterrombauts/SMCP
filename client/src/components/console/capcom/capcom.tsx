@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col'
 import Tab from 'react-bootstrap/Tab'
 import WarningSummary from './WarningSummary'
 import ButtonsDisplay from './ButtonsDisplay'
-import SignalDisplay from './SignalDisplay'
 
 interface AppProps {
   className?: string;
