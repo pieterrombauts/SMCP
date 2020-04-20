@@ -17,7 +17,7 @@ import {Ethos} from './ethos/ethos';
 import {OSTPVModal} from './OSTPVModal'
 import {STATUSModal} from './STATUSModal'
 import {Flight} from './flight';
-import {Bme} from './bme';
+import {Bme} from './bme/bme';
 import { CallRequestGroup } from './CallRequestGroup'
 import { RootState } from '../../reducers';
 import socket from '../Socket'

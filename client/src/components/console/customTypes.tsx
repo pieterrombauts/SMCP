@@ -95,3 +95,37 @@ export interface statusReport {
   status: string,
   time: string
 }
+
+export interface bmeVitalSignsDisplay {
+  astronaut1: {
+    heartRate: number,
+    heartRateMax: number,
+    bloodPressureSystolic: number,
+    bloodPressureDiastolic: number,
+    temperature: number
+  }
+
+  astronaut2: {
+    heartRate: number,
+    heartRateMax: number,
+    bloodPressureSystolic: number,
+    bloodPressureDiastolic: number,
+    temperature: number
+  }
+
+  astronaut3: {
+    heartRate: number,
+    heartRateMax: number,
+    bloodPressureSystolic: number,
+    bloodPressureDiastolic: number,
+    temperature: number
+  }
+
+  astronaut4: {
+    heartRate: number,
+    heartRateMax: number,
+    bloodPressureSystolic: number,
+    bloodPressureDiastolic: number,
+    temperature: number
+  }
+}
