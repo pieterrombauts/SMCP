@@ -13,6 +13,15 @@ interface VSDProps {
     className?: string;
 };
 
+const ts1 = new TimeSeries({});
+const ts2 = new TimeSeries({
+  resetBounds: true,
+  resetBoundsInterval: 3000,
+
+});
+const ts3 = new TimeSeries({});
+const ts4 = new TimeSeries({});
+
 const defaultValues = {
     astronaut1: {
         heartRate: 0,
@@ -47,13 +56,6 @@ const defaultValues = {
     }
 }
 
-const ts1 = new TimeSeries({});
-
-setInterval(function () {
-    var time = new Date().getTime();
-
-    ts1.append(time, Math.random());
-}, 500);
 
 const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
     var [values, setValues] = useState(defaultValues)
@@ -102,18 +104,71 @@ const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
         }, 5000);
         intervalRef.current = id;
     }, [])
+
+    console.log(values.astronaut1.temperature);
+    setInterval(function() {
+        var time = new Date().getTime();
+       
+        ts1.append(time, values.astronaut1.temperature);
+        ts2.append(time, values.astronaut2.temperature);
+        ts3.append(time, values.astronaut3.temperature);
+        ts4.append(time, values.astronaut4.temperature);
+      }, 5000);
     return (
 
-        <div id="smoothie-div"className={props.className}>
-            {/* <SmoothieComponent height={100} width={300} series={[
+        <div className={props.className}>
+            <div id="smoothie1-div">
+                <SmoothieComponent height={100} width={300} series={[
                     {
                         data: ts1,
-                        strokeStyle: { r: 255 },
-                        fillStyle: { r: 255 },
+                        strokeStyle: { r: 126, g: 245, b: 110},
+                        fillStyle: { r: 126, g: 245, b: 110},
                         lineWidth: 1,
                     }
                 ]}
-            /> */}
+                />
+
+            </div>
+
+            <div id="smoothie2-div">
+                <SmoothieComponent height={100} width={300} series={[
+                    {
+                        data: ts2,
+                        strokeStyle: { r: 126, g: 245, b: 110},
+                        fillStyle: { r: 126, g: 245, b: 110},
+                        lineWidth: 1,
+                    }
+                ]}
+                />
+
+            </div>
+
+            <div id="smoothie3-div">
+                <SmoothieComponent height={100} width={300} series={[
+                    {
+                        data: ts3,
+                        strokeStyle: { r: 126, g: 245, b: 110},
+                        fillStyle: { r: 126, g: 245, b: 110},
+                        lineWidth: 1,
+                    }
+                ]}
+                />
+
+            </div>
+
+            <div id="smoothie4-div">
+                <SmoothieComponent height={100} width={300} series={[
+                    {
+                        data: ts4,
+                        strokeStyle: { r: 126, g: 245, b: 110},
+                        fillStyle: { r: 126, g: 245, b: 110},
+                        lineWidth: 1,
+                    }
+                ]}
+                />
+
+            </div>
+
             <svg preserveAspectRatio='xMidYMid meet' viewBox='0 0 1400 1000'>
 
                 <Astronaut1 values={values} />
@@ -130,5 +185,33 @@ export const VitalSignsDisplay = styled(UVitalSignsDisplay)`
   width: 100%;
   height: 100%;
   position: absolute;
+
+  #smoothie1-div{ 
+    position: absolute;
+    top: 36%;
+    left: 22%;
+
+  }
+
+  #smoothie2-div{ 
+    position: absolute;
+    top: 36%;
+    left: 72%;
+
+  }
+
+  #smoothie3-div{ 
+    position: absolute;
+    top: 83%;
+    left: 22%;
+
+  }
+
+  #smoothie4-div{ 
+    position: absolute;
+    top: 83%;
+    left: 72%;
+
+  }
 
 `;

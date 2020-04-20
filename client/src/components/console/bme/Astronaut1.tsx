@@ -12,6 +12,9 @@ const Astronaut1: React.FC<A1Props> = ( props ) => {
       <image x="22%" y="9.5%" width={150} height={150} href='/media/Bme_1.gif'></image>
       <image x="2%" y="2%" width={250} height={500} href='/media/Bme_Luca_Parmitano.jpg'></image>
       
+      <text x="2%" y="10%" fill="#EBB249" fontSize="20" fontFamily="Verdana">Luca Parmitano</text>
+      <text x="2%" y="45%" fill="#EBB249" fontSize="20" fontFamily="Verdana">Commander</text>
+
       <text x="22%" y="10%" fill="white" fontSize="20" fontFamily="Verdana">Heart Rate (BPM)</text>
       <text x="34%" y="14%" fill="white" fontSize="12" fontFamily="Verdana">Current BPM</text>
       <text x="41%" y="14%" fill="white" fontSize="12" fontFamily="Verdana">Max BPM</text>
