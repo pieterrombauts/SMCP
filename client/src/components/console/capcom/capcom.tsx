@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col'
 import Tab from 'react-bootstrap/Tab'
 import WarningSummary from './WarningSummary'
 import ButtonsDisplay from './ButtonsDisplay'
-import SignalDisplay from './SignalDisplay'
 
 interface AppProps {
   className?: string;
@@ -14,11 +13,15 @@ interface AppProps {
 
 const capcom: React.FC<AppProps> = (props) => {
   return (
-    <>
-      <WarningSummary />
-      <SignalDisplay />
-      {/* <ButtonsDisplay /> */}
-    </>
+    <Tab.Container id="campcom-tab" defaultActiveKey="capcom">
+      <Row className={props.className}>
+        <Col id="capcom-content" sm={10}>
+              <WarningSummary />
+              <ButtonsDisplay />
+        </Col>
+      </Row>
+    </Tab.Container>
+   
   );
 }
 
