@@ -129,3 +129,23 @@ export interface bmeVitalSignsDisplay {
     temperature: number
   }
 }
+
+export interface bmeEVASuitDisplay {
+  eva1: {
+    helmetPressure: number,
+    o2: number,
+    water: number,
+    batteryCharge: number,
+    pressure: number
+  },
+
+  eva2: {
+    helmetPressure: number,
+    o2: number,
+    water: number,
+    batteryCharge: number,
+    pressure: number
+  }
+
+}
+

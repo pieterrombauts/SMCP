@@ -5,25 +5,26 @@ import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { VitalSignsDisplay } from './VitalSignsDisplay'
-// import bme_1 from "./../../media/Bme_1.png"
-// import bme_2 from "./../../media/Bme_2.png"
+import { EVASuitDisplay } from './EVASuitDisplay'
 
 interface AppProps {
   className?: string;
 };
 
-const bme: React.FC<AppProps> = ( props ) => {
-  return(
+const bme: React.FC<AppProps> = (props) => {
+  return (
     <Tab.Container id="bme-tabs" defaultActiveKey="EVASuit">
       <Row className={props.className}>
         <Col id="bme-content" sm={10}>
           <Tab.Content>
             <Tab.Pane eventKey="EVASuit">
-              
+              <EVASuitDisplay />
             </Tab.Pane>
+
             <Tab.Pane eventKey="vitalSigns">
-            <VitalSignsDisplay />
+              <VitalSignsDisplay />
             </Tab.Pane>
+
           </Tab.Content>
         </Col>
         <Col id="bme-buttons" sm={2}>
