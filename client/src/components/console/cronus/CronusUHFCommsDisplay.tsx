@@ -16,10 +16,10 @@ const UCronusUHFCommsDisplay: React.FC<CronusUCDProps> = ( props ) => {
         <text x="6%" y="45%" fill="white" fontSize="25" fontFamily="Verdana">Space to Space Station</text>
 
         <text x="8%" y="48%" fill="white" fontSize="20" fontFamily="Verdana">Radio1 Power</text>
-        <text x="25%" y="48%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">Off</text>
+        <text x="25%" y="48%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">On</text>
 
         <text x="8%" y="51%" fill="white" fontSize="20" fontFamily="Verdana">Radio1 Power</text>
-        <text x="25%" y="51%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">Off</text>
+        <text x="25%" y="51%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">On</text>
 
         <text x="6%" y="57%" fill="white" fontSize="25" fontFamily="Verdana">UHF Sync Lcok</text>
         <text x="28%" y="57%" fill="#d6ab62" fontSize="20" fontFamily="Verdana">Frame Sync</text>

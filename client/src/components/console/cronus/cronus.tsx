@@ -13,11 +13,12 @@ import { generateRandVal } from '../../../dataGenerator';
 
 interface AppProps {
   className?: string;
+  time: string;
 };
 
 const defaultValues = {
   compNet: {
-    time: '053/05:25:01',
+    time: '',
     standardCmds: 10466,
     loadCmds: 11248
   },
@@ -42,7 +43,7 @@ const Cronus: React.FC<AppProps> = ( props ) => {
     const id = setInterval(() => {
       var newValues = {
         compNet: {
-          time: '053/05:25:01',
+          time: "",
           standardCmds: 10466,
           loadCmds: 11248
         },
@@ -65,7 +66,7 @@ const Cronus: React.FC<AppProps> = ( props ) => {
         <Col id="cronus-content" sm={10}>
           <Tab.Content>
             <Tab.Pane eventKey="comp-net">
-              <CronusCompNetDisplay values={values}/>
+              <CronusCompNetDisplay values={values} time={props.time} />
             </Tab.Pane>
             <Tab.Pane eventKey="uhf-comms">
               <CronusUHFCommsDisplay />

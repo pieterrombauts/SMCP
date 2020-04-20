@@ -11,18 +11,19 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 import { CSSTransition } from 'react-transition-group'
 import { animateCSS } from '../../animation'
 import {Spartan} from './spartan/spartan';
-import {Capcom} from './capcom';
+import {Capcom} from './capcom/capcom';
 import {Cronus1} from './cronus/cronus';
 import {Ethos} from './ethos/ethos';
 import {OSTPVModal} from './OSTPVModal'
 import {STATUSModal} from './STATUSModal'
+import {ViewEFNModal} from './ViewEFNModal';
+import {statusReport} from './customTypes'
 import {Flight} from './flight';
-import {Bme} from './bme';
+import {Bme} from './bme/bme';
 import { CallRequestGroup } from './CallRequestGroup'
 import { RootState } from '../../reducers';
 import socket from '../Socket'
 import { connect, ConnectedProps } from 'react-redux';
-import SafeAnchor from 'react-bootstrap/SafeAnchor';
 
 interface consoleProps {
   className?: string;
@@ -40,16 +41,24 @@ type Props = PropsFromRedux & consoleProps
 const UConsole: React.FC<Props> = ( props ) => {
   const [ ostpvModal, setOstpvModal ] = useState(false);
   const [ statusModal, setStatusModal ] = useState(false);
+  const [ viewEFNModal, setViewEFNModal ] = useState(false);
   const [ callRequests, setCallRequests ] = useState({spartan: false, cronus: false, ethos: false, flight: false, capcom: false, bme: false})
   const [ time, setTime ] = useState("");
+  const [ reports, setReports ] = useState<statusReport[]>([])
+  const [ efnID, setEfnID ] = useState("");
   useEffect(() => {
     socket.off('UPDATE_TIME');
     socket.off('CALL_REQUESTED')
+    socket.off('UPDATE_REPORTS');
     socket.on('UPDATE_TIME', ( time: string ) => {
       setTime(time);
     })
     socket.on('CALL_REQUESTED', (sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme", time: string) => {
       showCallRequest(sender);
+    })
+    socket.on('UPDATE_REPORTS', ( new_reports: statusReport[] ) => {
+      setReports(new_reports);
+      console.log(new_reports);
     })
   }, [])
 
@@ -73,6 +82,22 @@ const UConsole: React.FC<Props> = ( props ) => {
     setTimeout(() => {
       document.getElementById("status-modal")!.style.visibility = "hidden";
     }, 500)
+  }
+
+  function handleViewEFNOpen() {
+    setViewEFNModal(true);
+    document.getElementById("view-efn-modal")!.style.visibility = "visible";
+  }
+  function handleViewEFNClose() {
+    setViewEFNModal(false);
+    setTimeout(() => {
+      document.getElementById("view-efn-modal")!.style.visibility = "hidden";
+    }, 500)
+  }
+
+  function handleEFNDetailedView(selectedEfnID: string) {
+    setEfnID(selectedEfnID);
+    handleViewEFNOpen();
   }
 
   function handleCallRequest(event: React.MouseEvent<DropdownItem>) {
@@ -120,10 +145,10 @@ const UConsole: React.FC<Props> = ( props ) => {
               </Nav.Item>
             </Nav>
             <Button variant="outline-primary" className={`${ostpvModal ? 'selected' : ''}`} onClick={handleOSTPVOpen}>OSTPV</Button>
-            <Button variant="outline-primary" className={`${statusModal ? 'selected' : ''}`} onClick={handleStatusOpen}>STATUS</Button>
+            <Button variant="outline-primary" className={`${statusModal ? 'selected' : ''}`} onClick={handleStatusOpen}>EFN</Button>
             <DropdownButton 
               id="call-request-button" 
-              title="CALL REQ."
+              title="ALERT "
               drop="right"
               variant="primary"
             >
@@ -141,13 +166,13 @@ const UConsole: React.FC<Props> = ( props ) => {
                 <Spartan />
               </Tab.Pane>
               <Tab.Pane eventKey="cronus">
-                <Cronus1 />
+                <Cronus1 time={time} />
               </Tab.Pane>
               <Tab.Pane eventKey="ethos">
                 <Ethos />
               </Tab.Pane>
               <Tab.Pane eventKey="flight" id="flight-tab">
-                <Flight />
+                <Flight reports={reports} handleView={handleEFNDetailedView}/>
               </Tab.Pane>
               <Tab.Pane eventKey="capcom">
                 <Capcom />
@@ -177,6 +202,15 @@ const UConsole: React.FC<Props> = ( props ) => {
         onExit={() => {animateCSS("#modal-overlay-status", "fadeOut", ["faster"])}}
       >
         <STATUSModal userRole={props.userRole} lobbyID={props.lobbyID} time={time} show={statusModal} closeFunction={handleStatusClose}/>
+      </CSSTransition>
+      <CSSTransition 
+        in={viewEFNModal === true}
+        timeout={500}
+        classNames="modal"
+        onEnter={() => {animateCSS("#modal-overlay-view-efn", "fadeIn", ["faster"])}}
+        onExit={() => {animateCSS("#modal-overlay-view-efn", "fadeOut", ["faster"])}}
+      >
+        <ViewEFNModal time={time} show={viewEFNModal} reports={reports} selectedEfn={efnID} closeFunction={handleViewEFNClose}/>
       </CSSTransition>
     </div>
   );

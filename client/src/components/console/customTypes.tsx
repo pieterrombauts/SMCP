@@ -90,8 +90,62 @@ export interface cronusVComm1Display {
 }
 
 export interface statusReport {
-  sender: string,
-  subject: string,
-  status: string,
-  time: string
+  _ID: string,
+  _sender: string,
+  _subject: string,
+  _content: string,
+  _status: string,
+  _time: string
 }
+
+export interface bmeVitalSignsDisplay {
+  astronaut1: {
+    heartRate: number,
+    heartRateMax: number,
+    bloodPressureSystolic: number,
+    bloodPressureDiastolic: number,
+    temperature: number
+  }
+
+  astronaut2: {
+    heartRate: number,
+    heartRateMax: number,
+    bloodPressureSystolic: number,
+    bloodPressureDiastolic: number,
+    temperature: number
+  }
+
+  astronaut3: {
+    heartRate: number,
+    heartRateMax: number,
+    bloodPressureSystolic: number,
+    bloodPressureDiastolic: number,
+    temperature: number
+  }
+
+  astronaut4: {
+    heartRate: number,
+    heartRateMax: number,
+    bloodPressureSystolic: number,
+    bloodPressureDiastolic: number,
+    temperature: number
+  }
+}
+
+export interface bmeEVASuitDisplay {
+  eva1: {
+    helmetPressure: number,
+    o2: number,
+    water: number,
+    batteryCharge: number
+  },
+
+  eva2: {
+    helmetPressure: number,
+    o2: number,
+    water: number,
+    batteryCharge: number
+  }
+
+}
+

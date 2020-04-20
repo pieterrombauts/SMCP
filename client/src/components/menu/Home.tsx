@@ -21,6 +21,7 @@ type Props = PropsFromRedux & HomeProps
 
 const UHome: React.FC<Props> = ( props ) => {
   function createLobby() {
+    console.log(socket);
     socket.emit('GET_ROOMS', (data: object) => {
       var roomID: string = Math.floor(100000 + Math.random() * 899999).toString();      // Generate a random 6 digit room ID
       while(data.hasOwnProperty(roomID) || roomID === '200769') {                       // If room ID already exists or is equal to secret backdoor
@@ -41,8 +42,8 @@ const UHome: React.FC<Props> = ( props ) => {
     <div id="home-container" className={props.className}>
       <h2>Mission Control Center Simulator</h2>
       <div id="home-buttons">
-        <Button variant="outline-light" onClick={createLobby}>Create a New Game</Button>
-        <Button variant="outline-light" onClick={handleJoinRoomClick}>Join an Existing Game</Button>
+        <Button variant="outline-light" onClick={createLobby}>Tutor Login</Button>
+        <Button variant="outline-light" onClick={handleJoinRoomClick}>Student Login</Button>
       </div>
     </div>
   );
