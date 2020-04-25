@@ -214,7 +214,7 @@ const UConsole: React.FC<Props> = ( props ) => {
         onEnter={() => {animateCSS("#modal-overlay-view-efn", "fadeIn", ["faster"])}}
         onExit={() => {animateCSS("#modal-overlay-view-efn", "fadeOut", ["faster"])}}
       >
-        <ViewEFNModal time={time} show={viewEFNModal} reports={reports} selectedEfn={efnID} closeFunction={handleViewEFNClose}/>
+        <ViewEFNModal lobbyID={props.lobbyID} time={time} show={viewEFNModal} reports={reports} selectedEfn={efnID} closeFunction={handleViewEFNClose}/>
       </CSSTransition>
     </div>
   );

@@ -44,7 +44,7 @@ class Room {
         this._in_progress = false;
         this._flight_notes = [];
         this._events = [];
-        this._current_time = moment('2019-11-15T03:30:00');
+        this._current_time = moment('2019-11-19T15:30:00');
         this._time_interval_id = null;
     }
     get room_id() { return this._room_id }
@@ -88,6 +88,7 @@ class EFN {
         this._content = content;
         this._status = "open";
         this._time = time;
+        this._comments = [];
     }
     get ID() { return this._ID }
     get sender() { return this._sender }
@@ -95,12 +96,16 @@ class EFN {
     get content() { return this._content }
     get status() { return this._status }
     get time() { return this._time }
+    get comments() { return this._comments }
     set ID(new_ID) { if (new_ID) this._ID = new_ID }
     set sender(new_sender) { if (new_sender) this._sender = new_sender }
     set subject(new_subject) { if (new_subject) this._subject = new_subject }
     set content(new_content) { if (new_content) this._content = new_content }
     set status(new_status) { if (new_status) this._status = new_status }
     set time(new_time) { if (new_time) this._time = new_time }
+    set comments(new_comments) { if (new_comments) this._comments = new_comments }
+    add_comment(new_comment) { this._comments = [ ...this._comments, new_comment ] }
+    remove_comment(comment) { this._comments = this._comments.filter(e => e !== comment)}
 }
 
 var players = {};
@@ -224,10 +229,10 @@ io.on('connection', socket => {
 
     socket.on('UPDATE_EFN_STATUS', (efnID, newStatus) => {
         var roomID = players[socket.id].current_room;
-        var old_enfs = rooms[roomID].flight_notes;
-        var updated_efns = old_enfs.map(efn => {
+        var old_efns = rooms[roomID].flight_notes;
+        var updated_efns = old_efns.map(efn => {
             console.log(efn.ID, efnID)
-            if (efn.ID == efnID) {
+            if (efn.ID === efnID) {
                 efn.status = newStatus;
             }
             return efn;
@@ -237,6 +242,19 @@ io.on('connection', socket => {
         io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
     })
 
+    socket.on('ADD_EFN_COMMENT', (comment, efnID, roomID) => {
+        console.log(comment)
+        var old_efns = rooms[roomID].flight_notes;
+        var updated_efns = old_efns.map(efn => {
+            if (efn.ID === efnID) {
+                efn.add_comment(comment);
+                console.log(efn);
+            }
+            return efn;
+        })
+        rooms[roomID].flight_notes = updated_efns;
+        io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
+    })
 
     // NO MORE NEED FOR CALL REQUESTS AS THIS WAS REMOVED FROM REQUIREMENTS
     // socket.on('CALL_REQUEST', (target, sender, roomID) => {

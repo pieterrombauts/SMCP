@@ -11,6 +11,7 @@ interface AppProps {
   reports: statusReport[];
   selectedEfn: string;
   time: string;
+  lobbyID: string;
 };
 
 const UViewEFNModal: React.FC<AppProps> = ( props ) => {
@@ -23,7 +24,7 @@ const UViewEFNModal: React.FC<AppProps> = ( props ) => {
     <div id="view-efn-modal" className={props.className}>
       <div id="modal-overlay-view-efn" onMouseUp={handleOverlayClick}>
         <div id="modal-content-view-efn">
-          <EFNDetails reports={props.reports} efnID={props.selectedEfn} closeFunction={props.closeFunction}/>
+          <EFNDetails lobbyID={props.lobbyID} reports={props.reports} efnID={props.selectedEfn} closeFunction={props.closeFunction}/>
         </div>
       </div>
     </div>
@@ -45,7 +46,7 @@ export const ViewEFNModal = styled(UViewEFNModal)`
   #modal-content-view-efn {
     background-color: #FFF;
     position: absolute;
-    width: 75%;
+    width: 40%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
