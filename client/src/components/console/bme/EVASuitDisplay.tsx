@@ -87,7 +87,7 @@ const UEVASuitDisplay: React.FC<EVASDProps> = (props) => {
                 <text x="40%" y="50%" fill="#EBB249" fontSize="30" text-decoration="underline"> Water Level (%)</text>
                 <line x1="47%" y1="52%" x2="47%" y2="62%" stroke="#a39d9d" strokeWidth="4" />
 
-                <text x="37%" y="66%" fill="#EBB249" fontSize="30" textDecoration="underline"> Battery Chrage Level (%)</text>
+                <text x="37%" y="66%" fill="#EBB249" fontSize="30" textDecoration="underline"> Battery Charge Level (%)</text>
                 <line x1="47%" y1="68%" x2="47%" y2="75%" stroke="#a39d9d" strokeWidth="4" />
 
                 <text x="43.5%" y="78%" fill="#EBB249" fontSize="30" textDecoration="underline"> Comms</text>

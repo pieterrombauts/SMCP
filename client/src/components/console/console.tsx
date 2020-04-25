@@ -118,9 +118,11 @@ const UConsole: React.FC<Props> = ( props ) => {
 
   return(
     <div id="game-container">
-      <div style={{position: "relative", zIndex: 20}}>
+      {
+      // NO NEED FOR THIS ANY MORE AS FUNCTIONALITY WAS REMOVED FROM REQUIREMENTS
+      /* <div style={{position: "relative", zIndex: 20}}>
         <CallRequestGroup callRequests={callRequests} onHide={hideCallRequest}/>
-      </div>
+      </div> */}
       <Tab.Container id="console-tabs">
         <Row className={props.className}>
           <Col id="console-buttons" sm={2}>
@@ -146,7 +148,9 @@ const UConsole: React.FC<Props> = ( props ) => {
             </Nav>
             <Button variant="outline-primary" className={`${ostpvModal ? 'selected' : ''}`} onClick={handleOSTPVOpen}>OSTPV</Button>
             <Button variant="outline-primary" className={`${statusModal ? 'selected' : ''}`} onClick={handleStatusOpen}>EFN</Button>
-            <DropdownButton 
+            {
+            // NO NEED FOR THIS ANY MORE AS FUNCTIONALITY WAS REMOVED FROM REQUIREMENTS
+            /* <DropdownButton 
               id="call-request-button" 
               title="ALERT "
               drop="right"
@@ -158,7 +162,7 @@ const UConsole: React.FC<Props> = ( props ) => {
               <DropdownItem as={DropdownItem} onClick={handleCallRequest}>FLIGHT</DropdownItem>
               <DropdownItem as={DropdownItem} onClick={handleCallRequest}>CAPCOM</DropdownItem>
               <DropdownItem as={DropdownItem} onClick={handleCallRequest}>BME</DropdownItem>
-            </DropdownButton>
+            </DropdownButton> */}
           </Col>
           <Col id="console-content" sm={10}>
             <Tab.Content id="tab-content">

@@ -58,7 +58,7 @@ const UJoin: React.FC<Props> = ( props ) => {
     <div id='join-container' className={props.className}>
       <label>Enter a username</label>
       <input id='username-input' type='text'/>
-      <label>Enter the Game PIN</label>
+      <label>Enter the simulation code</label>
       <input id='game-pin-input' type="text" maxLength={6}/>
       <div id='join-buttons'>
         <Button variant="outline-light" onClick={handleJoinCancel}>Cancel</Button>

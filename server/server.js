@@ -1,7 +1,10 @@
 const moment = require('moment');
 const app = require('express')();
 const server = require('http').Server(app);
-const io = require('socket.io')(server, { origins: '*:*'});
+const io = require('socket.io')(server, { 
+    origins: '*:*',
+    transports: ['websocket']
+});
  
 const port = process.env.PORT || 4001;
 const index = require('./routes/index');
@@ -41,7 +44,7 @@ class Room {
         this._in_progress = false;
         this._flight_notes = [];
         this._events = [];
-        this._current_time = moment('2019-11-19T09:00:00');
+        this._current_time = moment('2019-11-15T03:30:00');
         this._time_interval_id = null;
     }
     get room_id() { return this._room_id }
@@ -152,7 +155,10 @@ io.on('connection', socket => {
         io.in(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
         if (rooms[roomID].in_progress === true) {
             socket.emit('SHOW_DISPLAY');
+            socket.emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
         }
+        console.log(rooms[roomID])
+        console.log(players[socket.id])
     })
 
     socket.on('LEAVE_ROOM', (roomID) => {
@@ -231,17 +237,19 @@ io.on('connection', socket => {
         io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
     })
 
-    socket.on('CALL_REQUEST', (target, sender, roomID) => {
-        console.log(target, sender)
-        console.log(rooms[roomID].consoles[target])
-        var recipients = rooms[roomID].consoles[target];
-        if (recipients.length === 1) {
-            io.to(`${recipients[0]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
-        } else if (recipients.length === 2) {
-            io.to(`${recipients[0]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
-            io.to(`${recipients[1]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
-        }
-    })
+
+    // NO MORE NEED FOR CALL REQUESTS AS THIS WAS REMOVED FROM REQUIREMENTS
+    // socket.on('CALL_REQUEST', (target, sender, roomID) => {
+    //     console.log(target, sender)
+    //     console.log(rooms[roomID].consoles[target])
+    //     var recipients = rooms[roomID].consoles[target];
+    //     if (recipients.length === 1) {
+    //         io.to(`${recipients[0]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
+    //     } else if (recipients.length === 2) {
+    //         io.to(`${recipients[0]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
+    //         io.to(`${recipients[1]}`).emit("CALL_REQUESTED", sender, rooms[roomID].current_time.format("HH:mm:ss"));
+    //     }
+    // })
 })
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
