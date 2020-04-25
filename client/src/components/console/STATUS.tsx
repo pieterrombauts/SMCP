@@ -38,7 +38,7 @@ const USTATUS: React.FC<AppProps> = ( props ) => {
         <Form.Label>Status Report</Form.Label>
         <Form.Control as="textarea" name="content" rows="5" ref={contentRef} />
       </Form.Group>
-      <Button variant="primary" type="submit">Submit Report</Button>
+      <Button variant="primary" type="submit">Submit EFN</Button>
     </Form>
   );
 }
