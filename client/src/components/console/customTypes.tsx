@@ -95,7 +95,8 @@ export interface statusReport {
   _subject: string,
   _content: string,
   _status: string,
-  _time: string
+  _time: string,
+  _comments: string[]
 }
 
 export interface bmeVitalSignsDisplay {
