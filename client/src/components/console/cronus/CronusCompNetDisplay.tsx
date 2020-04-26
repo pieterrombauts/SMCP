@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { cronusCompNetDisplay } from '../customTypes'
+import moment from 'moment';
 
 interface CronusCNDProps {
   className?: string;
@@ -16,7 +17,7 @@ const UCronusCompNetDisplay: React.FC<CronusCNDProps> = ( props ) => {
         <rect x="1055" y="180" rx="5" ry="5" width="200" height="50" style={{fill:"#000000"}} />
         <rect x="1110" y="230" rx="5" ry="5" width="100" height="50" style={{fill:"#000000"}} />
         <rect x="1110" y="250" rx="5" ry="5" width="100" height="50" style={{fill:"#000000"}} />
-        <text x="1080" y="217" fill="#d6ab62" fontSize="20" fontFamily="Verdana">{props.time}</text>
+        <text x="1080" y="217" fill="#d6ab62" fontSize="20" fontFamily="Verdana">{moment(props.time).format('DDDD/HH:mm')}</text>
         <text x="1130" y="257" fill="#d6ab62" fontSize="20" fontFamily="Verdana">{props.values.compNet.standardCmds}</text>
         <text x="1100" y="295" fill="#d6ab62" fontSize="20" fontFamily="Verdana">{props.values.compNet.loadCmds}</text>
       </svg>  

@@ -9,6 +9,7 @@ import ButtonsDisplay from './ButtonsDisplay'
 
 interface AppProps {
   className?: string;
+  time: string;
 };
 
 const capcom: React.FC<AppProps> = (props) => {
@@ -17,7 +18,7 @@ const capcom: React.FC<AppProps> = (props) => {
       <Row className={props.className}>
         <Col id="capcom-content" sm={10}>
               <WarningSummary />
-              <ButtonsDisplay />
+              <ButtonsDisplay time={props.time}/>
         </Col>
       </Row>
     </Tab.Container>

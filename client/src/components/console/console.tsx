@@ -6,8 +6,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Tab from 'react-bootstrap/Tab'
 import Nav from 'react-bootstrap/Nav'
-import DropdownItem from 'react-bootstrap/DropdownItem'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 import { CSSTransition } from 'react-transition-group'
 import { animateCSS } from '../../animation'
 import {Spartan} from './spartan/spartan';
@@ -17,13 +15,14 @@ import {Ethos} from './ethos/ethos';
 import {OSTPVModal} from './OSTPVModal'
 import {STATUSModal} from './STATUSModal'
 import {ViewEFNModal} from './ViewEFNModal';
-import {statusReport} from './customTypes'
+import {statusReport, firstConsoleOpens} from './customTypes'
 import {Flight} from './flight';
 import {Bme} from './bme/bme';
-import { CallRequestGroup } from './CallRequestGroup'
+// import { CallRequestGroup } from './CallRequestGroup'
 import { RootState } from '../../reducers';
 import socket from '../Socket'
 import { connect, ConnectedProps } from 'react-redux';
+import { Tutor } from './tutor/Tutor';
 
 interface consoleProps {
   className?: string;
@@ -42,27 +41,32 @@ const UConsole: React.FC<Props> = ( props ) => {
   const [ ostpvModal, setOstpvModal ] = useState(false);
   const [ statusModal, setStatusModal ] = useState(false);
   const [ viewEFNModal, setViewEFNModal ] = useState(false);
-  const [ callRequests, setCallRequests ] = useState({spartan: false, cronus: false, ethos: false, flight: false, capcom: false, bme: false})
+  // const [ callRequests, setCallRequests ] = useState({spartan: false, cronus: false, ethos: false, flight: false, capcom: false, bme: false})
   const [ time, setTime ] = useState("");
   const [ reports, setReports ] = useState<statusReport[]>([])
   const [ efnID, setEfnID ] = useState("");
+  const [ firstOpens, setFirstOpens ] = useState<firstConsoleOpens>({spartan: true, cronus: true, ethos: true, flight: true, capcom: true, bme: true, efn: true, ostpv: true});
   useEffect(() => {
-    socket.off('UPDATE_TIME');
-    socket.off('CALL_REQUESTED')
-    socket.off('UPDATE_REPORTS');
-    socket.on('UPDATE_TIME', ( time: string ) => {
+    // socket.off('CALL_REQUESTED')
+    socket.off('UPDATE_TIME').on('UPDATE_TIME', ( time: string ) => {
       setTime(time);
     })
-    socket.on('CALL_REQUESTED', (sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme", time: string) => {
-      showCallRequest(sender);
-    })
-    socket.on('UPDATE_REPORTS', ( new_reports: statusReport[] ) => {
+    // socket.on('CALL_REQUESTED', (sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme", time: string) => {
+    //   showCallRequest(sender);
+    // })
+    socket.off('UPDATE_REPORTS').on('UPDATE_REPORTS', ( new_reports: statusReport[] ) => {
       setReports(new_reports);
       console.log(new_reports);
     })
   }, [])
 
   function handleOSTPVOpen(event: React.MouseEvent<HTMLButtonElement>) {
+    if (firstOpens.ostpv) {
+      socket.emit('FIRST_CONSOLE_OPEN', 'ostpv')
+      var newFirstOpens = firstOpens;
+      newFirstOpens['ostpv'] = false;
+      setFirstOpens(newFirstOpens);
+    }
     setOstpvModal(true);
     document.getElementById("ostpv-modal")!.style.visibility = "visible";
   }
@@ -74,6 +78,12 @@ const UConsole: React.FC<Props> = ( props ) => {
   }
 
   function handleStatusOpen(event: React.MouseEvent<HTMLButtonElement>) {
+    if (firstOpens.efn) {
+      socket.emit('FIRST_CONSOLE_OPEN', 'efn')
+      var newFirstOpens = firstOpens;
+      newFirstOpens['efn'] = false;
+      setFirstOpens(newFirstOpens);
+    }
     setStatusModal(true);
     document.getElementById("status-modal")!.style.visibility = "visible";
   }
@@ -100,21 +110,73 @@ const UConsole: React.FC<Props> = ( props ) => {
     handleViewEFNOpen();
   }
 
-  function handleCallRequest(event: React.MouseEvent<DropdownItem>) {
-    const currTarget = event.currentTarget as unknown as HTMLAnchorElement;
-    socket.emit("CALL_REQUEST", currTarget.text.toLowerCase(), props.userRole, props.lobbyID)
+  function updateFirstConsoleOpen(event: React.MouseEvent<any>) {
+    switch(event.currentTarget.id) {
+      case 'console-tabs-tab-spartan':
+        if (firstOpens.spartan) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'spartan-pc')
+          var newFirstOpens = firstOpens;
+          newFirstOpens['spartan'] = false;
+          setFirstOpens(newFirstOpens);
+        }
+        break;
+      case 'console-tabs-tab-cronus':
+        if (firstOpens.cronus) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'cronus-cn')
+          var newFirstOpens = firstOpens;
+          newFirstOpens['cronus'] = false;
+          setFirstOpens(newFirstOpens);
+        }
+        break;
+      case 'console-tabs-tab-ethos':
+        if (firstOpens.ethos) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'ethos-ls')
+          var newFirstOpens = firstOpens;
+          newFirstOpens['ethos'] = false;
+          setFirstOpens(newFirstOpens);
+        }
+        break;
+      case 'console-tabs-tab-flight':
+        if (firstOpens.flight) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'flight')
+          var newFirstOpens = firstOpens;
+          newFirstOpens['flight'] = false;
+          setFirstOpens(newFirstOpens);
+        }
+        break;
+      case 'console-tabs-tab-capcom':
+        if (firstOpens.capcom) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'capcom')
+          var newFirstOpens = firstOpens;
+          newFirstOpens['capcom'] = false;
+          setFirstOpens(newFirstOpens);
+        }
+        break;
+      case 'console-tabs-tab-bme':
+        if (firstOpens.bme) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'bme-eva')
+          var newFirstOpens = firstOpens;
+          newFirstOpens['bme'] = false;
+          setFirstOpens(newFirstOpens);
+        }
+        break;
+    }
   }
-  function showCallRequest(sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme") {
-    var newCallRequests = callRequests;
-    newCallRequests[sender] = true;
-    setCallRequests(newCallRequests);
-  }
-  function hideCallRequest(sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme") {
-    var newCallRequests = callRequests;
-    newCallRequests[sender] = false;
-    console.log(newCallRequests);
-    setCallRequests(newCallRequests);
-  }
+  // function handleCallRequest(event: React.MouseEvent<DropdownItem>) {
+  //   const currTarget = event.currentTarget as unknown as HTMLAnchorElement;
+  //   socket.emit("CALL_REQUEST", currTarget.text.toLowerCase(), props.userRole, props.lobbyID)
+  // }
+  // function showCallRequest(sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme") {
+  //   var newCallRequests = callRequests;
+  //   newCallRequests[sender] = true;
+  //   setCallRequests(newCallRequests);
+  // }
+  // function hideCallRequest(sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme") {
+  //   var newCallRequests = callRequests;
+  //   newCallRequests[sender] = false;
+  //   console.log(newCallRequests);
+  //   setCallRequests(newCallRequests);
+  // }
 
   return(
     <div id="game-container">
@@ -126,24 +188,31 @@ const UConsole: React.FC<Props> = ( props ) => {
       <Tab.Container id="console-tabs">
         <Row className={props.className}>
           <Col id="console-buttons" sm={2}>
+            {props.userRole === "display" &&
+              <Nav id="tutor-button" variant="pills" className="flex-column">
+                <Nav.Item>
+                  <Nav.Link eventKey="tutor">TUTOR</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            }
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
-                <Nav.Link eventKey="spartan">SPARTAN</Nav.Link>
+                <Nav.Link onClick={updateFirstConsoleOpen} eventKey="spartan">SPARTAN</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="cronus">CRONUS</Nav.Link>
+                <Nav.Link onClick={updateFirstConsoleOpen} eventKey="cronus">CRONUS</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="ethos">ETHOS</Nav.Link>
+                <Nav.Link onClick={updateFirstConsoleOpen} eventKey="ethos">ETHOS</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="flight">FLIGHT</Nav.Link>
+                <Nav.Link onClick={updateFirstConsoleOpen} eventKey="flight">FLIGHT</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="capcom">CAPCOM</Nav.Link>
+                <Nav.Link onClick={updateFirstConsoleOpen} eventKey="capcom">CAPCOM</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="bme">BME</Nav.Link>
+                <Nav.Link onClick={updateFirstConsoleOpen} eventKey="bme">BME</Nav.Link>
               </Nav.Item>
             </Nav>
             <Button variant="outline-primary" className={`${ostpvModal ? 'selected' : ''}`} onClick={handleOSTPVOpen}>OSTPV</Button>
@@ -166,6 +235,11 @@ const UConsole: React.FC<Props> = ( props ) => {
           </Col>
           <Col id="console-content" sm={10}>
             <Tab.Content id="tab-content">
+              {props.userRole &&
+                <Tab.Pane eventKey="tutor">
+                  <Tutor roomID={props.lobbyID}/>
+                </Tab.Pane>
+              }
               <Tab.Pane eventKey="spartan">
                 <Spartan />
               </Tab.Pane>
@@ -179,14 +253,13 @@ const UConsole: React.FC<Props> = ( props ) => {
                 <Flight reports={reports} handleView={handleEFNDetailedView}/>
               </Tab.Pane>
               <Tab.Pane eventKey="capcom">
-                <Capcom />
+                <Capcom time={time}/>
               </Tab.Pane>
               <Tab.Pane eventKey="bme">
                 <Bme />
               </Tab.Pane>
             </Tab.Content>
           </Col>
-
         </Row>
       </Tab.Container>
       <CSSTransition 
@@ -225,6 +298,9 @@ const Console = styled(UConsole)`
   height: 100%;
   position: absolute;
   z-index: 1;
+  #tutor-button {
+    margin-bottom: 20px;
+  }
   #console-buttons {
     display: flex;
     flex-direction: column;

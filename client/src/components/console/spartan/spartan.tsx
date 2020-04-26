@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {SpartanExtThermal} from "./spartanExtThermal"
-import {SpartanPower} from "./spartanPower"
+import {SpartanExtThermal} from "./spartanExtThermal";
+import {SpartanPower} from "./spartanPower";
+import socket from '../../Socket';
 
 interface AppProps {
   className?: string;
 };
 
-const spartan: React.FC<AppProps> = ( props ) => {
+const USpartan: React.FC<AppProps> = ( props ) => {
+  const [ firstOpensETC, setFirstOpensETC ] = useState<boolean>(true);
+  function updateFirstConsoleETCOpen(event: React.MouseEvent<any>) {
+    if (firstOpensETC) {
+      socket.emit('FIRST_CONSOLE_OPEN', 'spartan-etc')
+      setFirstOpensETC(false);
+    }
+  }
   return(
     <Tab.Container id="spartan-tabs" defaultActiveKey="power">
       <Row className={props.className}>
@@ -31,7 +39,7 @@ const spartan: React.FC<AppProps> = ( props ) => {
               <Nav.Link eventKey="power">POWER CONSOLE</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="ext-thermal">EXT. THERMAL CONTROL</Nav.Link>
+              <Nav.Link onClick={updateFirstConsoleETCOpen} eventKey="ext-thermal">EXT. THERMAL CONTROL</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
@@ -40,7 +48,7 @@ const spartan: React.FC<AppProps> = ( props ) => {
   );
 }
 
-export const Spartan = styled(spartan)`
+export const Spartan = styled(USpartan)`
   width: 100%;
   height: 100%;
   position: absolute;

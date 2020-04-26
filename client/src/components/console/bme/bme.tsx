@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
@@ -6,12 +6,20 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { VitalSignsDisplay } from './VitalSignsDisplay'
 import { EVASuitDisplay } from './EVASuitDisplay'
+import socket from '../../Socket'
 
 interface AppProps {
   className?: string;
 };
 
-const bme: React.FC<AppProps> = (props) => {
+const UBme: React.FC<AppProps> = (props) => {
+  const [ firstOpensVS, setFirstOpensVS ] = useState<boolean>(true);
+  function updateFirstConsoleVSOpen(event: React.MouseEvent<any>) {
+    if (firstOpensVS) {
+      socket.emit('FIRST_CONSOLE_OPEN', 'bme-vs')
+      setFirstOpensVS(false);
+    }
+  }
   return (
     <Tab.Container id="bme-tabs" defaultActiveKey="EVASuit">
       <Row className={props.className}>
@@ -20,11 +28,9 @@ const bme: React.FC<AppProps> = (props) => {
             <Tab.Pane eventKey="EVASuit">
               <EVASuitDisplay />
             </Tab.Pane>
-
-            <Tab.Pane eventKey="vitalSigns">
+            <Tab.Pane onClick={updateFirstConsoleVSOpen} eventKey="vitalSigns">
               <VitalSignsDisplay />
             </Tab.Pane>
-
           </Tab.Content>
         </Col>
         <Col id="bme-buttons" sm={2}>
@@ -33,7 +39,7 @@ const bme: React.FC<AppProps> = (props) => {
               <Nav.Link eventKey="EVASuit">EVA Suit</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="vitalSigns">Vital Signs</Nav.Link>
+              <Nav.Link onClick={updateFirstConsoleVSOpen} eventKey="vitalSigns">Vital Signs</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
@@ -43,7 +49,7 @@ const bme: React.FC<AppProps> = (props) => {
   );
 }
 
-export const Bme = styled(bme)`
+export const Bme = styled(UBme)`
   width: 100%;
   height: 100%;
   position: absolute;
