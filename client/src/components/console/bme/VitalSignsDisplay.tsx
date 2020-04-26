@@ -42,16 +42,12 @@ const defaultValues = {
     astronaut3: {
         heartRate: 0,
         heartRateMax: 0,
-        bloodPressureSystolic: 0,
-        bloodPressureDiastolic: 0,
         temperature: 0
     },
 
     astronaut4: {
         heartRate: 0,
         heartRateMax: 0,
-        bloodPressureSystolic: 0,
-        bloodPressureDiastolic: 0,
         temperature: 0
     }
 }
@@ -70,32 +66,28 @@ const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
                 astronaut1: {
                     heartRate: generateRandVal(60, 80).toFixed(2),
                     heartRateMax: 91,
-                    bloodPressureSystolic: generateRandVal(60, 80).toFixed(2),
-                    bloodPressureDiastolic: generateRandVal(60, 80).toFixed(2),
+                    bloodPressureSystolic: generateRandVal(60, 80).toFixed(0),
+                    bloodPressureDiastolic: generateRandVal(60, 80).toFixed(0),
                     temperature: generateRandVal(30, 45).toFixed(2)
                 },
 
                 astronaut2: {
                     heartRate: generateRandVal(60, 80).toFixed(2),
                     heartRateMax: 91,
-                    bloodPressureSystolic: generateRandVal(60, 80).toFixed(2),
-                    bloodPressureDiastolic: generateRandVal(60, 80).toFixed(2),
+                    bloodPressureSystolic: generateRandVal(60, 80).toFixed(0),
+                    bloodPressureDiastolic: generateRandVal(60, 80).toFixed(0),
                     temperature: generateRandVal(30, 45).toFixed(2)
                 },
 
                 astronaut3: {
                     heartRate: generateRandVal(60, 80).toFixed(2),
                     heartRateMax: 91,
-                    bloodPressureSystolic: generateRandVal(60, 80).toFixed(2),
-                    bloodPressureDiastolic: generateRandVal(60, 80).toFixed(2),
                     temperature: generateRandVal(30, 45).toFixed(2)
                 },
 
                 astronaut4: {
                     heartRate: generateRandVal(60, 80).toFixed(2),
                     heartRateMax: 91,
-                    bloodPressureSystolic: generateRandVal(60, 80).toFixed(2),
-                    bloodPressureDiastolic: generateRandVal(60, 80).toFixed(2),
                     temperature: generateRandVal(30, 45).toFixed(2)
                 },
 
