@@ -44,7 +44,7 @@ class Room {
         this._in_progress = false;
         this._flight_notes = [];
         this._events = [];
-        this._current_time = moment('2019-11-19T15:30:00');
+        this._current_time = moment('2019-11-15T15:00:00');
         this._time_interval_id = null;
     }
     get room_id() { return this._room_id }
@@ -76,6 +76,16 @@ class Room {
             bme: (this._consoles['bme'].length),
             flight: (this._consoles['flight'].length),
             capcom: (this._consoles['capcom'].length)
+        }
+    }
+    console_users() {
+        return {
+            spartan: this._consoles['spartan'].map((userID) => {return players[userID].name}),
+            cronus: this._consoles['cronus'].map((userID) => {return players[userID].name}),
+            ethos: this._consoles['ethos'].map((userID) => {return players[userID].name}),
+            bme: this._consoles['bme'].map((userID) => {return players[userID].name}),
+            flight: this._consoles['flight'].map((userID) => {return players[userID].name}),
+            capcom: this._consoles['capcom'].map((userID) => {return players[userID].name})
         }
     }
 }
@@ -127,11 +137,6 @@ io.on('connection', socket => {
         cb(rooms[roomID].consoles_taken());
     })
 
-    socket.on('GET_PLAYERS', (roomID, cb) => {
-        console.log('GET_PLAYERS request received');
-        cb(rooms[roomID].players);
-    })
-
     socket.on('CREATE_ROOM', (roomID) => {
         console.log('CREATE_ROOM request received with room ID: ' + roomID);
         socket.join(roomID);
@@ -161,6 +166,8 @@ io.on('connection', socket => {
         if (rooms[roomID].in_progress === true) {
             socket.emit('SHOW_DISPLAY');
             socket.emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
+            io.to(rooms[roomID].host_id).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
+            io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} joined the lab session as ${position.toUpperCase()}`);
         }
         console.log(rooms[roomID])
         console.log(players[socket.id])
@@ -180,6 +187,7 @@ io.on('connection', socket => {
             delete rooms[roomID];
         } else {
             socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
+            io.to(rooms[roomID].host_id).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
         }
         players[socket.id].name = null;
         players[socket.id].current_room = null;
@@ -195,6 +203,8 @@ io.on('connection', socket => {
                 rooms[roomID].remove_position(players[socket.id].console, socket.id);
                 rooms[roomID].player_count = rooms[roomID].player_count - 1;
                 socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
+                io.to(rooms[roomID].host_id).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) disconnected from the lab session`);
                 socket.leave(roomID);
             } else if (players[socket.id].console === 'host') {
                 rooms[roomID].host_id = null;
@@ -207,17 +217,26 @@ io.on('connection', socket => {
     })
 
     socket.on('GAME_START', (roomID) => {
-        rooms[roomID].in_progress = true;
-        socket.to(roomID).emit('SHOW_DISPLAY');
-        rooms[roomID].time_interval_id = setInterval(() => {
-            rooms[roomID].current_time = rooms[roomID].current_time.add(1, 'seconds');
-            socket.to(roomID).emit('UPDATE_TIME', rooms[roomID].current_time.format("DDDD/HH:mm"));
-        }, 1000)
+        var taken = rooms[roomID].consoles_taken();
+        var total_consoles_taken = taken.spartan + taken.cronus + taken.ethos + taken.flight + taken.capcom + taken.bme;
+        if (total_consoles_taken === rooms[roomID].player_count) {
+            rooms[roomID].in_progress = true;
+            io.in(roomID).emit('SHOW_DISPLAY');
+            rooms[roomID].time_interval_id = setInterval(() => {
+                rooms[roomID].current_time = rooms[roomID].current_time.add(1, 'seconds');
+                io.in(roomID).emit('UPDATE_TIME', rooms[roomID].current_time.format("YYYY-MM-DDTHH:mm:ss"));
+            }, 1000)
+            io.to(rooms[roomID].host_id).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
+            io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + " - Lab session started");
+        } else {
+            io.to(rooms[roomID].host_id).emit('STUDENT_NO_CONSOLE');
+        }
     })
 
     socket.on('STATUS_REPORT', (values, roomID) => {
         console.log(values.time + ": " + players[socket.id].name + " submitted status report with subject: " + values.subject);
-        rooms[roomID].add_efn(new EFN("EFN" + (rooms[roomID].flight_notes.length+1).toString().padStart(4, '0'),
+        const newEFNID = "EFN" + (rooms[roomID].flight_notes.length+1).toString().padStart(4, '0');
+        rooms[roomID].add_efn(new EFN(newEFNID,
                                       players[socket.id].console,
                                       values.subject,
                                       values.content,
@@ -225,6 +244,7 @@ io.on('connection', socket => {
                                     ))
         console.log(rooms[roomID].flight_notes);
         io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes);
+        io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) submitted an EFN (${newEFNID}) with subject: ${values.subject}`);
     })
 
     socket.on('UPDATE_EFN_STATUS', (efnID, newStatus) => {
@@ -240,6 +260,7 @@ io.on('connection', socket => {
         console.log(updated_efns);
         rooms[roomID].flight_notes = updated_efns;
         io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
+        io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) updated EFN (${efnID}) with a new status: ${newStatus.toUpperCase()}`);
     })
 
     socket.on('ADD_EFN_COMMENT', (comment, efnID, roomID) => {
@@ -254,6 +275,62 @@ io.on('connection', socket => {
         })
         rooms[roomID].flight_notes = updated_efns;
         io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
+        io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) added a new comment to EFN (${efnID})`);
+    })
+
+    socket.on('FIRST_CONSOLE_OPEN', (opened_console) => {
+        var roomID = players[socket.id].current_room;
+        if (roomID === null) { return; }
+        switch(opened_console) {
+            case 'spartan-pc':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the SPARTAN Power Console display for the first time`);
+                break;
+            case 'spartan-etc':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the SPARTAN External Thermal Control display for the first time`);
+                break;
+            case 'cronus-cn':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Computer Network display for the first time`);
+                break;
+            case 'cronus-uhf':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS UHF Comms display for the first time`);
+                break;
+            case 'cronus-sband':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS S-Band Comms display for the first time`);
+                break;
+            case 'cronus-vc1':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Video Comms 1 display for the first time`);
+                break;
+            case 'cronus-vc2':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Video Comms 2 display for the first time`);
+                break;
+            case 'ethos-ls':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Life Support display for the first time`);
+                break;
+            case 'ethos-ts':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Thermal System display for the first time`);
+                break;
+            case 'ethos-rls':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Regenerative Life Support display for the first time`);
+                break;
+            case 'flight':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the FLIGHT display for the first time`);
+                break;
+            case 'capcom':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CAPCOM display for the first time`);
+                break;
+            case 'bme-eva':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the BME EVA Suit display for the first time`);
+                break;
+            case 'bme-vs':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the BME Vital Signs display for the first time`);
+                break;
+            case 'efn':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the EFN modal for the first time`);
+                break;
+            case 'ostpv':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the OSTPV modal for the first time`);
+                break;
+        }
     })
 
     // NO MORE NEED FOR CALL REQUESTS AS THIS WAS REMOVED FROM REQUIREMENTS

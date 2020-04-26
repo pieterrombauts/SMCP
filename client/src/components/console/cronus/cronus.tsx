@@ -10,6 +10,7 @@ import CronusSBandCommsDisplay from './CronusSBandCommsDisplay'
 import CronusVidComm1Display from './CronusVidComm1Display'
 import CronusVidComm2Display from './CronusVidComm2Display'
 import { generateRandVal } from '../../../dataGenerator';
+import socket from '../../Socket';
 
 interface AppProps {
   className?: string;
@@ -60,6 +61,43 @@ const Cronus: React.FC<AppProps> = ( props ) => {
     }, 5000);
     intervalRef.current = id;
   },[])
+  const [ firstOpensCronus, setFirstOpensCronus ] = useState<{uhf: boolean, sband: boolean, vc1: boolean, vc2: boolean}>({uhf: true, sband: true, vc1: true, vc2: true});
+  function updateFirstConsoleOpenCronus(event: React.MouseEvent<any>) {
+    switch(event.currentTarget.id) {
+      case 'cronus-tabs-tab-uhf-comms':
+        if (firstOpensCronus.uhf) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'cronus-uhf')
+          var newFirstOpens = firstOpensCronus;
+          newFirstOpens['uhf'] = false;
+          setFirstOpensCronus(newFirstOpens);
+        }
+        break;
+      case 'cronus-tabs-tab-s-band-comms':
+        if (firstOpensCronus.sband) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'cronus-sband')
+          var newFirstOpens = firstOpensCronus;
+          newFirstOpens['sband'] = false;
+          setFirstOpensCronus(newFirstOpens);
+        }
+        break;
+      case 'cronus-tabs-tab-vid-comms-1':
+        if (firstOpensCronus.vc1) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'cronus-vc1')
+          var newFirstOpens = firstOpensCronus;
+          newFirstOpens['vc1'] = false;
+          setFirstOpensCronus(newFirstOpens);
+        }
+        break;
+      case 'cronus-tabs-tab-vid-comms-2':
+        if (firstOpensCronus.vc2) {
+          socket.emit('FIRST_CONSOLE_OPEN', 'cronus-vc2')
+          var newFirstOpens = firstOpensCronus;
+          newFirstOpens['vc2'] = false;
+          setFirstOpensCronus(newFirstOpens);
+        }
+        break;
+    }
+  }
   return(
     <Tab.Container id="cronus-tabs" defaultActiveKey="comp-net">
       <Row className={props.className}>
@@ -88,16 +126,16 @@ const Cronus: React.FC<AppProps> = ( props ) => {
               <Nav.Link eventKey="comp-net">COMPUTER NETWORK</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="uhf-comms">UHF COMMS</Nav.Link>
+              <Nav.Link onClick={updateFirstConsoleOpenCronus} eventKey="uhf-comms">UHF COMMS</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="s-band-comms">S-BAND COMMS</Nav.Link>
+              <Nav.Link onClick={updateFirstConsoleOpenCronus} eventKey="s-band-comms">S-BAND COMMS</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="vid-comms-1">VIDEO COMMS 1</Nav.Link>
+              <Nav.Link onClick={updateFirstConsoleOpenCronus} eventKey="vid-comms-1">VIDEO COMMS 1</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="vid-comms-2">VIDEO COMMS 2</Nav.Link>
+              <Nav.Link onClick={updateFirstConsoleOpenCronus} eventKey="vid-comms-2">VIDEO COMMS 2</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>

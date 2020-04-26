@@ -26,17 +26,17 @@ type Props = PropsFromRedux & LobbyProps
 
 const ULobby: React.FC<Props> = ( props ) => { 
   useEffect(() => {
-    socket.off('UPDATE_CONSOLES');
-    socket.off('HOST_LEFT');
-    socket.off('SHOW_DISPLAY')
-    socket.on('UPDATE_CONSOLES', ( data: object ) => {
+    socket.off('STUDENT_NO_CONSOLE').on('STUDENT_NO_CONSOLE', () => {
+      alert('Could not start game. There are students in the session who have not selected a console.')
+    })
+    socket.off('UPDATE_CONSOLES').on('UPDATE_CONSOLES', ( data: object ) => {
       props.updateConsoles({ consoles: data })
     })
-    socket.on('HOST_LEFT', () => {
+    socket.off('HOST_LEFT').on('HOST_LEFT', () => {
       console.log('Host disconnected')
       handleLobbyExit()
     })
-    socket.on('SHOW_DISPLAY', ()=> {
+    socket.off('SHOW_DISPLAY').on('SHOW_DISPLAY', ()=> {
       props.animateMenus({home: "hide", join: "hide", lobby: "hide", game: "show"})
     })
   }, [ props.lobbyID ])

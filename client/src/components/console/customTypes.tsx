@@ -147,6 +147,24 @@ export interface bmeEVASuitDisplay {
     water: number,
     batteryCharge: number
   }
-
 }
 
+export interface consoleUsers {
+  spartan: string[],
+  cronus: string[],
+  ethos: string[],
+  flight: string[],
+  capcom: string[],
+  bme: string[]
+}
+
+export interface firstConsoleOpens {
+  spartan: boolean,
+  cronus: boolean,
+  ethos: boolean,
+  flight: boolean,
+  capcom: boolean,
+  bme: boolean,
+  efn: boolean,
+  ostpv: boolean
+}
