@@ -66,16 +66,16 @@ const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
                 astronaut1: {
                     heartRate: generateRandVal(60, 80).toFixed(2),
                     heartRateMax: 91,
-                    bloodPressureSystolic: generateRandVal(60, 80).toFixed(0),
-                    bloodPressureDiastolic: generateRandVal(60, 80).toFixed(0),
+                    bloodPressureSystolic: generateRandVal(125, 124).toFixed(0),
+                    bloodPressureDiastolic: generateRandVal(60, 65).toFixed(0),
                     temperature: generateRandVal(30, 45).toFixed(2)
                 },
 
                 astronaut2: {
                     heartRate: generateRandVal(60, 80).toFixed(2),
                     heartRateMax: 91,
-                    bloodPressureSystolic: generateRandVal(60, 80).toFixed(0),
-                    bloodPressureDiastolic: generateRandVal(60, 80).toFixed(0),
+                    bloodPressureSystolic: generateRandVal(125, 124).toFixed(0),
+                    bloodPressureDiastolic: generateRandVal(60, 65).toFixed(0),
                     temperature: generateRandVal(30, 45).toFixed(2)
                 },
 
