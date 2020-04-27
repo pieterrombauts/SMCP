@@ -9,8 +9,8 @@ interface ButtonsProps {
 
 const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
   const [ signal, setSignal ] = useState<boolean>(true)
-  const [ losTimes, setLosTimes ] = useState<string[]>(['2019-11-15T15:47:37', '2019-11-15T16:27:51', '2019-11-15T16:33:53', '2019-11-15T16:37:03', '2019-11-15T16:40:10', '2019-11-15T16:43:24'])
-  const [ aosTimes, setAosTimes ] = useState<string[]>(['2019-11-15T15:47:52', '2019-11-15T16:29:28', '2019-11-15T16:35:46', '2019-11-15T16:39:19', '2019-11-15T16:42:07', '2019-11-15T16:44:25'])
+  const [ losTimes, setLosTimes ] = useState<string[]>(['2019-11-15T15:17:37', '2019-11-15T15:57:51', '2019-11-15T16:03:53', '2019-11-15T16:07:03', '2019-11-15T16:10:10', '2019-11-15T16:13:24','2019-11-15T16:52:26','2019-11-15T17:37:00'])
+  const [ aosTimes, setAosTimes ] = useState<string[]>(['2019-11-15T15:17:52', '2019-11-15T15:59:28', '2019-11-15T16:05:46', '2019-11-15T16:09:19', '2019-11-15T16:12:07', '2019-11-15T16:14:25','2019-11-15T17:00:00','2019-11-15T17:44:00'])
   const [ nextAOS, setNextAOS ] = useState<string>("");
   const [ nextLOS, setNextLOS ] = useState<string>("");
   useEffect(() => {

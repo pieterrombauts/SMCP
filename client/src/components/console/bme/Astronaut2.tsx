@@ -26,8 +26,6 @@ const Astronaut2: React.FC<A2Props> = ( props ) => {
       <text x="76.5%" y="30%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">{props.values.astronaut2.bloodPressureDiastolic.toFixed(0)}</text>
 
       <text x="72%" y="35%" fill="white" fontSize="20" fontFamily="Verdana">Temperature (°C)</text>
-      <text x="91%" y="35%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">{props.values.astronaut2.temperature}</text>
-
     </g>
   )
 };

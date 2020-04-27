@@ -25,7 +25,6 @@ const Astronaut3: React.FC<A3Props> = ( props ) => {
       <text x="22%" y="79.5%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">115 / 70</text>
 
       <text x="22%" y="84.5%" fill="white" fontSize="20" fontFamily="Verdana">Temperature (°C)</text>
-      <text x="41%" y="84.5%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">{props.values.astronaut3.temperature}</text>
     
     </g>
   )

@@ -8,6 +8,7 @@ import { generateRandVal } from '../../../dataGenerator';
 import SmoothieComponent, { TimeSeries } from 'react-smoothie';
 import { decreaseSystolic } from '../../../bloodPressureSystolic';
 import { increaseDiastolic } from '../../../bloodPressureDiastolic';
+import { SmoothieGraph } from './SmoothieGraph';
 // import bme_1 from "./../../media/Bme_1.png"
 // import bme_2 from "./../../media/Bme_2.png"
 
@@ -109,64 +110,46 @@ const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
 
         <div className={props.className}>
             <div id="smoothie1-div">
-                <SmoothieComponent height={100} width={300} series={[
-                    {
-                        data: ts1,
-                        strokeStyle: { r: 126, g: 245, b: 110},
-                        fillStyle: { r: 126, g: 245, b: 110},
-                        lineWidth: 1,
-                    }
-                ]}
+                <SmoothieGraph 
+                    id={"smoothie1"}
+                    updateSpeed={5000}
+                    maxValue={37.5}
+                    minValue={36.5}
+                    yLimits={[35,40]}
                 />
-
             </div>
-
             <div id="smoothie2-div">
-                <SmoothieComponent height={80} width={300} series={[
-                    {
-                        data: ts2,
-                        strokeStyle: { r: 126, g: 245, b: 110},
-                        fillStyle: { r: 126, g: 245, b: 110},
-                        lineWidth: 1,
-                    }
-                ]}
+                <SmoothieGraph 
+                    id={"smoothie2"}
+                    updateSpeed={5000}
+                    maxValue={37.5}
+                    minValue={36.5}
+                    yLimits={[35,40]}
                 />
-
             </div>
-
             <div id="smoothie3-div">
-                <SmoothieComponent height={100} width={300} series={[
-                    {
-                        data: ts3,
-                        strokeStyle: { r: 126, g: 245, b: 110},
-                        fillStyle: { r: 126, g: 245, b: 110},
-                        lineWidth: 1,
-                    }
-                ]}
+                <SmoothieGraph 
+                    id={"smoothie3"}
+                    updateSpeed={5000}
+                    maxValue={37.5}
+                    minValue={36.5}
+                    yLimits={[35,40]}
                 />
-
             </div>
-
             <div id="smoothie4-div">
-                <SmoothieComponent height={100} width={300} series={[
-                    {
-                        data: ts4,
-                        strokeStyle: { r: 126, g: 245, b: 110},
-                        fillStyle: { r: 126, g: 245, b: 110},
-                        lineWidth: 1,
-                    }
-                ]}
+                <SmoothieGraph 
+                    id={"smoothie4"}
+                    updateSpeed={5000}
+                    maxValue={37.5}
+                    minValue={36.5}
+                    yLimits={[35,40]}
                 />
-
             </div>
-
             <svg preserveAspectRatio='xMidYMid meet' viewBox='0 0 1400 1000'>
-
                 <Astronaut1 values={values} />
                 <Astronaut2 values={values} />
                 <Astronaut3 values={values} />
                 <Astronaut4 values={values} />
-
             </svg>
         </div>
     );
@@ -179,28 +162,28 @@ export const VitalSignsDisplay = styled(UVitalSignsDisplay)`
 
   #smoothie1-div{ 
     position: absolute;
-    top: 36%;
+    top: 34%;
     left: 22%;
 
   }
 
   #smoothie2-div{ 
     position: absolute;
-    top: 36%;
+    top: 34%;
     left: 72%;
 
   }
 
   #smoothie3-div{ 
     position: absolute;
-    top: 83%;
+    top: 84%;
     left: 22%;
 
   }
 
   #smoothie4-div{ 
     position: absolute;
-    top: 83%;
+    top: 84%;
     left: 72%;
 
   }
