@@ -13,14 +13,14 @@ interface EVASDProps {
 const defaultValues = {
     eva1: {
         helmetPressure: 0,
-        o2: 70,
+        o2: 65,
         water: 80,
         batteryCharge: 67
     },
 
     eva2: {
         helmetPressure: 0,
-        o2: 70,
+        o2: 65,
         water: 80,
         batteryCharge: 68
     }
