@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import EVA1 from './EVA1';
 import EVA2 from './EVA2';
 import { generateRandVal } from '../../../dataGenerator';
-// import { decreaseVal } from '../../../dataDecrease'
-import { bmeEVASuitDisplay } from '../customTypes'
+import { decreaseValue } from '../../../dataDecreaser';
 
 
 interface EVASDProps {
@@ -14,16 +13,16 @@ interface EVASDProps {
 const defaultValues = {
     eva1: {
         helmetPressure: 0,
-        o2: 0,
-        water: 0,
-        batteryCharge: 0
+        o2: 65,
+        water: 80,
+        batteryCharge: 67
     },
 
     eva2: {
         helmetPressure: 0,
-        o2: 0,
-        water: 0,
-        batteryCharge: 0
+        o2: 65,
+        water: 80,
+        batteryCharge: 68
     }
 }
 
@@ -37,7 +36,7 @@ const UEVASuitDisplay: React.FC<EVASDProps> = (props) => {
         }
 
         
-        console.log((values.eva1.o2));
+        console.log(("Initial Values: " + values.eva1.o2));
 
 
         const id = setInterval(() => {
@@ -45,29 +44,21 @@ const UEVASuitDisplay: React.FC<EVASDProps> = (props) => {
             var newValues =     {
                 eva1: {
                     helmetPressure: generateRandVal(8, 10).toFixed(2),
-                    o2: generateRandVal(60, 63).toFixed(2),
-                    water: generateRandVal(74, 76).toFixed(2),
-                    batteryCharge: generateRandVal(47, 45).toFixed(2)
+                    o2: parseFloat(decreaseValue(values.eva1.o2).toFixed(2)),
+                    water: parseFloat(decreaseValue(values.eva1.water).toFixed(2)),
+                    batteryCharge: parseFloat(decreaseValue(values.eva1.batteryCharge).toFixed(2)),
                 },
 
                 eva2: {
                     helmetPressure: generateRandVal(8, 10).toFixed(2),
-                    o2: generateRandVal(60, 63).toFixed(2),
-                    water: generateRandVal(74, 76).toFixed(2),
-                    batteryCharge: generateRandVal(47, 45).toFixed(2)
+                    o2: parseFloat(decreaseValue(values.eva2.o2).toFixed(2)),
+                    water: parseFloat(decreaseValue(values.eva2.water).toFixed(2)),
+                    batteryCharge: parseFloat(decreaseValue(values.eva2.batteryCharge).toFixed(2)),
                 }
 
             }
-            
-            setValues(newValues);
-            //console.log((newValues.eva1.o2));
-            
-            //decreaseVal(newValues.eva1.o2);
-            // console.log(("New Values: " + newValues.eva1.o2));
-            // decreaseVal(values.eva1.o2);
-            // console.log(("Values: " + values.eva1.o2));
-
-
+             
+            setValues(values = newValues);
         }, 5000);
         intervalRef.current = id;
     }, [])
