@@ -12,6 +12,7 @@ yarn.lock
 
 # production
 /build
+/client/build
 
 # misc
 .vscode/
