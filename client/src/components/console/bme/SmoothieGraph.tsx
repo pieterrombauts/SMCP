@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { SmoothieChart, TimeSeries } from 'smoothie/smoothie.js'
 
@@ -35,9 +35,8 @@ const USmoothieGraph: React.FC<SmoothieProps> = ( props ) => {
       let newValue = (Math.random() * (props.maxValue - props.minValue) + props.minValue);
       series.append(Date.now(), newValue);
       const readout = document.querySelector(`#${props.id}-readout`) as HTMLHeadingElement;
-      console.log(series)
-      if (series.data.length > 2) {
-        readout.innerHTML = series.data[series.data.length-2][1].toFixed(1).toString() + " °C";
+      if ((series as any).data.length > 2) {
+        readout.innerHTML = (series as any).data[(series as any).data.length-2][1].toFixed(1).toString() + " °C";
       }
   }
 
