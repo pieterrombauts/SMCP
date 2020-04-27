@@ -1,18 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Tab from 'react-bootstrap/Tab'
 import WarningSummary from './WarningSummary'
 import ButtonsDisplay from './ButtonsDisplay'
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '../../../reducers';
 
 interface AppProps {
   className?: string;
-  time: string;
 };
 
-const capcom: React.FC<AppProps> = (props) => {
+const mapState = (state: RootState ) => ({
+  time: state.dataReducer.time,
+})
+
+const connector = connect(mapState)
+type PropsFromRedux = ConnectedProps<typeof connector>
+type Props = PropsFromRedux & AppProps
+
+const UCapcom: React.FC<Props> = (props) => {
   return (
     <Tab.Container id="campcom-tab" defaultActiveKey="capcom">
       <Row className={props.className}>
@@ -26,8 +34,10 @@ const capcom: React.FC<AppProps> = (props) => {
   );
 }
 
-export const Capcom = styled(capcom)`
+const ConCapcom = styled(UCapcom)`
   width: 100%;
   height: 100%;
   position: absolute;
 `;
+
+export const Capcom = connector(ConCapcom);

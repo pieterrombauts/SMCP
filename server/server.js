@@ -137,6 +137,10 @@ io.on('connection', socket => {
         cb(rooms[roomID].consoles_taken());
     })
 
+    socket.on('GET_CURRENT_TIME', (roomID, cb) => {
+        cb(rooms[roomID].current_time)
+    })
+
     socket.on('CREATE_ROOM', (roomID) => {
         console.log('CREATE_ROOM request received with room ID: ' + roomID);
         socket.join(roomID);
@@ -184,6 +188,7 @@ io.on('connection', socket => {
             console.log('HOST_LEFT event emitted for room: ' + roomID)
         }
         if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null ) {
+            clearInterval(rooms[roomID].time_interval_id)
             delete rooms[roomID];
         } else {
             socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
@@ -278,6 +283,12 @@ io.on('connection', socket => {
         io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) added a new comment to EFN (${efnID})`);
     })
 
+    socket.on('UPDATE_EVENT_STATUS', (eventID, title, astronaut, newStatus) => {
+        var roomID = players[socket.id].current_room;
+        io.in(roomID).emit('UPDATE_EVENTS', eventID, newStatus, rooms[roomID].current_time)
+        io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) updated event (${astronaut}: ${title.substring(2)}) with a new status: ${newStatus.toUpperCase()}`);
+    })
+
     socket.on('FIRST_CONSOLE_OPEN', (opened_console) => {
         var roomID = players[socket.id].current_room;
         if (roomID === null) { return; }
@@ -329,6 +340,9 @@ io.on('connection', socket => {
                 break;
             case 'ostpv':
                 io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the OSTPV modal for the first time`);
+                break;
+            case 'event-modal':
+                io.to(rooms[roomID].host_id).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the Event Details modal for the first time`);
                 break;
         }
     })

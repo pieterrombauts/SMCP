@@ -51,7 +51,7 @@ const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
         <text x="780" y="230" fill="white" fontSize="50" fontFamily="Verdana">Next AOS {nextAOS}</text>
         <text x="780" y="310" fill="white" fontSize="50" fontFamily="Verdana">Next LOS {nextLOS}</text>
 
-        <rect y='20' rx="5" ry="5" width="700" height="400" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
+        <rect x='0' y='20' rx="5" ry="5" width="700" height="400" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
         
         <rect x="20" y="40" rx="5" ry="5" width="110" height="90" style={{fill:"red", stroke:"#393939", strokeWidth:5}} />
         <text x="40" y="95" fill="white" fontSize="30" fontFamily="Verdana">FIRE</text>

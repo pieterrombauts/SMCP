@@ -10,7 +10,6 @@ interface AppProps {
   closeFunction: () => void;
   reports: statusReport[];
   selectedEfn: string;
-  time: string;
   lobbyID: string;
 };
 

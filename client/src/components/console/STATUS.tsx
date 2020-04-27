@@ -4,16 +4,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import socket from '../Socket';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '../../reducers';
 
 interface AppProps {
   className?: string;
   lobbyID: string;
   userRole: string;
-  time: string;
   closeFunction: () => void;
 };
 
-const USTATUS: React.FC<AppProps> = ( props ) => {
+const mapState = (state: RootState ) => ({
+  time: state.dataReducer.time,
+})
+
+const connector = connect(mapState)
+type PropsFromRedux = ConnectedProps<typeof connector>
+type Props = PropsFromRedux & AppProps
+
+const USTATUS: React.FC<Props> = ( props ) => {
   const subjectRef = React.useRef<any>(null);
   const contentRef = React.useRef<any>(null);
   function sendStatusReport(e: React.FormEvent) {
@@ -42,4 +51,6 @@ const USTATUS: React.FC<AppProps> = ( props ) => {
   );
 }
 
-export const STATUS = styled(USTATUS)``;
+const ConSTATUS = styled(USTATUS)``;
+
+export const STATUS = connector(ConSTATUS);
