@@ -3,20 +3,16 @@ import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 import socket from '../Socket'
-import { statusReport } from '../console/customTypes';
+import { statusReport, OptionType } from '../console/customTypes';
 import Button from 'react-bootstrap/Button';
 import Select, { ValueType, ActionMeta } from 'react-select';
+import moment from 'moment'
 
 interface AppProps {
   className?: string;
   reports: statusReport[];
   handleView: (efnID: string) => void;
 };
-
-type OptionType = {
-  value: string;
-  label: string;
-}
 
 const options: OptionType[] = [
   { value: 'open', label: 'Open'},
@@ -58,7 +54,7 @@ const UFlight: React.FC<AppProps> = ( props ) => {
                   <td>{report._sender.toUpperCase()}</td>
                   <td>{report._subject}</td>
                   <td><Select name={report._ID} options={options} onChange={(newValue: ValueType<OptionType>, actionMeta) => {updateEFNStatus(newValue, actionMeta)}} value={selectValue}/></td>
-                  <td>{report._time + " GMT"}</td>
+                  <td>{moment(report._time).format('DDDD/HH:mm') + " GMT"}</td>
                   <td><Button name={report._ID} onClick={handleViewButtonPress}>View</Button></td>
                 </tr>
               )

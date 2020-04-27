@@ -11,11 +11,20 @@ import CronusVidComm1Display from './CronusVidComm1Display'
 import CronusVidComm2Display from './CronusVidComm2Display'
 import { generateRandVal } from '../../../dataGenerator';
 import socket from '../../Socket';
+import { connect, ConnectedProps } from 'react-redux';
+import { RootState } from '../../../reducers';
 
 interface AppProps {
   className?: string;
-  time: string;
 };
+
+const mapState = (state: RootState ) => ({
+  time: state.dataReducer.time,
+})
+
+const connector = connect(mapState)
+type PropsFromRedux = ConnectedProps<typeof connector>
+type Props = PropsFromRedux & AppProps
 
 const defaultValues = {
   compNet: {
@@ -33,10 +42,9 @@ const defaultValues = {
   }
 }
 
-const Cronus: React.FC<AppProps> = ( props ) => {
-  var [values, setValues] = useState(defaultValues)
+const Cronus: React.FC<Props> = ( props ) => {
+  var [values, setValues] = useState(defaultValues);
   const intervalRef = useRef(0);
-
   useEffect(() => {
     if (intervalRef.current !== 0) {
       clearInterval(intervalRef.current);
@@ -144,7 +152,7 @@ const Cronus: React.FC<AppProps> = ( props ) => {
   );
 }
 
-export const Cronus1 = styled(Cronus)`
+const ConCronus1 = styled(Cronus)`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -167,3 +175,5 @@ export const Cronus1 = styled(Cronus)`
   }
 
 `;
+
+export const Cronus1 = connector(ConCronus1);

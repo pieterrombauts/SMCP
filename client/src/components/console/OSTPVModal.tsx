@@ -5,6 +5,7 @@ import { OSTPV } from './OSTPV'
 
 interface AppProps {
   className?: string;
+  lobbyID: string;
   show: boolean;
   closeFunction: () => void;
 };
@@ -19,7 +20,7 @@ const UOSTPVModal: React.FC<AppProps> = ( props ) => {
     <div id="ostpv-modal" className={props.className}>
       <div id="modal-overlay" onMouseUp={handleOverlayClick}>
         <div id="modal-content">
-          <OSTPV />
+          <OSTPV lobbyID={props.lobbyID}/>
         </div>
       </div>
     </div>

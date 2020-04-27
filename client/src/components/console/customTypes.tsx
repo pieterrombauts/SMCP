@@ -168,3 +168,33 @@ export interface firstConsoleOpens {
   efn: boolean,
   ostpv: boolean
 }
+
+export type OptionType = {
+  value: string;
+  label: string;
+}
+
+export interface event {
+  id: number,
+  resourceId: string,
+  astronaut: string,
+  title: string,
+  start: string,
+  end: string,
+  procedure: string,
+  location: string,
+  classNames: string[]
+}
+
+export interface selectedEvent {
+  id: number,
+  title: string,
+  start: string,
+  end: string,
+  extendedProps: {
+    astronaut: string,
+    procedure: string,
+    location: string,
+  }
+  classNames: string[]
+}

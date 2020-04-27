@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button'
@@ -20,6 +20,7 @@ import {Flight} from './flight';
 import {Bme} from './bme/bme';
 // import { CallRequestGroup } from './CallRequestGroup'
 import { RootState } from '../../reducers';
+import { updateTime } from '../../slices/dataSlice'
 import socket from '../Socket'
 import { connect, ConnectedProps } from 'react-redux';
 import { Tutor } from './tutor/Tutor';
@@ -33,7 +34,7 @@ const mapState = (state: RootState ) => ({
   userRole: state.lobbyPositionsReducer.userRole
 })
 
-const connector = connect(mapState)
+const connector = connect(mapState, { updateTime })
 type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux & consoleProps
 
@@ -42,18 +43,17 @@ const UConsole: React.FC<Props> = ( props ) => {
   const [ statusModal, setStatusModal ] = useState(false);
   const [ viewEFNModal, setViewEFNModal ] = useState(false);
   // const [ callRequests, setCallRequests ] = useState({spartan: false, cronus: false, ethos: false, flight: false, capcom: false, bme: false})
-  const [ time, setTime ] = useState("");
   const [ reports, setReports ] = useState<statusReport[]>([])
   const [ efnID, setEfnID ] = useState("");
   const [ firstOpens, setFirstOpens ] = useState<firstConsoleOpens>({spartan: true, cronus: true, ethos: true, flight: true, capcom: true, bme: true, efn: true, ostpv: true});
   useEffect(() => {
     // socket.off('CALL_REQUESTED')
-    socket.off('UPDATE_TIME').on('UPDATE_TIME', ( time: string ) => {
-      setTime(time);
-    })
     // socket.on('CALL_REQUESTED', (sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme", time: string) => {
     //   showCallRequest(sender);
     // })
+    socket.off('UPDATE_TIME').on('UPDATE_TIME', ( time: string ) => {
+      props.updateTime({time: time});
+    })
     socket.off('UPDATE_REPORTS').on('UPDATE_REPORTS', ( new_reports: statusReport[] ) => {
       setReports(new_reports);
       console.log(new_reports);
@@ -244,7 +244,7 @@ const UConsole: React.FC<Props> = ( props ) => {
                 <Spartan />
               </Tab.Pane>
               <Tab.Pane eventKey="cronus">
-                <Cronus1 time={time} />
+                <Cronus1 />
               </Tab.Pane>
               <Tab.Pane eventKey="ethos">
                 <Ethos />
@@ -253,7 +253,7 @@ const UConsole: React.FC<Props> = ( props ) => {
                 <Flight reports={reports} handleView={handleEFNDetailedView}/>
               </Tab.Pane>
               <Tab.Pane eventKey="capcom">
-                <Capcom time={time}/>
+                <Capcom />
               </Tab.Pane>
               <Tab.Pane eventKey="bme">
                 <Bme />
@@ -269,7 +269,7 @@ const UConsole: React.FC<Props> = ( props ) => {
         onEnter={() => {animateCSS("#modal-overlay", "fadeIn", ["faster"])}}
         onExit={() => {animateCSS("#modal-overlay", "fadeOut", ["faster"])}}
       >
-        <OSTPVModal show={ostpvModal} closeFunction={handleOSTPVClose}/>
+        <OSTPVModal lobbyID={props.lobbyID} show={ostpvModal} closeFunction={handleOSTPVClose}/>
       </CSSTransition>
       <CSSTransition 
         in={statusModal === true}
@@ -278,7 +278,7 @@ const UConsole: React.FC<Props> = ( props ) => {
         onEnter={() => {animateCSS("#modal-overlay-status", "fadeIn", ["faster"])}}
         onExit={() => {animateCSS("#modal-overlay-status", "fadeOut", ["faster"])}}
       >
-        <STATUSModal userRole={props.userRole} lobbyID={props.lobbyID} time={time} show={statusModal} closeFunction={handleStatusClose}/>
+        <STATUSModal userRole={props.userRole} lobbyID={props.lobbyID} show={statusModal} closeFunction={handleStatusClose}/>
       </CSSTransition>
       <CSSTransition 
         in={viewEFNModal === true}
@@ -287,7 +287,7 @@ const UConsole: React.FC<Props> = ( props ) => {
         onEnter={() => {animateCSS("#modal-overlay-view-efn", "fadeIn", ["faster"])}}
         onExit={() => {animateCSS("#modal-overlay-view-efn", "fadeOut", ["faster"])}}
       >
-        <ViewEFNModal lobbyID={props.lobbyID} time={time} show={viewEFNModal} reports={reports} selectedEfn={efnID} closeFunction={handleViewEFNClose}/>
+        <ViewEFNModal lobbyID={props.lobbyID} show={viewEFNModal} reports={reports} selectedEfn={efnID} closeFunction={handleViewEFNClose}/>
       </CSSTransition>
     </div>
   );
