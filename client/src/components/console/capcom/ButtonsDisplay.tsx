@@ -42,7 +42,10 @@ const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
       <svg preserveAspectRatio='xMidYMid meet' viewBox='0 0 1300 990'>
         <rect x="740" y="20" rx="5" ry="5" width="560" height="400" style={{fill:"#393939", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
         
+
+        
         <rect x="770" y="40" rx="5" ry="5" width="200" height="100" style={{fill: signal ? "#00CC00" : "#004000", stroke:"#393939", strokeWidth:5}} />
+        
         <text x="810" y="110" fill={signal ? "white" : "grey"} fontSize="50" fontFamily="Verdana">AOS</text>
 
         <rect x="1060" y="40" rx="5" ry="5" width="200" height="100" style={{fill: signal ? "#640000" : "#FF0000", stroke:"#393939", strokeWidth:5}} />
@@ -53,23 +56,25 @@ const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
 
         <rect x='0' y='20' rx="5" ry="5" width="700" height="400" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
         
-        <rect x="20" y="40" rx="5" ry="5" width="110" height="90" style={{fill:"red", stroke:"#393939", strokeWidth:5}} />
-        <text x="40" y="95" fill="white" fontSize="30" fontFamily="Verdana">FIRE</text>
+        <text x="30" y="100" fill="white" fontSize="50" fontFamily="Verdana" text-decoration="underline">Caution & Warning </text>
+        
+        <rect x="20" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
+        <text x="40" y="195" fill="black" fontSize="30" fontFamily="Verdana">FIRE</text>
 
-        <rect x="160" y="40" rx="5" ry="5" width="110" height="90" style={{fill:"red", stroke:"#393939", strokeWidth:5}} />
-        <text x="180" y="95" fill="white" fontSize="30" fontFamily="Verdana">ΔP</text>
+        <rect x="160" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
+        <text x="180" y="195" fill="black" fontSize="30" fontFamily="Verdana">ΔP</text>
 
-        <rect x="300" y="40" rx="5" ry="5" width="110" height="90" style={{fill:"red", stroke:"#393939", strokeWidth:5}} />
-        <text x="320" y="95" fill="white" fontSize="30" fontFamily="Verdana">ATM</text>
+        <rect x="300" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
+        <text x="320" y="195" fill="black" fontSize="30" fontFamily="Verdana">ATM</text>
 
-        <rect x="440" y="40" rx="5" ry="5" width="110" height="90" style={{fill:"red", stroke:"#393939", strokeWidth:5}} />
-        <text x="450" y="95" fill="white" fontSize="18" fontFamily="Verdana">WARNING</text>
+        <rect x="440" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
+        <text x="450" y="195" fill="black" fontSize="18" fontFamily="Verdana">WARNING</text>
 
-        <rect x="580" y="40" rx="5" ry="5" width="110" height="90" style={{fill:"yellow", stroke:"#393939", strokeWidth:5}} />
-        <text x="590" y="95" fill="black" fontSize="18" fontFamily="Verdana">CAUTION</text>
+        <rect x="580" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
+        <text x="590" y="195" fill="black" fontSize="18" fontFamily="Verdana">CAUTION</text>
 
-        <rect x="580" y="200" rx="5" ry="5" width="110" height="90" style={{fill:"yellow", stroke:"#393939", strokeWidth:5}} />
-        <text x="595" y="255" fill="black" fontSize="30" fontFamily="Verdana">TEST</text>
+        <rect x="580" y="300" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
+        <text x="595" y="355" fill="black" fontSize="30" fontFamily="Verdana">TEST</text>
       </svg>
     </div>
   )

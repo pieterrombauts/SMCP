@@ -119,16 +119,12 @@ export interface bmeVitalSignsDisplay {
   astronaut3: {
     heartRate: number,
     heartRateMax: number,
-    bloodPressureSystolic: number,
-    bloodPressureDiastolic: number,
     temperature: number
   }
 
   astronaut4: {
     heartRate: number,
     heartRateMax: number,
-    bloodPressureSystolic: number,
-    bloodPressureDiastolic: number,
     temperature: number
   }
 }

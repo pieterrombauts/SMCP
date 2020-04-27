@@ -22,8 +22,8 @@ const Astronaut1: React.FC<A1Props> = ( props ) => {
       <text x="41%" y="17%" fill="#f74848" fontSize="20" fontFamily="Verdana">{props.values.astronaut1.heartRateMax}</text>
 
       <text x="22%" y="27%" fill="white" fontSize="20" fontFamily="Verdana">Blood Pressure (mmHg)</text>
-      <text x="22%" y="30%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">{props.values.astronaut1.bloodPressureSystolic} / </text>
-      <text x="27.5%" y="30%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">{props.values.astronaut1.bloodPressureDiastolic}</text>
+      <text x="22%" y="30%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">{props.values.astronaut1.bloodPressureSystolic.toFixed(0)} / </text>
+      <text x="26.5%" y="30%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">{props.values.astronaut1.bloodPressureDiastolic.toFixed(0)}</text>
 
       <text x="22%" y="35%" fill="white" fontSize="20" fontFamily="Verdana">Temperature (°C)</text>
       <text x="41%" y="35%" fill="#7ef56e" fontSize="20" fontFamily="Verdana">{props.values.astronaut1.temperature}</text>
