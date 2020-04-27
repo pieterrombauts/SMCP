@@ -66,7 +66,7 @@ const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
                     heartRateMax: 91,
                     bloodPressureSystolic: parseFloat(decreaseSystolic(values.astronaut1.bloodPressureSystolic).toFixed(2)),
                     bloodPressureDiastolic: parseFloat(increaseDiastolic(values.astronaut1.bloodPressureDiastolic).toFixed(2)),
-                    temperature: generateRandVal(29, 30).toFixed(0)
+                    temperature: generateRandVal(36.5, 37.5).toFixed(1)
                 },
 
                 astronaut2: {
@@ -74,19 +74,19 @@ const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
                     heartRateMax: 91,
                     bloodPressureSystolic: parseFloat(decreaseSystolic(values.astronaut2.bloodPressureSystolic).toFixed(2)),
                     bloodPressureDiastolic: parseFloat(increaseDiastolic(values.astronaut2.bloodPressureDiastolic).toFixed(2)),
-                    temperature: generateRandVal(30, 31).toFixed(0)
+                    temperature: generateRandVal(36.5, 37.5).toFixed(1)
                 },
 
                 astronaut3: {
                     heartRate: generateRandVal(60, 80).toFixed(0),
                     heartRateMax: 91,
-                    temperature: generateRandVal(30, 45).toFixed(0)
+                    temperature: generateRandVal(36.5, 37.5).toFixed(1)
                 },
 
                 astronaut4: {
                     heartRate: generateRandVal(60, 80).toFixed(0),
                     heartRateMax: 91,
-                    temperature: generateRandVal(30, 45).toFixed(0)
+                    temperature: generateRandVal(36.5, 37.5).toFixed(1)
                 },
 
             }
