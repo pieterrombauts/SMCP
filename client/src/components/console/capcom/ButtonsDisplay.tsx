@@ -67,8 +67,8 @@ const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
         <rect x="300" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
         <text x="320" y="195" fill="black" fontSize="30" fontFamily="Verdana">ATM</text>
 
-        <rect x="440" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
-        <text x="450" y="195" fill="black" fontSize="18" fontFamily="Verdana">WARNING</text>
+        <rect x="440" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"#f54242", stroke:"#393939", strokeWidth:5}} />
+        <text x="450" y="195" fill="white" fontSize="18" fontFamily="Verdana">WARNING</text>
 
         <rect x="580" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
         <text x="590" y="195" fill="black" fontSize="18" fontFamily="Verdana">CAUTION</text>

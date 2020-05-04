@@ -188,7 +188,7 @@ const UConsole: React.FC<Props> = ( props ) => {
       <Tab.Container id="console-tabs">
         <Row className={props.className}>
           <Col id="console-buttons" sm={2}>
-            {props.userRole === "display" &&
+            {(props.userRole === "display" || props.userRole === "tutor") &&
               <Nav id="tutor-button" variant="pills" className="flex-column">
                 <Nav.Item>
                   <Nav.Link eventKey="tutor">TUTOR</Nav.Link>

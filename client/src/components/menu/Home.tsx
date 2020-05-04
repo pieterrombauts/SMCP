@@ -20,29 +20,19 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux & HomeProps
 
 const UHome: React.FC<Props> = ( props ) => {
-  function createLobby() {
-    console.log(socket);
-    socket.emit('GET_ROOMS', (data: object) => {
-      var roomID: string = Math.floor(100000 + Math.random() * 899999).toString();      // Generate a random 6 digit room ID
-      while(data.hasOwnProperty(roomID) || roomID === '200769') {                       // If room ID already exists or is equal to secret backdoor
-        roomID = Math.floor(100000 + Math.random() * 899999).toString();                // Then calculate a new room ID
-      }
-      socket.emit('CREATE_ROOM', roomID);                                               // Emit socket event to create a new room
-      props.updateLobbyID({ lobbyID: roomID })
-      props.updateUserRole({ userRole: "display" })                                     // Animate menus and set room ID and user role
-      props.animateMenus({ home: "hide", join: "hide", lobby: "show"})
-    });
+  function handleTutorLoginClick() {
+    props.animateMenus({ home: 'hide', tutorlogin: 'show', join: 'hide', lobby: 'hide', game: 'hide'})
   }
-
+  
   function handleJoinRoomClick() {
-    props.animateMenus({ home: "hide", join: "show", lobby: "hide"})
+    props.animateMenus({ home: 'hide', tutorlogin: 'hide', join: 'show', lobby: 'hide', game: 'hide'})
   }
 
   return (
     <div id="home-container" className={props.className}>
       <h2>Mission Control Center Simulator</h2>
       <div id="home-buttons">
-        <Button variant="outline-light" onClick={createLobby}>Tutor Login</Button>
+        <Button variant="outline-light" onClick={handleTutorLoginClick}>Tutor Login</Button>
         <Button variant="outline-light" onClick={handleJoinRoomClick}>Student Login</Button>
       </div>
     </div>
