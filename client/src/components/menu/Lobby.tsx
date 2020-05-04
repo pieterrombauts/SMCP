@@ -59,11 +59,11 @@ const ULobby: React.FC<Props> = ( props ) => {
   return (
     <div id='lobby-container' className={props.className}>
       <div className='console-row'>
-        <h1 id='game-pin-display'>Game PIN: {props.lobbyID !== "" && props.lobbyID}</h1>
+        <h1 id='game-pin-display'>Simulator Code: {props.lobbyID !== "" && props.lobbyID}</h1>
       </div>
       {props.userRole !== 'display' && 
       <div className='console-row'>
-        <label>Please pick a position to play as:</label>
+        <label>Please pick your assigned console:</label>
       </div>}
       <div className='console-row'>
         <ConsoleButton console={"spartan"} count={props.consoles.spartan} />
