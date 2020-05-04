@@ -209,6 +209,7 @@ io.on('connection', socket => {
             if (rooms[roomID].in_progress === true) {
                 socket.emit('SHOW_DISPLAY');
                 socket.emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
+                socket.emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
             }
         } else {
             console.error('TUTOR_JOIN_ROOM request error! Someone tried to join with room ID ' + roomID + ' which does not exist in rooms object.')
