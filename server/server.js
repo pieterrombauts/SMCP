@@ -228,7 +228,7 @@ io.on('connection', socket => {
                 io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} joined the lab session as ${position.toUpperCase()}`);
             }
         } else {
-            console.error('SELECT_CONSOLE request error!' + username + ' tried to select a console with room ID ' + roomID + ' which does not exist in rooms object.')
+            console.error('SELECT_CONSOLE request error!' + players[socket.id].name + ' tried to select a console with room ID ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
         }
     })
@@ -249,7 +249,7 @@ io.on('connection', socket => {
             } else if (players[socket.id].console === 'tutor') {
                 rooms[roomID].remove_tutor(socket.id);
             } else {
-                console.error('LEAVE_ROOM request error!' + username + ' tried to leave room ' + roomID + ' but was not a valid console.')
+                console.error('LEAVE_ROOM request error!' + players[socket.id].name + ' tried to leave room ' + roomID + ' but was not a valid console.')
             }
             if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
                 clearInterval(rooms[roomID].time_interval_id)
@@ -263,7 +263,7 @@ io.on('connection', socket => {
             players[socket.id].console = null;
             socket.leave(roomID);
         } else {
-            console.error('LEAVE_ROOM request error!' + username + ' tried to leave room ' + roomID + ' which does not exist in rooms object.')
+            console.error('LEAVE_ROOM request error!' + players[socket.id].name + ' tried to leave room ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
         }
     })
@@ -290,7 +290,7 @@ io.on('connection', socket => {
                     } else if (players[socket.id].console === 'tutor') {
                         rooms[roomID].remove_tutor(socket.id);
                     } else {
-                        console.error('DISCONNECT error!' + username + ' disconnected from ' + roomID + ' but was not a valid console.')
+                        console.error('DISCONNECT error!' + players[socket.id].name + ' disconnected from ' + roomID + ' but was not a valid console.')
                     }
                     if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
                         clearInterval(rooms[roomID].time_interval_id)
@@ -325,7 +325,7 @@ io.on('connection', socket => {
         } else if (players[socket.id].console === 'tutor') {
             rooms[roomID].remove_tutor(socket.id);
         } else {
-            console.error('DISCONNECT error!' + username + ' failed to reconnect to ' + roomID + ' but was not a valid console.')
+            console.error('DISCONNECT error!' + players[socket.id].name + ' failed to reconnect to ' + roomID + ' but was not a valid console.')
         }
         if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
             clearInterval(rooms[roomID].time_interval_id)
@@ -350,7 +350,7 @@ io.on('connection', socket => {
         } else if (players[socket.id].console === 'tutor') {
             rooms[roomID].remove_tutor(socket.id);
         } else {
-            console.error('DISCONNECT error!' + username + ' failed to reconnect to ' + roomID + ' but was not a valid console.')
+            console.error('DISCONNECT error!' + players[socket.id].name + ' failed to reconnect to ' + roomID + ' but was not a valid console.')
         }
         if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
             clearInterval(rooms[roomID].time_interval_id)
@@ -378,7 +378,7 @@ io.on('connection', socket => {
                 io.to(socket.id).emit('STUDENT_NO_CONSOLE');
             }
         } else {
-            console.error('GAME_START request error!' + username + ' tried to start the session with room ID: ' + roomID + ' which does not exist in rooms object.')
+            console.error('GAME_START request error!' + players[socket.id].name + ' tried to start the session with room ID: ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
         }
     })
@@ -398,7 +398,7 @@ io.on('connection', socket => {
             io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes);
             io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) submitted an EFN (${newEFNID}) with subject: ${values.subject}`);
         } else {
-            console.error('STATUS_REPORT request error!' + username + ' tried to submit an EFN in room ID: ' + roomID + ' which does not exist in rooms object.')
+            console.error('STATUS_REPORT request error!' + players[socket.id].name + ' tried to submit an EFN in room ID: ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
         }
     })
@@ -418,7 +418,7 @@ io.on('connection', socket => {
             io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
             io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) updated EFN (${efnID}) with a new status: ${newStatus.toUpperCase()}`);
         } else {
-            console.error('UPDATE_EFN_STATUS request error!' + username + ' tried to update an EFN in room: ' + roomID + ' which does not exist in rooms object.')
+            console.error('UPDATE_EFN_STATUS request error!' + players[socket.id].name + ' tried to update an EFN in room: ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
         }
     })
@@ -438,7 +438,7 @@ io.on('connection', socket => {
             io.in(roomID).emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
             io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) added a new comment to EFN (${efnID})`);
         } else {
-            console.error('ADD_EFN_COMMENT request error!' + username + ' tried to add a comment to an EFN in room: ' + roomID + ' which does not exist in rooms object.')
+            console.error('ADD_EFN_COMMENT request error!' + players[socket.id].name + ' tried to add a comment to an EFN in room: ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
         }
     })
@@ -450,7 +450,7 @@ io.on('connection', socket => {
             io.in(roomID).emit('UPDATE_EVENTS', eventID, newStatus, rooms[roomID].current_time)
             io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) updated event (${astronaut}: ${title.substring(2)}) with a new status: ${newStatus.toUpperCase()}`);
         } else {
-            console.error('UPDATE_EVENT_STATUS request error!' + username + ' tried to update an OSTPV activity in room: ' + roomID + ' which does not exist in rooms object.')
+            console.error('UPDATE_EVENT_STATUS request error!' + players[socket.id].name + ' tried to update an OSTPV activity in room: ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
         }
     })
@@ -458,62 +458,64 @@ io.on('connection', socket => {
     // ------------------------------------------------------------------------------------------------
     socket.on('FIRST_CONSOLE_OPEN', (opened_console) => {
         var roomID = players[socket.id].current_room;
-        if (rooms.hasOwnProperty(roomID) && (players[socket.id].console !== "host" && players[socket.id].console !== "tutor")) { 
-            switch(opened_console) {
-                case 'spartan-pc':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the SPARTAN Power Console display for the first time`);
-                    break;
-                case 'spartan-etc':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the SPARTAN External Thermal Control display for the first time`);
-                    break;
-                case 'cronus-cn':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Computer Network display for the first time`);
-                    break;
-                case 'cronus-uhf':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS UHF Comms display for the first time`);
-                    break;
-                case 'cronus-sband':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS S-Band Comms display for the first time`);
-                    break;
-                case 'cronus-vc1':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Video Comms 1 display for the first time`);
-                    break;
-                case 'cronus-vc2':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Video Comms 2 display for the first time`);
-                    break;
-                case 'ethos-ls':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Life Support display for the first time`);
-                    break;
-                case 'ethos-ts':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Thermal System display for the first time`);
-                    break;
-                case 'ethos-rls':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Regenerative Life Support display for the first time`);
-                    break;
-                case 'flight':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the FLIGHT display for the first time`);
-                    break;
-                case 'capcom':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CAPCOM display for the first time`);
-                    break;
-                case 'bme-eva':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the BME EVA Suit display for the first time`);
-                    break;
-                case 'bme-vs':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the BME Vital Signs display for the first time`);
-                    break;
-                case 'efn':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the EFN modal for the first time`);
-                    break;
-                case 'ostpv':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the OSTPV modal for the first time`);
-                    break;
-                case 'event-modal':
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the Event Details modal for the first time`);
-                    break;
+        if (rooms.hasOwnProperty(roomID)) { 
+            if ((players[socket.id].console !== "host" && players[socket.id].console !== "tutor")) {
+                switch(opened_console) {
+                    case 'spartan-pc':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the SPARTAN Power Console display for the first time`);
+                        break;
+                    case 'spartan-etc':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the SPARTAN External Thermal Control display for the first time`);
+                        break;
+                    case 'cronus-cn':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Computer Network display for the first time`);
+                        break;
+                    case 'cronus-uhf':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS UHF Comms display for the first time`);
+                        break;
+                    case 'cronus-sband':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS S-Band Comms display for the first time`);
+                        break;
+                    case 'cronus-vc1':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Video Comms 1 display for the first time`);
+                        break;
+                    case 'cronus-vc2':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CRONUS Video Comms 2 display for the first time`);
+                        break;
+                    case 'ethos-ls':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Life Support display for the first time`);
+                        break;
+                    case 'ethos-ts':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Thermal System display for the first time`);
+                        break;
+                    case 'ethos-rls':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the ETHOS Regenerative Life Support display for the first time`);
+                        break;
+                    case 'flight':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the FLIGHT display for the first time`);
+                        break;
+                    case 'capcom':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the CAPCOM display for the first time`);
+                        break;
+                    case 'bme-eva':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the BME EVA Suit display for the first time`);
+                        break;
+                    case 'bme-vs':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the BME Vital Signs display for the first time`);
+                        break;
+                    case 'efn':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the EFN modal for the first time`);
+                        break;
+                    case 'ostpv':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the OSTPV modal for the first time`);
+                        break;
+                    case 'event-modal':
+                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) opened the Event Details modal for the first time`);
+                        break;
+                }
             }
         } else {
-            console.error('FIRST_CONSOLE_OPEN request error!' + username + ' opened a console for the first time in room: ' + roomID + ' which does not exist in rooms object.')
+            console.error('FIRST_CONSOLE_OPEN request error!' + players[socket.id].name + ' opened a console for the first time in room: ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
         }
     })
