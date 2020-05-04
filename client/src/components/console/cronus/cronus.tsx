@@ -11,6 +11,7 @@ import CronusVidComm1Display from './CronusVidComm1Display'
 import CronusVidComm2Display from './CronusVidComm2Display'
 import { generateRandVal } from '../../../dataGenerator';
 import socket from '../../Socket';
+import { decreaseValue } from '../../../dataDecreaser';
 
 interface AppProps {
   className?: string;
@@ -24,12 +25,12 @@ const defaultValues = {
     loadCmds: 11248
   },
   sBand: {
-    elevationGimbal: 0,
-    azimuthGimbal: 0
+    elevationGimbal: 60,
+    azimuthGimbal: 2
   },
   vComms1: {
-    elevationGimbal: 0,
-    crossElevationGimbal: 0
+    elevationGimbal: 48,
+    crossElevationGimbal: 45
   }
 }
 
@@ -49,15 +50,15 @@ const Cronus: React.FC<AppProps> = ( props ) => {
           loadCmds: 11248
         },
         sBand: {
-          elevationGimbal: generateRandVal(45, 90).toFixed(2),
-          azimuthGimbal: generateRandVal(1.59, 103.5).toFixed(2)
+          elevationGimbal:  parseFloat(decreaseValue(values.sBand.elevationGimbal).toFixed(2)),
+          azimuthGimbal: parseFloat(decreaseValue(values.sBand.azimuthGimbal).toFixed(2))
         },
         vComms1: {
-          elevationGimbal: generateRandVal(27, 48).toFixed(2),
-          crossElevationGimbal: generateRandVal(36, 45).toFixed(2),
+          elevationGimbal: parseFloat(decreaseValue(values.vComms1.elevationGimbal).toFixed(2)),
+          crossElevationGimbal: parseFloat(decreaseValue(values.vComms1.crossElevationGimbal).toFixed(2))
         }
       }
-      setValues(newValues);
+      setValues(values = newValues);
     }, 5000);
     intervalRef.current = id;
   },[])
