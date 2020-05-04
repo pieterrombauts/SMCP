@@ -34,7 +34,7 @@ const ULobby: React.FC<Props> = ( props ) => {
     })
     socket.off('HOST_LEFT').on('HOST_LEFT', () => {
       console.log('Host disconnected')
-      handleLobbyExit()
+      window.location.reload();
     })
     socket.off('SHOW_DISPLAY').on('SHOW_DISPLAY', ()=> {
       props.animateMenus({ home: 'hide', tutorlogin: 'hide', join: 'hide', lobby: 'hide', game: 'show'})

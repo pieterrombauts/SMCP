@@ -58,6 +58,9 @@ const UConsole: React.FC<Props> = ( props ) => {
       setReports(new_reports);
       console.log(new_reports);
     })
+    socket.off('FORCE_DISCONNECT').on('FORCE_DISCONNECT', () => {
+      window.location.reload();
+    })
   }, [])
 
   function handleOSTPVOpen(event: React.MouseEvent<HTMLButtonElement>) {
