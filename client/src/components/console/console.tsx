@@ -58,7 +58,8 @@ const UConsole: React.FC<Props> = ( props ) => {
       setReports(new_reports);
       console.log(new_reports);
     })
-    socket.off('FORCE_DISCONNECT').on('FORCE_DISCONNECT', () => {
+    socket.off('disconnect').on('disconnect', (reason: string) => {
+      console.log(reason);
       window.location.reload();
     })
   }, [])

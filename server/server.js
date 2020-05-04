@@ -136,7 +136,7 @@ io.on('connection', socket => {
     // Socket event to get list of currently existing rooms.
     // Used to ensure generated room code is unique and there are no duplicate rooms.
     socket.on('GET_ROOMS', (cb) => {
-        console.log('GET_ROOMS request received. ' + rooms.length + ' rooms currently active.');
+        console.log('GET_ROOMS request received. ' + Object.keys(rooms).length + ' rooms currently active.');
         cb(rooms);
     })
 
@@ -206,6 +206,10 @@ io.on('connection', socket => {
             players[socket.id].name = 'TUTOR';
             players[socket.id].console = 'tutor';
             rooms[roomID].add_tutor(socket.id);
+            if (rooms[roomID].in_progress === true) {
+                socket.emit('SHOW_DISPLAY');
+                socket.emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
+            }
         } else {
             console.error('TUTOR_JOIN_ROOM request error! Someone tried to join with room ID ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
@@ -297,7 +301,6 @@ io.on('connection', socket => {
                 }
                 socket.leave(roomID);
                 delete players[socket.id];
-                socket.emit('FORCE_DISCONNECT');
             }
         }
     })
