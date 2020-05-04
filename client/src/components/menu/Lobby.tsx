@@ -37,16 +37,16 @@ const ULobby: React.FC<Props> = ( props ) => {
       handleLobbyExit()
     })
     socket.off('SHOW_DISPLAY').on('SHOW_DISPLAY', ()=> {
-      props.animateMenus({home: "hide", join: "hide", lobby: "hide", game: "show"})
+      props.animateMenus({ home: 'hide', tutorlogin: 'hide', join: 'hide', lobby: 'hide', game: 'show'})
     })
   }, [ props.lobbyID ])
   
   function handleLobbyExit() {
     socket.emit('LEAVE_ROOM', props.lobbyID)
-    if (props.userRole === "display") {
-      props.animateMenus({home: "show", join: "hide", lobby: "hide", game: "hide"})
+    if (props.userRole === "display" || props.userRole === "tutor") {
+      props.animateMenus({ home: 'hide', tutorlogin: 'show', join: 'hide', lobby: 'hide', game: 'hide'})
     } else {
-      props.animateMenus({home: "hide", join: "show", lobby: "hide", game: "hide"})
+      props.animateMenus({ home: 'hide', tutorlogin: 'hide', join: 'show', lobby: 'hide', game: 'hide'})
     }
     props.updateLobbyID({ lobbyID: "" })
     props.updateUserRole({ userRole: "" })
