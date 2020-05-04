@@ -276,88 +276,30 @@ io.on('connection', socket => {
         if (players[socket.id].current_room !== null) {
             const roomID = players[socket.id].current_room;
             if (rooms.hasOwnProperty(roomID)) {
-                if (reason !== 'ping timeout') {
-                    if (['spartan', 'cronus', 'ethos', 'flight', 'capcom', 'bme'].includes(players[socket.id].console)) {
-                        rooms[roomID].remove_position(players[socket.id].console, socket.id);
-                        rooms[roomID].player_count = rooms[roomID].player_count - 1;
-                        socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
-                        io.in(roomID).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
-                        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) disconnected from the lab session`);
-                    } else if (players[socket.id].console === 'host') {
-                        rooms[roomID].host_id = null;
-                        socket.to(roomID).emit('HOST_LEFT', roomID);
-                        console.log('HOST_LEFT event emitted for room: ' + roomID);
-                    } else if (players[socket.id].console === 'tutor') {
-                        rooms[roomID].remove_tutor(socket.id);
-                    } else {
-                        console.error('DISCONNECT error!' + players[socket.id].name + ' disconnected from ' + roomID + ' but was not a valid console.')
-                    }
-                    if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
-                        clearInterval(rooms[roomID].time_interval_id)
-                        delete rooms[roomID];
-                    }
-                    socket.leave(roomID);
-                    delete players[socket.id];
+                if (['spartan', 'cronus', 'ethos', 'flight', 'capcom', 'bme'].includes(players[socket.id].console)) {
+                    rooms[roomID].remove_position(players[socket.id].console, socket.id);
+                    rooms[roomID].player_count = rooms[roomID].player_count - 1;
+                    socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
+                    io.in(roomID).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
+                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) disconnected from the lab session`);
+                } else if (players[socket.id].console === 'host') {
+                    rooms[roomID].host_id = null;
+                    socket.to(roomID).emit('HOST_LEFT', roomID);
+                    console.log('HOST_LEFT event emitted for room: ' + roomID);
+                } else if (players[socket.id].console === 'tutor') {
+                    rooms[roomID].remove_tutor(socket.id);
                 } else {
-                    io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) timed out from the lab session`);
+                    console.error('DISCONNECT error!' + players[socket.id].name + ' disconnected from ' + roomID + ' but was not a valid console.')
                 }
+                if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
+                    clearInterval(rooms[roomID].time_interval_id)
+                    delete rooms[roomID];
+                }
+                socket.leave(roomID);
+                delete players[socket.id];
+                socket.emit('FORCE_DISCONNECT');
             }
         }
-    })
-
-    // ------------------------------------------------------------------------------------------------
-    socket.on('reconnect', (attemptNumber) => {
-        io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) reconnected to the lab session after ${attemptNumber} attempts`);
-    })
-
-    // ------------------------------------------------------------------------------------------------
-    socket.on('reconnect_error', (error) => {
-        if (['spartan', 'cronus', 'ethos', 'flight', 'capcom', 'bme'].includes(players[socket.id].console)) {
-            rooms[roomID].remove_position(players[socket.id].console, socket.id);
-            rooms[roomID].player_count = rooms[roomID].player_count - 1;
-            socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
-            io.in(roomID).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
-            io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) failed to reconnect to the lab session and was disconnected`);
-        } else if (players[socket.id].console === 'host') {
-            rooms[roomID].host_id = null;
-            socket.to(roomID).emit('HOST_LEFT', roomID);
-            console.log('HOST_LEFT event emitted for room: ' + roomID);
-        } else if (players[socket.id].console === 'tutor') {
-            rooms[roomID].remove_tutor(socket.id);
-        } else {
-            console.error('DISCONNECT error!' + players[socket.id].name + ' failed to reconnect to ' + roomID + ' but was not a valid console.')
-        }
-        if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
-            clearInterval(rooms[roomID].time_interval_id)
-            delete rooms[roomID];
-        }
-        socket.leave(roomID);
-        delete players[socket.id];
-    })
-
-    // ------------------------------------------------------------------------------------------------
-    socket.on('reconnect_failed', () => {
-        if (['spartan', 'cronus', 'ethos', 'flight', 'capcom', 'bme'].includes(players[socket.id].console)) {
-            rooms[roomID].remove_position(players[socket.id].console, socket.id);
-            rooms[roomID].player_count = rooms[roomID].player_count - 1;
-            socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
-            io.in(roomID).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
-            io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) failed to reconnect to the lab session and was disconnected`);
-        } else if (players[socket.id].console === 'host') {
-            rooms[roomID].host_id = null;
-            socket.to(roomID).emit('HOST_LEFT', roomID);
-            console.log('HOST_LEFT event emitted for room: ' + roomID);
-        } else if (players[socket.id].console === 'tutor') {
-            rooms[roomID].remove_tutor(socket.id);
-        } else {
-            console.error('DISCONNECT error!' + players[socket.id].name + ' failed to reconnect to ' + roomID + ' but was not a valid console.')
-        }
-        if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
-            clearInterval(rooms[roomID].time_interval_id)
-            delete rooms[roomID];
-        }
-        socket.leave(roomID);
-        delete players[socket.id];
     })
 
     // ------------------------------------------------------------------------------------------------
