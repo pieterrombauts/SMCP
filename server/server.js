@@ -45,7 +45,7 @@ class Room {
         this._in_progress = false;
         this._flight_notes = [];
         this._events = [];
-        this._current_time = moment('2019-11-15T15:00:00');
+        this._current_time = moment.utc('2019-11-15T15:00:00');
         this._time_interval_id = null;
     }
     get room_id() { return this._room_id }
