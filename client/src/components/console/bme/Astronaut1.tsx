@@ -8,7 +8,7 @@ interface A1Props {
 const Astronaut1: React.FC<A1Props> = ( props ) => {
   return(
     <g id="bme-vital-signs-astronaut1">
-      <rect  y="5%" rx="5" ry="5" width="650" height="450" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
+      <rect x="0%" y="5%" rx="5" ry="5" width="650" height="450" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
       <image x="22%" y="9.5%" width={150} height={150} href='/media/Bme_1.gif'></image>
       <image x="2%" y="2%" width={250} height={500} href='/media/Bme_Luca_Parmitano.jpg'></image>
       

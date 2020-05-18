@@ -28,7 +28,6 @@ const UJoin: React.FC<Props> = ( props ) => {
 
   function getConsoleAvailability(roomID: string) {
     socket.emit('GET_CONSOLES', roomID, (data: object) => {
-      console.log(data);
       props.updateConsoles({ consoles: data })
     })
   }
@@ -37,7 +36,6 @@ const UJoin: React.FC<Props> = ( props ) => {
     const roomIDTextbox = document.querySelector('#game-pin-input') as HTMLInputElement;
     const usernameTextbox = document.querySelector('#username-input') as HTMLInputElement;
     socket.emit('GET_ROOMS', (data: object) => {
-      console.log(data)
       if (data.hasOwnProperty(roomIDTextbox.value)) {
         socket.emit('JOIN_ROOM', roomIDTextbox.value, usernameTextbox.value);
         props.updateLobbyID({ lobbyID: roomIDTextbox.value })

@@ -21,7 +21,6 @@ type Props = PropsFromRedux & TutorLoginProps
 
 const UTutorLogin: React.FC<Props> = ( props ) => {
   function createLobby() {
-    console.log(socket);
     socket.emit('GET_ROOMS', (data: object) => {
       var roomID: string = Math.floor(100000 + Math.random() * 899999).toString();      // Generate a random 6 digit room ID
       while(data.hasOwnProperty(roomID)) {                       // If room ID already exists or is equal to secret backdoor

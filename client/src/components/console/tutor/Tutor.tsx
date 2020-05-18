@@ -21,9 +21,7 @@ const UTutor: React.FC<AppProps> = ( props ) => {
     })
     socket.on('TUTOR_LOG', ( logMessage: string ) => {
       var currentMessages = tutorLog;
-      console.log(currentMessages);
       var newMessages = [...currentMessages, logMessage];
-      console.log(newMessages);
       setTutorLog(newMessages);
     })
   }, [tutorLog])

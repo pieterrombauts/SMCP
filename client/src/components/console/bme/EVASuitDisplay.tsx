@@ -34,13 +34,7 @@ const UEVASuitDisplay: React.FC<EVASDProps> = (props) => {
         if (intervalRef.current !== 0) {
             clearInterval(intervalRef.current);
         }
-
-        
-        console.log(("Initial Values: " + values.eva1.o2));
-
-
-        const id = setInterval(() => {
-            console.log(values.eva1.o2)
+            const id = setInterval(() => {
             var newValues =     {
                 eva1: {
                     helmetPressure: generateRandVal(8, 10).toFixed(2),

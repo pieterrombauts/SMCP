@@ -1,216 +1,96 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table'
 import styled from 'styled-components';
+import { tableEntry } from '../customTypes'
+import { RootState } from '../../../reducers';
+import { connect, ConnectedProps } from 'react-redux';
+import moment from 'moment';
 
 interface warningSystemProps {
     className?: string;
 };
 
-const UWarningSummary: React.FC<warningSystemProps> = (props) => {
+const mapState = (state: RootState ) => ({
+    time: state.dataReducer.time
+})
+  
+const connector = connect(mapState, {})
+type PropsFromRedux = ConnectedProps<typeof connector>
+type Props = PropsFromRedux & warningSystemProps
+
+const tableUpdateTimes: string[] = ['2019-11-15T15:04:00',
+                                    '2019-11-15T15:07:02',
+                                    '2019-11-15T15:11:04',
+                                    '2019-11-15T15:14:06',
+                                    '2019-11-15T15:20:08',
+                                    '2019-11-15T15:23:10',
+                                    '2019-11-15T15:31:12',
+                                    '2019-11-15T15:37:14',
+                                    '2019-11-15T15:40:16',
+                                    '2019-11-15T15:47:18',
+                                    '2019-11-15T15:51:20',
+                                    '2019-11-15T15:58:22',
+                                    '2019-11-15T16:02:24',
+                                    '2019-11-15T16:10:26',
+                                    '2019-11-15T16:17:28',
+                                    '2019-11-15T16:23:30',
+                                    '2019-11-15T16:27:32'];
+
+const pendingTableEntries: tableEntry[] = [
+    {eventNum: "9413", annun: "SUPP", cl: "C", ack: false, sys: "TCS", message: "Thermal Safing Load Shed Inhibited - LAB"},
+    {eventNum: "12288", annun: "SUPP", cl: "C", ack: false, sys: "TCS", message: "Thermal Thermal Safing Node 2 LTL Load Shed Timer Started - Node2"},
+    {eventNum: "13463", annun: "SUPP", cl: "C", ack: false, sys: "CDH", message: "DMS Mission Management Computer (MMC) Failure - COL"},
+    {eventNum: "13598", annun: "ENA", cl: "C", ack: false, sys: "EPS", message: "Power Distribution Unit (PDU2) Output Overcurrent Trip - COL"},
+    {eventNum: "13568", annun: "SUPP", cl: "C", ack: false, sys: "CDH", message: "DMS System Bus Failure - COL"},
+    {eventNum: "13578", annun: "ENA", cl: "C", ack: false, sys: "EPS", message: "Power Distribution Unit (PDU1) Nominal Controller Failure - COL"},
+    {eventNum: "12592", annun: "SUPP", cl: "C", ack: false, sys: "ECL", message: "Cabin Smoke Detector 2 Fail - COL"},
+    {eventNum: "5049", annun: "SUPP", cl: "C", ack: false, sys: "TCS", message: "Thermal Saffing Partial LTL Load Shed Timer Started"},
+    {eventNum: "5050", annun: "SUPP", cl: "C", ack: false, sys: "TCS", message: "Thermal Saffing Partial MTL Load Shed Timer Started"},
+    {eventNum: "13529", annun: "SUPP", cl: "C", ack: false, sys: "ECL", message: "ppO2 Sensor 2 Low - COL"},
+    {eventNum: "13558", annun: "SUPP", cl: "C", ack: false, sys: "ECL", message: "Loss of IMV Supply Function - COL"},
+    {eventNum: "4173", annun: "ENA", cl: "C", ack: false, sys: "TCS", message: "ETCS Loop B PCVP Loss of Comm - P1"},
+    {eventNum: "13535", annun: "SUPP", cl: "W", ack: false, sys: "TCS", message: "Cooling Loop Delta Pressure Sensor 2 Low - COL"},
+    {eventNum: "10472", annun: "ENA", cl: "C", ack: true, sys: "TCS", message: "ETCS Loop B Radiator Environment Temp Too Cold - P1"},
+    {eventNum: "4248", annun: "ENA", cl: "C", ack: true, sys: "TCS", message: "ETCS Loop B TRRJ Switchover Sequence Failure - P1"},
+    {eventNum: "5100", annun: "SUPP", cl: "C", ack: true, sys: "CNT", message: "Loss of Active IAC Handover to Backup IAC"},
+    {eventNum: "11099", annun: "ENA", cl: "C", ack: true, sys: "EPS", message: "RPCM S32B_A Observed vs Last Commanded State Discrepancy - S3"}
+];
+
+const UWarningSummary: React.FC<Props> = (props) => {
+    const [ tableEntries, setTableEntries ] = useState<tableEntry[]>([]);
+    useEffect(() => {
+        if (moment.utc(props.time).isAfter(moment.utc(tableUpdateTimes[tableEntries.length]))) {
+            setTableEntries([...tableEntries, pendingTableEntries[0]]);
+            pendingTableEntries.shift();
+        }
+    }, [tableEntries, pendingTableEntries, props.time])
+    
     return (
         <div className={props.className}>
-            <Table striped bordered hover variant ="dark" size="sm">
+            <Table bordered hover variant ="dark" size="sm">
                 <thead>
-                    <tr id="white">
-                        <th>EVENT#</th>
-                        <th>ANNUN</th>
-                        <th>CL</th>
-                        <th>ACK</th>
-                        <th>SYS</th>
+                    <tr className="white">
+                        <th style={{width: '100px'}}>EVENT#</th>
+                        <th style={{width: '100px'}}>ANNUN</th>
+                        <th style={{width: '100px'}}>CL</th>
+                        <th style={{width: '100px'}}>ACK</th>
+                        <th style={{width: '100px'}}>SYS</th>
                         <th>C&W MESSAGE TEXT</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr id="yellow">
-                        <td>9413</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>TCS</td>
-                        <td>Thermal Safing Load Shed Inhibited-LAB</td>                        
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>12288</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>TCS</td>
-                        <td>Thermal Thermal Safing Node 2 LTL Load Shed Timer Started-Node2</td>                        
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>13463</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>CDH</td>
-                        <td>DMS Mission Management Computer (MMC) Failure - COL</td>                       
-                    </tr>
-
-                    <tr id="red">
-                        <td>13527</td>
-                        <td>SUPP</td>
-                        <td>W</td>
-                        <td> </td>
-                        <td>ECL</td>
-                        <td>Total Pressure Sensor 3 Low -COL</td>                        
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>13598</td>
-                        <td>ENA</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>EPS</td>
-                        <td>Power Distribution Unit (PDU2) Output Overcurrent Trip - COL</td>                       
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>13568</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>CDH</td>
-                        <td>DMS System Bus Failure - COL</td>                       
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>13578</td>
-                        <td>ENA</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>EPS</td>
-                        <td>Power Distribution Unit (PDU1) Nominal Controller Failure - COL</td>                       
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>12592</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>ECL</td>
-                        <td>Cabin Smoke Detector 2 Fail - COL</td>                       
-                    </tr>
-
-                    <tr id="red">
-                        <td>13535</td>
-                        <td>SUPP</td>
-                        <td>W</td>
-                        <td> </td>
-                        <td>TCS</td>
-                        <td>Cooling Loop Delta Pressure Sensor 2 Low - COL</td>                        
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>5049</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>TCS</td>
-                        <td>Thermal Saffing Partial LTL Load Shed Timer Started</td>                       
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>5050</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>TCS</td>
-                        <td>Thermal Saffing Partial MTL Load Shed Timer Started</td>                       
-                    </tr>
-
-                    <tr id="red">
-                        <td>4012</td>
-                        <td>ENA</td>
-                        <td>W</td>
-                        <td> </td>
-                        <td>TCS</td>
-                        <td>ETCS Loop B Rad Erw Temp Cold Expect Loop Shutdown and Vent-P1</td>                        
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>13529</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>ECL</td>
-                        <td>ppO2 Sensor 2 Low - COL</td>                       
-                    </tr>
-
-                    <tr id="red">
-                        <td>4012</td>
-                        <td>ENA</td>
-                        <td>EF</td>
-                        <td> </td>
-                        <td>ECL</td>
-                        <td>FIRE - Cabin Smoke Detector 2-Node 2</td>                        
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>13558</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>ECL</td>
-                        <td>Loss of IMV Supply Function - COL</td>                       
-                    </tr>
-
-                    <tr id="red">
-                        <td>13501</td>
-                        <td>ENA</td>
-                        <td>EF</td>
-                        <td> </td>
-                        <td>ECL</td>
-                        <td>FIRE Smoke Detector 2 Cabin - COL</td>                        
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>4173</td>
-                        <td>ENA</td>
-                        <td>C</td>
-                        <td> </td>
-                        <td>TCS</td>
-                        <td>ETCS Loop B PCVP Loss of Comm-P1</td>                       
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>10472</td>
-                        <td>ENA</td>
-                        <td>C</td>
-                        <td>X</td>
-                        <td>TCS</td>
-                        <td>ETCS Loop B Radiator Environment Temp Too Cold-P1</td>                       
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>4248</td>
-                        <td>ENA</td>
-                        <td>C</td>
-                        <td>X</td>
-                        <td>TCS</td>
-                        <td>ETCS Loop B TRRJ Switchover Sequence Failure-P1</td>                       
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>5100</td>
-                        <td>SUPP</td>
-                        <td>C</td>
-                        <td>X</td>
-                        <td>CNT</td>
-                        <td>Loss of Active IAC Handover to Backup IAC</td>                       
-                    </tr>
-
-                    <tr id="yellow">
-                        <td>11099</td>
-                        <td>ENA</td>
-                        <td>C</td>
-                        <td>X</td>
-                        <td>EPS</td>
-                        <td>RPCM S32B_A Observed vs Last Commanded State Discrepancy-S3</td>                       
-                    </tr>
-
-
+                    {tableEntries.map((entry) => {
+                        return(
+                            <tr key={entry.eventNum} className={entry.cl === "W" ? "red" : "yellow"}>
+                                <td>{entry.eventNum}</td>
+                                <td>{entry.annun}</td>
+                                <td>{entry.cl}</td>
+                                <td>{entry.ack ? "X" : ""}</td>
+                                <td>{entry.sys}</td>
+                                <td>{entry.message}</td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </Table>
         </div>
@@ -218,7 +98,12 @@ const UWarningSummary: React.FC<warningSystemProps> = (props) => {
 };
 
 const WarningSummary = styled(UWarningSummary)`
+  min-height: 50%;
+  background-color: rgba(57, 57, 57, 0.5);
+  border-radius: 5px;
+  
   table {
+    table-layout: fixed;
     width: 100%;
     height: 100%;
     margin-top: 20px;
@@ -226,20 +111,24 @@ const WarningSummary = styled(UWarningSummary)`
     line-height: 8px;
   }
 
-  #white {
+  table td, table th {
+      height: 25px;
+      vertical-align: middle;
+  }
+
+  .white {
       color: white;
   }
 
 
-  #yellow {
+  .yellow {
       background-color: #fcea5d;
-
   }
 
-  #red {
+  .red {
     background-color: #f54242;
     color: white;
   }
 `;
 
-export default WarningSummary;
+export default connector(WarningSummary);

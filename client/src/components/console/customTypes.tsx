@@ -194,3 +194,12 @@ export interface selectedEvent {
   }
   classNames: string[]
 }
+
+export interface tableEntry {
+  eventNum: string,
+  annun: string,
+  cl: string,
+  ack: boolean,
+  sys: string,
+  message: string
+}

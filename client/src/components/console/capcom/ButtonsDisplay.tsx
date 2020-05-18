@@ -56,7 +56,7 @@ const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
 
         <rect x='0' y='20' rx="5" ry="5" width="700" height="400" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
         
-        <text x="30" y="100" fill="white" fontSize="50" fontFamily="Verdana" text-decoration="underline">Caution & Warning </text>
+        <text x="30" y="100" fill="white" fontSize="50" fontFamily="Verdana" textDecoration="underline">Caution & Warning </text>
         
         <rect x="20" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
         <text x="40" y="195" fill="black" fontSize="30" fontFamily="Verdana">FIRE</text>
@@ -67,8 +67,8 @@ const UButtonsDisplay: React.FC<ButtonsProps> = ( props ) => {
         <rect x="300" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
         <text x="320" y="195" fill="black" fontSize="30" fontFamily="Verdana">ATM</text>
 
-        <rect x="440" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"#f54242", stroke:"#393939", strokeWidth:5}} />
-        <text x="450" y="195" fill="white" fontSize="18" fontFamily="Verdana">WARNING</text>
+        <rect x="440" y="140" rx="5" ry="5" width="110" height="90" style={{fill:`#${moment.utc(props.time).isAfter(moment.utc('2019-11-15T16:02:24')) ? 'F54242' : 'FFFFFF'}`, stroke:"#393939", strokeWidth:5}} />
+        <text x="450" y="195" fill={moment.utc(props.time).isAfter(moment.utc('2019-11-15T16:02:24')) ? 'white' : 'black'} fontSize="18" fontFamily="Verdana">WARNING</text>
 
         <rect x="580" y="140" rx="5" ry="5" width="110" height="90" style={{fill:"white", stroke:"#393939", strokeWidth:5}} />
         <text x="590" y="195" fill="black" fontSize="18" fontFamily="Verdana">CAUTION</text>
@@ -84,7 +84,8 @@ const ButtonsDisplay = styled(UButtonsDisplay)`
   svg {
     height: 100%;
     position: absolute;
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, 0%)
   }
 `;
 

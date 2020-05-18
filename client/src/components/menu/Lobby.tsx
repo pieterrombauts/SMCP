@@ -33,7 +33,6 @@ const ULobby: React.FC<Props> = ( props ) => {
       props.updateConsoles({ consoles: data })
     })
     socket.off('HOST_LEFT').on('HOST_LEFT', () => {
-      console.log('Host disconnected')
       window.location.reload();
     })
     socket.off('SHOW_DISPLAY').on('SHOW_DISPLAY', ()=> {
