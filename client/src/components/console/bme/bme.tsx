@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { VitalSignsDisplay } from './VitalSignsDisplay'
+import {VitalSignsDisplay} from './VitalSignsDisplay'
 import { EVASuitDisplay } from './EVASuitDisplay'
 import socket from '../../Socket'
 

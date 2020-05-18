@@ -105,7 +105,6 @@ export interface bmeVitalSignsDisplay {
     heartRateMax: number,
     bloodPressureSystolic: number,
     bloodPressureDiastolic: number,
-    temperature: number
   }
 
   astronaut2: {
@@ -113,18 +112,33 @@ export interface bmeVitalSignsDisplay {
     heartRateMax: number,
     bloodPressureSystolic: number,
     bloodPressureDiastolic: number,
-    temperature: number
   }
 
   astronaut3: {
     heartRate: number,
     heartRateMax: number,
-    temperature: number
   }
 
   astronaut4: {
     heartRate: number,
     heartRateMax: number,
+  }
+}
+
+export interface bmeVitalSignsTemps {
+  astronaut1: {
+    temperature: number
+  }
+
+  astronaut2: {
+    temperature: number
+  }
+
+  astronaut3: {
+    temperature: number
+  }
+
+  astronaut4: {
     temperature: number
   }
 }
@@ -202,4 +216,14 @@ export interface tableEntry {
   ack: boolean,
   sys: string,
   message: string
+}
+
+export interface chartData {
+  datasets: {
+      data: {x: string, y: number}[],
+      backgroundColor: string,
+      borderColor: string,
+      borderWidth: number,
+      fill: boolean,
+    }[]
 }
