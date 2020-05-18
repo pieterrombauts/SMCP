@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Button from 'react-bootstrap/Button';
 import socket from '../Socket';
@@ -25,6 +25,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux & LobbyProps
 
 const ULobby: React.FC<Props> = ( props ) => { 
+  const [connections, setConnections] = useState<{name: string, console: boolean}[]>([]);
   useEffect(() => {
     socket.off('STUDENT_NO_CONSOLE').on('STUDENT_NO_CONSOLE', () => {
       alert('Could not start game. There are students in the session who have not selected a console.')
@@ -38,7 +39,23 @@ const ULobby: React.FC<Props> = ( props ) => {
     socket.off('SHOW_DISPLAY').on('SHOW_DISPLAY', ()=> {
       props.animateMenus({ home: 'hide', tutorlogin: 'hide', join: 'hide', lobby: 'hide', game: 'show'})
     })
-  }, [ props.lobbyID ])
+    socket.off('JOIN_CONNECTION').on('JOIN_CONNECTION', (conn: string, console_conns: string[])=> {
+      let updated_conns = [...connections, {name: conn, console: false}];
+      setConnections(updated_conns.map((connection) => { return {name: connection.name, console: console_conns.includes(connection.name)} }));
+    })
+    socket.off('SELECT_CONNECTION').on('SELECT_CONNECTION', (console_conns: string[])=> {
+      let updated_conns = connections;
+      setConnections(updated_conns.map((connection) => { return {name: connection.name, console: console_conns.includes(connection.name)} }));
+    })
+    socket.off('LEAVE_CONNECTION').on('LEAVE_CONNECTION', (conn: string, console_conns: string[])=> {
+      let updated_conns = [...connections].filter((connection) => { return connection.name !== conn });
+      setConnections(updated_conns.map((connection) => { return {name: connection.name, console: console_conns.includes(connection.name)} }));
+    })
+    socket.off('DC_CONNECTION').on('DC_CONNECTION', (conn: string, console_conns: string[])=> {
+      let updated_conns = [...connections].filter((connection) => { return connection.name !== conn });
+      setConnections(updated_conns.map((connection) => { return {name: connection.name, console: console_conns.includes(connection.name)} }));
+    })
+  }, [ props.lobbyID, connections ])
   
   function handleLobbyExit() {
     socket.emit('LEAVE_ROOM', props.lobbyID)
@@ -57,6 +74,13 @@ const ULobby: React.FC<Props> = ( props ) => {
   
   return (
     <div id='lobby-container' className={props.className}>
+      <div id="lobby-conn-monitor">
+        { props.userRole === "display" && connections.map((connection) => {
+          return (
+            <p className={connection.console ? "green" : "red"}>{connection.name}</p>
+          )
+        })}
+      </div>
       <div className='console-row'>
         <h1 id='game-pin-display'>Simulator Code: {props.lobbyID !== "" && props.lobbyID}</h1>
       </div>
@@ -97,6 +121,9 @@ const Lobby = styled(ULobby)`
   transform: translate(-50%, -50%);
   color: #f8f9fa;
 
+  #lobby-conn-monitor {
+    display: flex;
+  }
   .console-row {
     display: flex;
     justify-content: center;
@@ -133,6 +160,15 @@ const Lobby = styled(ULobby)`
 
   .takenOne:hover {
     background-color: #f8f9fa !important;
+  }
+
+  .red {
+    color: red;
+    margin: 5px 10px;
+  }
+  .green {
+    color: green;
+    margin: 5px 10px;
   }
 `;
 
