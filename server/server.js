@@ -189,6 +189,15 @@ io.on('connection', socket => {
             rooms[roomID].player_count = rooms[roomID].player_count + 1;
             players[socket.id].current_room = roomID;
             players[socket.id].name = username;
+            if (players[socket.id] !== null) {
+                let console_connections = rooms[roomID].consoles['spartan'].map(conn => { return players[conn].name })
+                                            .concat(rooms[roomID].consoles['cronus'].map(conn => { return players[conn].name }))
+                                            .concat(rooms[roomID].consoles['ethos'].map(conn => { return players[conn].name }))
+                                            .concat(rooms[roomID].consoles['flight'].map(conn => { return players[conn].name }))
+                                            .concat(rooms[roomID].consoles['capcom'].map(conn => { return players[conn].name }))
+                                            .concat(rooms[roomID].consoles['bme'].map(conn => { return players[conn].name }))
+                io.in(roomID).emit('JOIN_CONNECTION', players[socket.id].name, console_connections);
+            }
         } else {
             console.error('JOIN_ROOM request error!' + username + ' tried to join room with room ID ' + roomID + ' which does not exist in rooms object.')
             io.to(socket.id).emit('ROOMID_ERROR');
@@ -231,6 +240,16 @@ io.on('connection', socket => {
                 socket.emit('UPDATE_REPORTS', rooms[roomID].flight_notes)
                 io.in(roomID).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
                 io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} joined the lab session as ${position.toUpperCase()}`);
+            } else {
+                if (players[socket.id] !== null) {
+                    let console_connections = rooms[roomID].consoles['spartan'].map(conn => { return players[conn].name })
+                                                .concat(rooms[roomID].consoles['cronus'].map(conn => { return players[conn].name }))
+                                                .concat(rooms[roomID].consoles['ethos'].map(conn => { return players[conn].name }))
+                                                .concat(rooms[roomID].consoles['flight'].map(conn => { return players[conn].name }))
+                                                .concat(rooms[roomID].consoles['capcom'].map(conn => { return players[conn].name }))
+                                                .concat(rooms[roomID].consoles['bme'].map(conn => { return players[conn].name }))
+                    io.in(roomID).emit('SELECT_CONNECTION', console_connections);
+                }
             }
         } else {
             console.error('SELECT_CONSOLE request error!' + players[socket.id].name + ' tried to select a console with room ID ' + roomID + ' which does not exist in rooms object.')
@@ -262,6 +281,15 @@ io.on('connection', socket => {
             } else {
                 socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
                 io.in(roomID).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
+                if (players[socket.id] !== null) {
+                    let console_connections = rooms[roomID].consoles['spartan'].map(conn => { return players[conn].name })
+                                                .concat(rooms[roomID].consoles['cronus'].map(conn => { return players[conn].name }))
+                                                .concat(rooms[roomID].consoles['ethos'].map(conn => { return players[conn].name }))
+                                                .concat(rooms[roomID].consoles['flight'].map(conn => { return players[conn].name }))
+                                                .concat(rooms[roomID].consoles['capcom'].map(conn => { return players[conn].name }))
+                                                .concat(rooms[roomID].consoles['bme'].map(conn => { return players[conn].name }))
+                    io.in(roomID).emit('LEAVE_CONNECTION', players[socket.id].name, console_connections);
+                }
             }
             players[socket.id].name = null;
             players[socket.id].current_room = null;
@@ -287,6 +315,15 @@ io.on('connection', socket => {
                     socket.to(roomID).emit('UPDATE_CONSOLES', rooms[roomID].consoles_taken());
                     io.in(roomID).emit('UPDATE_CONSOLE_USERS', rooms[roomID].console_users());
                     io.in(roomID).emit('TUTOR_LOG', moment().format("YYYY-MM-DDTHH:mm:ss") + ` - ${players[socket.id].name} (${players[socket.id].console.toUpperCase()}) disconnected from the lab session`);
+                    if (players[socket.id] !== null) {
+                        let console_connections = rooms[roomID].consoles['spartan'].map(conn => { return players[conn].name })
+                                                    .concat(rooms[roomID].consoles['cronus'].map(conn => { return players[conn].name }))
+                                                    .concat(rooms[roomID].consoles['ethos'].map(conn => { return players[conn].name }))
+                                                    .concat(rooms[roomID].consoles['flight'].map(conn => { return players[conn].name }))
+                                                    .concat(rooms[roomID].consoles['capcom'].map(conn => { return players[conn].name }))
+                                                    .concat(rooms[roomID].consoles['bme'].map(conn => { return players[conn].name }))
+                        io.in(roomID).emit('DC_CONNECTION', players[socket.id].name, console_connections);
+                    }
                 } else if (players[socket.id].console === 'host') {
                     rooms[roomID].host_id = null;
                     socket.to(roomID).emit('HOST_LEFT', roomID);
