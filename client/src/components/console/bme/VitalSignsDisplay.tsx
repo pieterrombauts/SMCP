@@ -8,7 +8,7 @@ import { generateRandVal } from '../../../dataGenerator';
 import SmoothieComponent, { TimeSeries } from 'react-smoothie';
 import { decreaseSystolic } from '../../../bloodPressureSystolic';
 import { increaseDiastolic } from '../../../bloodPressureDiastolic';
-import { SmoothieGraph } from './SmoothieGraph';
+import { Chart } from './Chart';
 // import bme_1 from "./../../media/Bme_1.png"
 // import bme_2 from "./../../media/Bme_2.png"
 
@@ -109,42 +109,22 @@ const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
     return (
 
         <div className={props.className}>
-            <div id="smoothie1-div">
-                <SmoothieGraph 
-                    id={"smoothie1"}
-                    updateSpeed={5000}
-                    maxValue={37.5}
-                    minValue={36.5}
-                    yLimits={[35,40]}
-                />
+            <div id="chart1-div">
+                <Chart />
             </div>
-            <div id="smoothie2-div">
-                <SmoothieGraph 
-                    id={"smoothie2"}
-                    updateSpeed={5000}
-                    maxValue={37.5}
-                    minValue={36.5}
-                    yLimits={[35,40]}
-                />
+
+            <div id="chart2-div">
+                <Chart />
             </div>
-            <div id="smoothie3-div">
-                <SmoothieGraph 
-                    id={"smoothie3"}
-                    updateSpeed={5000}
-                    maxValue={37.5}
-                    minValue={36.5}
-                    yLimits={[35,40]}
-                />
+
+            <div id="chart3-div">
+                <Chart />
             </div>
-            <div id="smoothie4-div">
-                <SmoothieGraph 
-                    id={"smoothie4"}
-                    updateSpeed={5000}
-                    maxValue={37.5}
-                    minValue={36.5}
-                    yLimits={[35,40]}
-                />
+
+            <div id="chart4-div">
+                <Chart />
             </div>
+           
             <svg preserveAspectRatio='xMidYMid meet' viewBox='0 0 1400 1000'>
                 <Astronaut1 values={values} />
                 <Astronaut2 values={values} />
@@ -160,30 +140,55 @@ export const VitalSignsDisplay = styled(UVitalSignsDisplay)`
   height: 100%;
   position: absolute;
 
-  #smoothie1-div{ 
+  #chart1-div{ 
     position: absolute;
+    height: 125px;
+    width: 3000px;
     top: 34%;
     left: 22%;
+    background-color: black;
 
   }
 
-  #smoothie2-div{ 
+  #chart1-div{ 
     position: absolute;
+    height: 125px;
+    width: 300px;
+    top: 34%;
+    left: 22%;
+    background-color: black;
+
+  }
+  
+
+  #chart2-div{ 
+    position: absolute;
+    height: 125px;
+    width: 300px;
+    background-color: black;
     top: 34%;
     left: 72%;
+    
 
   }
 
-  #smoothie3-div{ 
+  #chart3-div{ 
     position: absolute;
-    top: 84%;
+    height: 125px;
+    width: 300px;
+    
+    background-color: black;
+    top: 81.5%;
     left: 22%;
 
   }
 
-  #smoothie4-div{ 
+  #chart4-div{ 
     position: absolute;
-    top: 84%;
+    height: 125px;
+    width: 300px;
+    background-color: black;
+    top: 81.5%;
     left: 72%;
 
   }
