@@ -8,7 +8,7 @@ interface A3Props {
 const Astronaut3: React.FC<A3Props> = ( props ) => {
   return(
     <g id="bme-vital-signs-astronaut1">
-      <rect  x="" y="55%" rx="5" ry="5" width="650" height="450" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
+      <rect  x="0%" y="55%" rx="5" ry="5" width="650" height="450" style={{fill:"#333333", stroke:"#393939", strokeWidth:5, opacity:0.5}} />
       <image x="22%" y="59.5%" width={150} height={150} href='/media/Bme_3.gif'></image>
       <image x="2%" y="52%" width={250} height={500} href='/media/Bme_Christina_Koch.jpg'></image>
 

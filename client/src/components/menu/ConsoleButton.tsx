@@ -31,7 +31,6 @@ const UConsoleButton: React.FC<Props> = ( props ) => {
   function handleSelectConsole(e: React.MouseEvent<HTMLButtonElement>) {
     if (e) {
       const target = e.currentTarget as HTMLButtonElement
-      console.log(target);
       socket.emit('SELECT_CONSOLE', props.lobbyID, target.value);
       props.updateUserRole({ userRole: target.value})
     }

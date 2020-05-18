@@ -47,7 +47,6 @@ const UFlight: React.FC<AppProps> = ( props ) => {
           <tbody>
             {props.reports.map((report) => {
               var selectValue = options.filter((efn) => efn.value === report._status )[0]
-              console.log(report);
               return (
                 <tr key={report._ID} className={report._status}>
                   <td>{report._ID}</td>

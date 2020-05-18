@@ -286,7 +286,6 @@ const UOSTPV: React.FC<AppProps> = ( props ) => {
     const interval = setInterval(() => {
       socket.emit('GET_CURRENT_TIME', props.lobbyID, (time: string) => {
         currentTimeRef.current = time;
-        console.log('Current Time: ' + currentTimeRef.current);
       })
     }, 1000)
     return () => clearInterval(interval);

@@ -27,9 +27,7 @@ const USTATUS: React.FC<Props> = ( props ) => {
   const contentRef = React.useRef<any>(null);
   function sendStatusReport(e: React.FormEvent) {
     e.preventDefault();
-    console.log(subjectRef.current.value, contentRef.current.value)
     var newValues = {subject: subjectRef.current.value, content: contentRef.current.value, time: ""};
-    console.log(newValues);
     newValues["time"] = props.time;
     socket.emit("STATUS_REPORT", newValues, props.lobbyID);
     subjectRef.current.value = "";
