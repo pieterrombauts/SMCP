@@ -62,8 +62,8 @@ class Room {
     set host_id(new_host_id) { if (new_host_id) this._host_id = new_host_id }
     set tutors(new_tutors) { if (new_tutors) this._tutors = new_tutors }
     set consoles(new_consoles) { if (new_consoles) this._consoles = new_consoles }
-    set player_count(new_player_count) { if (new_player_count) this._player_count = new_player_count }
-    set in_progress(new_in_progress) { if (new_in_progress) this._in_progress = new_in_progress }
+    set player_count(new_player_count) { if (new_player_count !== null) this._player_count = new_player_count }
+    set in_progress(new_in_progress) { if (new_in_progress !== null) this._in_progress = new_in_progress }
     set flight_notes(new_flight_notes) { if (new_flight_notes) this._flight_notes = new_flight_notes }
     set events(new_events) { if (new_events) this._events = new_events }
     set current_time(new_current_time) { if (new_current_time) this._current_time = new_current_time }
@@ -273,7 +273,7 @@ io.on('connection', socket => {
             } else if (players[socket.id].console === 'tutor') {
                 rooms[roomID].remove_tutor(socket.id);
             } else {
-                console.error('LEAVE_ROOM request error!' + players[socket.id].name + ' tried to leave room ' + roomID + ' but was not a valid console.')
+                rooms[roomID].player_count = rooms[roomID].player_count - 1;
             }
             if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
                 clearInterval(rooms[roomID].time_interval_id)
@@ -331,7 +331,7 @@ io.on('connection', socket => {
                 } else if (players[socket.id].console === 'tutor') {
                     rooms[roomID].remove_tutor(socket.id);
                 } else {
-                    console.error('DISCONNECT error!' + players[socket.id].name + ' disconnected from ' + roomID + ' but was not a valid console.')
+                    rooms[roomID].player_count = rooms[roomID].player_count - 1;
                 }
                 if (rooms[roomID].player_count === 0 && rooms[roomID].host_id === null) {
                     clearInterval(rooms[roomID].time_interval_id)

@@ -33,7 +33,7 @@ const UOSTPVEventDetail: React.FC<AppProps> = ( props ) => {
     <div className={props.className}>
       { props.event.id !== -1 && 
         <div key={props.event.id}>
-          <p className="event-time"><small>{`${moment(props.event.start).format('DDDD/HH:mm')} - ${moment(props.event.end).format('DDDD/HH:mm')}`}</small></p>
+          <p className="event-time"><small>{`${moment.utc(props.event.start).format('DDDD/HH:mm')} - ${moment.utc(props.event.end).format('DDDD/HH:mm')}`}</small></p>
           <h3 className="event-target">
             {`${props.event.extendedProps.astronaut} - ${props.event.title.substring(2)}`}
           </h3>
