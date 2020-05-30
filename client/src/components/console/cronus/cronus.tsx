@@ -9,11 +9,10 @@ import CronusUHFCommsDisplay from './CronusUHFCommsDisplay'
 import CronusSBandCommsDisplay from './CronusSBandCommsDisplay'
 import CronusVidComm1Display from './CronusVidComm1Display'
 import CronusVidComm2Display from './CronusVidComm2Display'
-import { generateRandVal } from '../../../dataGenerator';
+import { decreaseValue } from '../../../dataGenerator';
 import socket from '../../Socket';
 import { connect, ConnectedProps } from 'react-redux';
 import { RootState } from '../../../reducers';
-import { decreaseValue } from '../../../dataDecreaser';
 
 interface AppProps {
   className?: string;
@@ -43,7 +42,7 @@ const defaultValues = {
   }
 }
 
-const Cronus: React.FC<Props> = ( props ) => {
+export const Cronus: React.FC<Props> = ( props ) => {
   var [values, setValues] = useState(defaultValues);
   const intervalRef = useRef(0);
   useEffect(() => {

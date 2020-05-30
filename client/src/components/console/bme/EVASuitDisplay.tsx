@@ -2,9 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import EVA1 from './EVA1';
 import EVA2 from './EVA2';
-import { generateRandVal } from '../../../dataGenerator';
-import { decreaseValue } from '../../../dataDecreaser';
-
+import { generateRandVal, decreaseValue } from '../../../dataGenerator';
 
 interface EVASDProps {
     className?: string;
@@ -26,7 +24,7 @@ const defaultValues = {
     }
 }
 
-const UEVASuitDisplay: React.FC<EVASDProps> = (props) => {
+export const UEVASuitDisplay: React.FC<EVASDProps> = (props) => {
     var [values, setValues] = useState(defaultValues)
     const intervalRef = useRef(0);
 

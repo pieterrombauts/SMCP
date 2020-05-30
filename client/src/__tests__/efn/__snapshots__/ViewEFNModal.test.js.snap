@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EFN Details modal popup renders correctly 1`] = `
+<div
+  id="view-efn-modal"
+>
+  <div
+    id="modal-overlay-view-efn"
+    onMouseUp={[Function]}
+  >
+    <div
+      id="modal-content-view-efn"
+    >
+      <Styled(UEFNDetails)
+        closeFunction={[MockFunction]}
+        lobbyID="111111"
+        reports={Array []}
+      />
+    </div>
+  </div>
+</div>
+`;

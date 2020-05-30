@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EVA suit display renders correctly 1`] = `
+<div>
+  <svg
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 1400 1000"
+  >
+    <rect
+      height="945"
+      rx="5"
+      ry="5"
+      style={
+        Object {
+          "fill": "#333333",
+          "opacity": 0.5,
+          "stroke": "#393939",
+          "strokeWidth": 5,
+        }
+      }
+      width="1300"
+      x="1%"
+      y="5%"
+    />
+    <text
+      fill="#EBB249"
+      fontSize="30"
+      textDecoration="underline"
+      x="37%"
+      y="18%"
+    >
+       Helmet Pressure (psi)
+    </text>
+    <line
+      stroke="#a39d9d"
+      strokeWidth="4"
+      x1="47%"
+      x2="47%"
+      y1="20%"
+      y2="30%"
+    />
+    <text
+      fill="#EBB249"
+      fontSize="30"
+      textDecoration="underline"
+      x="41%"
+      y="34%"
+    >
+       O2 Level (%)
+    </text>
+    <line
+      stroke="#a39d9d"
+      strokeWidth="4"
+      x1="47%"
+      x2="47%"
+      y1="36%"
+      y2="46%"
+    />
+    <text
+      fill="#EBB249"
+      fontSize="30"
+      textDecoration="underline"
+      x="40%"
+      y="50%"
+    >
+       Water Level (%)
+    </text>
+    <line
+      stroke="#a39d9d"
+      strokeWidth="4"
+      x1="47%"
+      x2="47%"
+      y1="52%"
+      y2="62%"
+    />
+    <text
+      fill="#EBB249"
+      fontSize="30"
+      textDecoration="underline"
+      x="37%"
+      y="66%"
+    >
+       Battery Charge Level (%)
+    </text>
+    <line
+      stroke="#a39d9d"
+      strokeWidth="4"
+      x1="47%"
+      x2="47%"
+      y1="68%"
+      y2="75%"
+    />
+    <text
+      fill="#EBB249"
+      fontSize="30"
+      textDecoration="underline"
+      x="43.5%"
+      y="78%"
+    >
+       Comms
+    </text>
+    <line
+      stroke="#a39d9d"
+      strokeWidth="4"
+      x1="47%"
+      x2="47%"
+      y1="80%"
+      y2="89%"
+    />
+    <EVA1
+      values={
+        Object {
+          "eva1": Object {
+            "batteryCharge": 67,
+            "helmetPressure": 0,
+            "o2": 65,
+            "water": 80,
+          },
+          "eva2": Object {
+            "batteryCharge": 68,
+            "helmetPressure": 0,
+            "o2": 65,
+            "water": 80,
+          },
+        }
+      }
+    />
+    <EVA2
+      values={
+        Object {
+          "eva1": Object {
+            "batteryCharge": 67,
+            "helmetPressure": 0,
+            "o2": 65,
+            "water": 80,
+          },
+          "eva2": Object {
+            "batteryCharge": 68,
+            "helmetPressure": 0,
+            "o2": 65,
+            "water": 80,
+          },
+        }
+      }
+    />
+  </svg>
+</div>
+`;

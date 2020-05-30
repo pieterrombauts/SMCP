@@ -12,13 +12,12 @@ import {Spartan} from './spartan/spartan';
 import {Capcom} from './capcom/capcom';
 import {Cronus1} from './cronus/cronus';
 import {Ethos} from './ethos/ethos';
-import {OSTPVModal} from './OSTPVModal'
-import {STATUSModal} from './STATUSModal'
-import {ViewEFNModal} from './ViewEFNModal';
+import {OSTPVModal} from './ostpv/OSTPVModal'
+import {STATUSModal} from './efn/STATUSModal'
+import {ViewEFNModal} from './efn/ViewEFNModal';
 import {statusReport, firstConsoleOpens} from './customTypes'
 import {Flight} from './flight';
 import {Bme} from './bme/bme';
-// import { CallRequestGroup } from './CallRequestGroup'
 import { RootState } from '../../reducers';
 import { updateTime } from '../../slices/dataSlice'
 import socket from '../Socket'
@@ -38,19 +37,14 @@ const connector = connect(mapState, { updateTime })
 type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux & consoleProps
 
-const UConsole: React.FC<Props> = ( props ) => {
+export const UConsole: React.FC<Props> = ( props ) => {
   const [ ostpvModal, setOstpvModal ] = useState(false);
   const [ statusModal, setStatusModal ] = useState(false);
   const [ viewEFNModal, setViewEFNModal ] = useState(false);
-  // const [ callRequests, setCallRequests ] = useState({spartan: false, cronus: false, ethos: false, flight: false, capcom: false, bme: false})
   const [ reports, setReports ] = useState<statusReport[]>([])
   const [ efnID, setEfnID ] = useState("");
   const [ firstOpens, setFirstOpens ] = useState<firstConsoleOpens>({spartan: true, cronus: true, ethos: true, flight: true, capcom: true, bme: true, efn: true, ostpv: true});
   useEffect(() => {
-    // socket.off('CALL_REQUESTED')
-    // socket.on('CALL_REQUESTED', (sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme", time: string) => {
-    //   showCallRequest(sender);
-    // })
     socket.off('UPDATE_TIME').on('UPDATE_TIME', ( time: string ) => {
       props.updateTime({time: time});
     })
@@ -167,29 +161,9 @@ const UConsole: React.FC<Props> = ( props ) => {
         break;
     }
   }
-  // function handleCallRequest(event: React.MouseEvent<DropdownItem>) {
-  //   const currTarget = event.currentTarget as unknown as HTMLAnchorElement;
-  //   socket.emit("CALL_REQUEST", currTarget.text.toLowerCase(), props.userRole, props.lobbyID)
-  // }
-  // function showCallRequest(sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme") {
-  //   var newCallRequests = callRequests;
-  //   newCallRequests[sender] = true;
-  //   setCallRequests(newCallRequests);
-  // }
-  // function hideCallRequest(sender: "spartan" | "cronus" | "ethos" | "flight" | "capcom" | "bme") {
-  //   var newCallRequests = callRequests;
-  //   newCallRequests[sender] = false;
-  //   console.log(newCallRequests);
-  //   setCallRequests(newCallRequests);
-  // }
 
   return(
     <div id="game-container">
-      {
-      // NO NEED FOR THIS ANY MORE AS FUNCTIONALITY WAS REMOVED FROM REQUIREMENTS
-      /* <div style={{position: "relative", zIndex: 20}}>
-        <CallRequestGroup callRequests={callRequests} onHide={hideCallRequest}/>
-      </div> */}
       <Tab.Container id="console-tabs">
         <Row className={props.className}>
           <Col id="console-buttons" sm={2}>
@@ -222,21 +196,6 @@ const UConsole: React.FC<Props> = ( props ) => {
             </Nav>
             <Button variant="outline-primary" className={`${ostpvModal ? 'selected' : ''}`} onClick={handleOSTPVOpen}>OSTPV</Button>
             <Button variant="outline-primary" className={`${statusModal ? 'selected' : ''}`} onClick={handleStatusOpen}>EFN</Button>
-            {
-            // NO NEED FOR THIS ANY MORE AS FUNCTIONALITY WAS REMOVED FROM REQUIREMENTS
-            /* <DropdownButton 
-              id="call-request-button" 
-              title="ALERT "
-              drop="right"
-              variant="primary"
-            >
-              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>SPARTAN</DropdownItem>
-              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>CRONUS</DropdownItem>
-              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>ETHOS</DropdownItem>
-              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>FLIGHT</DropdownItem>
-              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>CAPCOM</DropdownItem>
-              <DropdownItem as={DropdownItem} onClick={handleCallRequest}>BME</DropdownItem>
-            </DropdownButton> */}
           </Col>
           <Col id="console-content" sm={10}>
             <Tab.Content id="tab-content">

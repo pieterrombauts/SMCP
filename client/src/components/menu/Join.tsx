@@ -62,7 +62,7 @@ const UJoin: React.FC<Props> = ( props ) => {
   );
 }
 
-const Join = styled(UJoin)`
+export const Join = styled(UJoin)`
   color: #f8f9fa;
   z-index: 0;
   position: absolute;

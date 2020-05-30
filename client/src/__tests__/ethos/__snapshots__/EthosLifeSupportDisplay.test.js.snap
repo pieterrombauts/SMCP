@@ -1,0 +1,1254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ethos Life Support display renders correctly 1`] = `
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<Styled(UEthosLifeSupportDisplay)>
+  <UEthosLifeSupportDisplay
+    className="c0"
+  >
+    <div
+      className="c0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1400 1000"
+      >
+        <image
+          height={990}
+          href="/media/ISSLayout.png"
+          width={1300}
+          x={0}
+          y={0}
+        />
+        <Tranquility
+          origin={
+            Array [
+              45,
+              60,
+            ]
+          }
+          values={
+            Object {
+              "destiny": Object {
+                "ppCO2": 0,
+                "ppN2": 0,
+                "ppO2": 0,
+                "pressure": 0,
+                "temp": 0,
+              },
+              "harmony": Object {
+                "coolant_temp": 0,
+                "pressure": 0,
+              },
+              "quest": Object {
+                "EVA_O2": 0,
+                "N2": 0,
+                "O2": 0,
+                "crewlock_pressure": 0,
+                "pressure": 0,
+              },
+              "tranquility": Object {
+                "ppCO2": 0,
+                "ppN2": 0,
+                "ppO2": 0,
+                "pressure": 0,
+                "temp": 0,
+              },
+            }
+          }
+        >
+          <g
+            id="ethos-life-support-display-tranquility"
+          >
+            <rect
+              height="300"
+              rx="5"
+              ry="5"
+              style={
+                Object {
+                  "fill": "#333333",
+                  "opacity": 0.5,
+                  "stroke": "#393939",
+                  "strokeWidth": 5,
+                }
+              }
+              width="300"
+              x={45}
+              y={60}
+            />
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "30",
+                  "fontWeight": "bold",
+                }
+              }
+              x={60}
+              y={100}
+            >
+              Tranquility
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={140}
+            >
+              Pressure
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={170}
+              y={140}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={250}
+              y={140}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={180}
+            >
+              Temp
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={170}
+              y={180}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={250}
+              y={180}
+            >
+              °C
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={220}
+            >
+              pp02
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={170}
+              y={220}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={250}
+              y={220}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={260}
+            >
+              ppN2
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={170}
+              y={260}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={250}
+              y={260}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={300}
+            >
+              ppCO2
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={170}
+              y={300}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={250}
+              y={300}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={340}
+            >
+              Fan Status
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={170}
+              y={340}
+            >
+              ON
+            </text>
+          </g>
+        </Tranquility>
+        <rect
+          height="330"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#333333",
+              "opacity": 0.5,
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="295"
+          x={945}
+          y={15}
+        />
+        <text
+          style={
+            Object {
+              "fill": "white",
+              "fontSize": "30",
+              "fontWeight": "bold",
+            }
+          }
+          x={960}
+          y={55}
+        >
+          Kibo (JAXA)
+        </text>
+        <rect
+          height="270"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#333333",
+              "opacity": 0.5,
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="250"
+          x={65}
+          y={430}
+        />
+        <text
+          style={
+            Object {
+              "fill": "white",
+              "fontSize": "30",
+              "fontWeight": "bold",
+            }
+          }
+          x={80}
+          y={470}
+        >
+          Unity Node
+        </text>
+        <Destiny
+          origin={
+            Array [
+              360,
+              430,
+            ]
+          }
+          values={
+            Object {
+              "destiny": Object {
+                "ppCO2": 0,
+                "ppN2": 0,
+                "ppO2": 0,
+                "pressure": 0,
+                "temp": 0,
+              },
+              "harmony": Object {
+                "coolant_temp": 0,
+                "pressure": 0,
+              },
+              "quest": Object {
+                "EVA_O2": 0,
+                "N2": 0,
+                "O2": 0,
+                "crewlock_pressure": 0,
+                "pressure": 0,
+              },
+              "tranquility": Object {
+                "ppCO2": 0,
+                "ppN2": 0,
+                "ppO2": 0,
+                "pressure": 0,
+                "temp": 0,
+              },
+            }
+          }
+        >
+          <g
+            id="ethos-life-support-display-destiny-lab"
+          >
+            <rect
+              height="270"
+              rx="5"
+              ry="5"
+              style={
+                Object {
+                  "fill": "#333333",
+                  "opacity": 0.5,
+                  "stroke": "#393939",
+                  "strokeWidth": 5,
+                }
+              }
+              width="500"
+              x={360}
+              y={430}
+            />
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "30",
+                  "fontWeight": "bold",
+                }
+              }
+              x={375}
+              y={470}
+            >
+              Destiny Lab
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={375}
+              y={510}
+            >
+              Pressure
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={485}
+              y={510}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={565}
+              y={510}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={375}
+              y={550}
+            >
+              Temp
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={485}
+              y={550}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={565}
+              y={550}
+            >
+              °C
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={375}
+              y={590}
+            >
+              pp02
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={485}
+              y={590}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={565}
+              y={590}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={375}
+              y={630}
+            >
+              ppN2
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={485}
+              y={630}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={565}
+              y={630}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={375}
+              y={670}
+            >
+              ppCO2
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={485}
+              y={670}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={565}
+              y={670}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={705}
+              y={510}
+            >
+              Port Fan
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={720}
+              y={540}
+            >
+              OFF
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={685}
+              y={630}
+            >
+              Starboard Fan
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={725}
+              y={660}
+            >
+              ON
+            </text>
+          </g>
+        </Destiny>
+        <Harmony
+          origin={
+            Array [
+              905,
+              430,
+            ]
+          }
+          values={
+            Object {
+              "destiny": Object {
+                "ppCO2": 0,
+                "ppN2": 0,
+                "ppO2": 0,
+                "pressure": 0,
+                "temp": 0,
+              },
+              "harmony": Object {
+                "coolant_temp": 0,
+                "pressure": 0,
+              },
+              "quest": Object {
+                "EVA_O2": 0,
+                "N2": 0,
+                "O2": 0,
+                "crewlock_pressure": 0,
+                "pressure": 0,
+              },
+              "tranquility": Object {
+                "ppCO2": 0,
+                "ppN2": 0,
+                "ppO2": 0,
+                "pressure": 0,
+                "temp": 0,
+              },
+            }
+          }
+        >
+          <g
+            id="ethos-life-support-display-harmony"
+          >
+            <rect
+              height="270"
+              rx="5"
+              ry="5"
+              style={
+                Object {
+                  "fill": "#333333",
+                  "opacity": 0.5,
+                  "stroke": "#393939",
+                  "strokeWidth": 5,
+                }
+              }
+              width="300"
+              x={905}
+              y={430}
+            />
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "30",
+                  "fontWeight": "bold",
+                }
+              }
+              x={920}
+              y={470}
+            >
+              Harmony
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={920}
+              y={510}
+            >
+              Pressure
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={1030}
+              y={510}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={1110}
+              y={510}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={920}
+              y={550}
+            >
+              Coolant
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={920}
+              y={570}
+            >
+              Temp
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={1030}
+              y={560}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={1110}
+              y={560}
+            >
+              °C
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={920}
+              y={610}
+            >
+              Fan Status
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={1030}
+              y={610}
+            >
+              ON
+            </text>
+          </g>
+        </Harmony>
+        <QuestAirlock
+          origin={
+            Array [
+              45,
+              730,
+            ]
+          }
+          values={
+            Object {
+              "destiny": Object {
+                "ppCO2": 0,
+                "ppN2": 0,
+                "ppO2": 0,
+                "pressure": 0,
+                "temp": 0,
+              },
+              "harmony": Object {
+                "coolant_temp": 0,
+                "pressure": 0,
+              },
+              "quest": Object {
+                "EVA_O2": 0,
+                "N2": 0,
+                "O2": 0,
+                "crewlock_pressure": 0,
+                "pressure": 0,
+              },
+              "tranquility": Object {
+                "ppCO2": 0,
+                "ppN2": 0,
+                "ppO2": 0,
+                "pressure": 0,
+                "temp": 0,
+              },
+            }
+          }
+        >
+          <g
+            id="ethos-life-support-display-quest-airlock"
+          >
+            <rect
+              height="270"
+              rx="5"
+              ry="5"
+              style={
+                Object {
+                  "fill": "#333333",
+                  "opacity": 0.5,
+                  "stroke": "#393939",
+                  "strokeWidth": 5,
+                }
+              }
+              width="845"
+              x={45}
+              y={730}
+            />
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "30",
+                  "fontWeight": "bold",
+                }
+              }
+              x={60}
+              y={770}
+            >
+              Quest Airlock
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={810}
+            >
+              Pressure
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={170}
+              y={810}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={240}
+              y={810}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={850}
+            >
+              Fan Status
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={170}
+              y={850}
+            >
+              ON
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={890}
+            >
+              Crewlock Pressure
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={240}
+              y={890}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={310}
+              y={890}
+            >
+              mmHg
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={930}
+            >
+              Vacuum Exhaust Valve
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={290}
+              y={930}
+            >
+              OPEN
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={60}
+              y={970}
+            >
+              Vacuum Resource Valve
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={290}
+              y={970}
+            >
+              OPEN
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={590}
+              y={800}
+            >
+              Pressure
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={730}
+              y={800}
+            >
+              Valve Position
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={410}
+              y={840}
+            >
+              EVA O2 Tank
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={560}
+              y={840}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={660}
+              y={840}
+            >
+              kPa
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={750}
+              y={840}
+            >
+              CLOSED
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={410}
+              y={880}
+            >
+              N2 Tank
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={560}
+              y={880}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={660}
+              y={880}
+            >
+              kPa
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={760}
+              y={880}
+            >
+              OPEN
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={410}
+              y={920}
+            >
+              O2 Tank
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={560}
+              y={920}
+            >
+              0
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "white",
+                  "fontSize": "20",
+                }
+              }
+              x={660}
+              y={920}
+            >
+              kPa
+            </text>
+            <text
+              style={
+                Object {
+                  "fill": "#EBB249",
+                  "fontSize": "20",
+                }
+              }
+              x={760}
+              y={920}
+            >
+              OPEN
+            </text>
+          </g>
+        </QuestAirlock>
+        <rect
+          height="200"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#333333",
+              "opacity": 0.5,
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="250"
+          x={965}
+          y={770}
+        />
+        <text
+          style={
+            Object {
+              "fill": "white",
+              "fontSize": "30",
+              "fontWeight": "bold",
+            }
+          }
+          x={980}
+          y={810}
+        >
+          Columbus (ESA)
+        </text>
+      </svg>
+    </div>
+  </UEthosLifeSupportDisplay>
+</Styled(UEthosLifeSupportDisplay)>
+`;

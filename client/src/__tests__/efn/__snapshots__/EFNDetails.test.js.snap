@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EFN details modal renders correctly 1`] = `
+.c0 .efn-id {
+  margin-bottom: 3px;
+}
+
+.c0 .efn-header {
+  display: inline;
+}
+
+.c0 .efn-status {
+  display: inline;
+  margin-left: 10px;
+}
+
+.c0 .efn-content {
+  margin-top: 10px;
+}
+
+.c0 button {
+  margin-top: 10px;
+}
+
+<UEFNDetails
+  className="c0"
+  closeFunction={[MockFunction]}
+  efnID="EFN0001"
+  lobbyID="111111"
+  reports={
+    Array [
+      Object {
+        "_ID": "EFN0001",
+        "_comments": Array [
+          "This is a test comment",
+          "This is a second test comment",
+        ],
+        "_content": "This is the first test",
+        "_sender": "spartan",
+        "_status": "open",
+        "_subject": "Test 1",
+        "_time": "2019-11-19T15:00:00",
+      },
+      Object {
+        "_ID": "EFN0002",
+        "_comments": Array [],
+        "_content": "This is the second test",
+        "_sender": "cronus",
+        "_status": "open",
+        "_subject": "Test 2",
+        "_time": "2019-11-19T15:00:02",
+      },
+      Object {
+        "_ID": "EFN0003",
+        "_comments": Array [],
+        "_content": "This is the third test",
+        "_sender": "ethos",
+        "_status": "open",
+        "_subject": "Test 3",
+        "_time": "2019-11-19T15:00:05",
+      },
+    ]
+  }
+/>
+`;

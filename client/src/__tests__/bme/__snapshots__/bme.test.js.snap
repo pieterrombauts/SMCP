@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spartan External Thermal display renders correctly 1`] = `
+<TabContainer
+  defaultActiveKey="EVASuit"
+  id="bme-tabs"
+>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      id="bme-content"
+      sm={10}
+    >
+      <ForwardRef>
+        <TabPane
+          eventKey="EVASuit"
+        >
+          <Styled(UEVASuitDisplay) />
+        </TabPane>
+        <TabPane
+          eventKey="vitalSigns"
+          onClick={[Function]}
+        >
+          <Styled(UVitalSignsDisplay) />
+        </TabPane>
+      </ForwardRef>
+    </Col>
+    <Col
+      id="bme-buttons"
+      sm={2}
+    >
+      <Nav
+        className="flex-column"
+        fill={false}
+        justify={false}
+        variant="pills"
+      >
+        <NavItem>
+          <NavLink
+            as={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "displayName": "SafeAnchor",
+                "render": [Function],
+              }
+            }
+            disabled={false}
+            eventKey="EVASuit"
+          >
+            EVA Suit
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            as={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "displayName": "SafeAnchor",
+                "render": [Function],
+              }
+            }
+            disabled={false}
+            eventKey="vitalSigns"
+            onClick={[Function]}
+          >
+            Vital Signs
+          </NavLink>
+        </NavItem>
+      </Nav>
+    </Col>
+  </Row>
+</TabContainer>
+`;

@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cronus display renders correctly 1`] = `
+<TabContainer
+  defaultActiveKey="comp-net"
+  id="cronus-tabs"
+>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      id="cronus-content"
+      sm={10}
+    >
+      <ForwardRef>
+        <TabPane
+          eventKey="comp-net"
+        >
+          <Styled(UCronusCompNetDisplay)
+            values={
+              Object {
+                "compNet": Object {
+                  "loadCmds": 11248,
+                  "standardCmds": 10466,
+                  "time": "",
+                },
+                "sBand": Object {
+                  "azimuthGimbal": 2,
+                  "elevationGimbal": 60,
+                },
+                "vComms1": Object {
+                  "crossElevationGimbal": 45,
+                  "elevationGimbal": 48,
+                },
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          eventKey="uhf-comms"
+        >
+          <Styled(UCronusUHFCommsDisplay) />
+        </TabPane>
+        <TabPane
+          eventKey="s-band-comms"
+        >
+          <Styled(UCronusSBandCommsDisplay)
+            values={
+              Object {
+                "compNet": Object {
+                  "loadCmds": 11248,
+                  "standardCmds": 10466,
+                  "time": "",
+                },
+                "sBand": Object {
+                  "azimuthGimbal": 2,
+                  "elevationGimbal": 60,
+                },
+                "vComms1": Object {
+                  "crossElevationGimbal": 45,
+                  "elevationGimbal": 48,
+                },
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          eventKey="vid-comms-1"
+        >
+          <Styled(UCronusVidComm1Display)
+            values={
+              Object {
+                "compNet": Object {
+                  "loadCmds": 11248,
+                  "standardCmds": 10466,
+                  "time": "",
+                },
+                "sBand": Object {
+                  "azimuthGimbal": 2,
+                  "elevationGimbal": 60,
+                },
+                "vComms1": Object {
+                  "crossElevationGimbal": 45,
+                  "elevationGimbal": 48,
+                },
+              }
+            }
+          />
+        </TabPane>
+        <TabPane
+          eventKey="vid-comms-2"
+        >
+          <Styled(UCronusVidComm2Display) />
+        </TabPane>
+      </ForwardRef>
+    </Col>
+    <Col
+      id="cronus-buttons"
+      sm={2}
+    >
+      <Nav
+        className="flex-column"
+        fill={false}
+        justify={false}
+        variant="pills"
+      >
+        <NavItem>
+          <NavLink
+            as={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "displayName": "SafeAnchor",
+                "render": [Function],
+              }
+            }
+            disabled={false}
+            eventKey="comp-net"
+          >
+            COMPUTER NETWORK
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            as={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "displayName": "SafeAnchor",
+                "render": [Function],
+              }
+            }
+            disabled={false}
+            eventKey="uhf-comms"
+            onClick={[Function]}
+          >
+            UHF COMMS
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            as={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "displayName": "SafeAnchor",
+                "render": [Function],
+              }
+            }
+            disabled={false}
+            eventKey="s-band-comms"
+            onClick={[Function]}
+          >
+            S-BAND COMMS
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            as={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "displayName": "SafeAnchor",
+                "render": [Function],
+              }
+            }
+            disabled={false}
+            eventKey="vid-comms-1"
+            onClick={[Function]}
+          >
+            VIDEO COMMS 1
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            as={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "displayName": "SafeAnchor",
+                "render": [Function],
+              }
+            }
+            disabled={false}
+            eventKey="vid-comms-2"
+            onClick={[Function]}
+          >
+            VIDEO COMMS 2
+          </NavLink>
+        </NavItem>
+      </Nav>
+    </Col>
+  </Row>
+</TabContainer>
+`;

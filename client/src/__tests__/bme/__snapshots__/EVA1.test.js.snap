@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EVA1 display renders correctly 1`] = `
+<g
+  id="bme-EVA-suit-EVA1"
+>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="50"
+    x="4%"
+    y="12%"
+  >
+    EVA 1 - Luca
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="25"
+    x="38%"
+    y="26%"
+  >
+    0
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="25"
+    x="38%"
+    y="41%"
+  >
+    65
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="25"
+    x="38%"
+    y="58%"
+  >
+    80
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="25"
+    x="38%"
+    y="72%"
+  >
+    67
+  </text>
+  <text
+    fill="#7ef56e"
+    fontFamily="Verdana"
+    fontSize="25"
+    x="36%"
+    y="86%"
+  >
+     ACTIVE
+  </text>
+  <image
+    height={800}
+    href="/media/Bme_EVA_Suit_1.png"
+    width={800}
+    x="-13%"
+    y="18%"
+  />
+</g>
+`;

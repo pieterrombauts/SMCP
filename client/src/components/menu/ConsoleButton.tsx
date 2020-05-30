@@ -48,7 +48,7 @@ const UConsoleButton: React.FC<Props> = ( props ) => {
   );
 };
 
-const ConsoleButton = styled(UConsoleButton)`
+export const ConsoleButton = styled(UConsoleButton)`
     min-width: 200px;
     min-height: 50px;
     margin: 10px 10px;

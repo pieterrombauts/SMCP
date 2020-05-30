@@ -39,7 +39,7 @@ const UHome: React.FC<Props> = ( props ) => {
   );
 }
 
-const Home = styled(UHome)`
+export const Home = styled(UHome)`
   z-index: 3;
   position: absolute;
   top: 50%;

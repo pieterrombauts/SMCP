@@ -20,13 +20,13 @@ const connector = connect(mapState)
 type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux & AppProps
 
-const UCapcom: React.FC<Props> = (props) => {
+export const UCapcom: React.FC<Props> = (props) => {
   return (
     <Tab.Container id="campcom-tab" defaultActiveKey="capcom">
       <Row className={props.className}>
         <Col id="capcom-content" sm={10}>
-              <WarningSummary />
-              <ButtonsDisplay time={props.time}/>
+          <WarningSummary />
+          <ButtonsDisplay time={props.time}/>
         </Col>
       </Row>
     </Tab.Container>

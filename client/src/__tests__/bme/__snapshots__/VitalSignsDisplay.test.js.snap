@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vital signs display renders correctly 1`] = `
+<div>
+  <svg
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 1400 1000"
+  >
+    <Connect(Astronaut1)
+      temps={
+        Object {
+          "astronaut1": Object {
+            "temperature": 0,
+          },
+          "astronaut2": Object {
+            "temperature": 0,
+          },
+          "astronaut3": Object {
+            "temperature": 0,
+          },
+          "astronaut4": Object {
+            "temperature": 0,
+          },
+        }
+      }
+      values={
+        Object {
+          "astronaut1": Object {
+            "bloodPressureDiastolic": 60,
+            "bloodPressureSystolic": 125,
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut2": Object {
+            "bloodPressureDiastolic": 60,
+            "bloodPressureSystolic": 125,
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut3": Object {
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut4": Object {
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+        }
+      }
+    />
+    <Connect(Astronaut2)
+      temps={
+        Object {
+          "astronaut1": Object {
+            "temperature": 0,
+          },
+          "astronaut2": Object {
+            "temperature": 0,
+          },
+          "astronaut3": Object {
+            "temperature": 0,
+          },
+          "astronaut4": Object {
+            "temperature": 0,
+          },
+        }
+      }
+      values={
+        Object {
+          "astronaut1": Object {
+            "bloodPressureDiastolic": 60,
+            "bloodPressureSystolic": 125,
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut2": Object {
+            "bloodPressureDiastolic": 60,
+            "bloodPressureSystolic": 125,
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut3": Object {
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut4": Object {
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+        }
+      }
+    />
+    <Connect(Astronaut3)
+      temps={
+        Object {
+          "astronaut1": Object {
+            "temperature": 0,
+          },
+          "astronaut2": Object {
+            "temperature": 0,
+          },
+          "astronaut3": Object {
+            "temperature": 0,
+          },
+          "astronaut4": Object {
+            "temperature": 0,
+          },
+        }
+      }
+      values={
+        Object {
+          "astronaut1": Object {
+            "bloodPressureDiastolic": 60,
+            "bloodPressureSystolic": 125,
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut2": Object {
+            "bloodPressureDiastolic": 60,
+            "bloodPressureSystolic": 125,
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut3": Object {
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut4": Object {
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+        }
+      }
+    />
+    <Connect(Astronaut4)
+      temps={
+        Object {
+          "astronaut1": Object {
+            "temperature": 0,
+          },
+          "astronaut2": Object {
+            "temperature": 0,
+          },
+          "astronaut3": Object {
+            "temperature": 0,
+          },
+          "astronaut4": Object {
+            "temperature": 0,
+          },
+        }
+      }
+      values={
+        Object {
+          "astronaut1": Object {
+            "bloodPressureDiastolic": 60,
+            "bloodPressureSystolic": 125,
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut2": Object {
+            "bloodPressureDiastolic": 60,
+            "bloodPressureSystolic": 125,
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut3": Object {
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+          "astronaut4": Object {
+            "heartRate": 0,
+            "heartRateMax": 0,
+          },
+        }
+      }
+    />
+  </svg>
+</div>
+`;

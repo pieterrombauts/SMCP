@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tutor display renders correctly 1`] = `
+.c0 {
+  height: 80%;
+  width: 85%;
+  margin-top: 5%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.c0 .tutor-header-col {
+  width: 16%;
+}
+
+.c0 tbody > tr > td {
+  vertical-align: middle;
+  height: 50px;
+}
+
+.c0 #tutor-log-container {
+  padding: 10px;
+  min-height: 60vh;
+  max-height: 60vh;
+  overflow: auto;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.c0 #tutor-log-container > p {
+  margin-bottom: 5px;
+}
+
+.c0 #tutor-log-container > hr {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+<Styled(UTutor)
+  roomID="111111"
+>
+  <UTutor
+    className="c0"
+    roomID="111111"
+  >
+    <div
+      className="c0"
+      id="tutor-container"
+    >
+      <div
+        id="tutor-table-container"
+      >
+        <ForwardRef
+          bordered={true}
+          id="report-table"
+        >
+          <table
+            className="table table-bordered"
+            id="report-table"
+          >
+            <thead>
+              <tr>
+                <th
+                  className="tutor-header-col"
+                >
+                  SPARTAN
+                </th>
+                <th
+                  className="tutor-header-col"
+                >
+                  CRONUS
+                </th>
+                <th
+                  className="tutor-header-col"
+                >
+                  ETHOS
+                </th>
+                <th
+                  className="tutor-header-col"
+                >
+                  FLIGHT
+                </th>
+                <th
+                  className="tutor-header-col"
+                >
+                  CAPCOM
+                </th>
+                <th
+                  className="tutor-header-col"
+                >
+                  BME
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+              <tr>
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+            </tbody>
+          </table>
+        </ForwardRef>
+      </div>
+      <div
+        id="tutor-log-container"
+      />
+    </div>
+  </UTutor>
+</Styled(UTutor)>
+`;

@@ -97,7 +97,7 @@ const UWarningSummary: React.FC<Props> = (props) => {
     )
 };
 
-const WarningSummary = styled(UWarningSummary)`
+export const WarningSummary = styled(UWarningSummary)`
   min-height: 50%;
   background-color: #FFF;
   border-radius: 5px;
