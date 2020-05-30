@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount, render} from 'enzyme';
-import { TutorLogin } from "../../components/Menu/TutorLogin.tsx";
+import { TutorLogin } from "../../components/menu/TutorLogin.tsx";
 
 describe("Tutor login menu", () => {
   it("renders 'Create New Session' button", () => {

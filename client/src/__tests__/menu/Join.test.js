@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount, render} from 'enzyme';
-import { Join } from "../../components/Menu/Join.tsx";
+import { Join } from "../../components/menu/Join.tsx";
 
 describe("Join menu", () => {
   it("renders username input", () => {

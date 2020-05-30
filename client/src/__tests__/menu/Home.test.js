@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount, render} from 'enzyme';
-import { Home } from "../../components/Menu/Home.tsx";
+import { Home } from "../../components/menu/Home.tsx";
 
 describe("Home menu", () => {
   it("renders two buttons with correct text", () => {

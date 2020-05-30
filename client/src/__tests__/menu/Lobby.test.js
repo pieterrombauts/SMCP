@@ -2,7 +2,7 @@ import React from "react";
 import { shallow, mount, render} from 'enzyme';
 import configureMockStore from 'redux-mock-store'
 import { Provider } from 'react-redux';
-import Lobby from "../../components/Menu/Lobby.tsx";
+import Lobby from "../../components/menu/Lobby.tsx";
 import rootReducer from "../../reducers/index.ts";
 
 const initialState = { 
