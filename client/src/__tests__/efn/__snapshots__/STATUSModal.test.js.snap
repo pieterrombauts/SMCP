@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EFN modal popup renders correctly 1`] = `
+<div
+  id="status-modal"
+>
+  <div
+    id="modal-overlay-status"
+    onMouseUp={[Function]}
+  >
+    <div
+      id="modal-content-status"
+    >
+      <Connect(Styled(USTATUS))
+        closeFunction={[MockFunction]}
+        lobbyID="111111"
+        userRole="spartan"
+      />
+    </div>
+  </div>
+</div>
+`;

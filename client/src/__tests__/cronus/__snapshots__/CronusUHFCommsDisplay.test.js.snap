@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cronus UHF communications display renders correctly 1`] = `
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<Styled(UCronusUHFCommsDisplay)
+  values={
+    Object {
+      "sBand": Object {
+        "azimuthGimbal": 2,
+        "elevationGimbal": 60,
+      },
+    }
+  }
+>
+  <UCronusUHFCommsDisplay
+    className="c0"
+    values={
+      Object {
+        "sBand": Object {
+          "azimuthGimbal": 2,
+          "elevationGimbal": 60,
+        },
+      }
+    }
+  >
+    <div
+      className="c0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1300 990"
+      >
+        <image
+          height={990}
+          href="/media/Cronus_2.png"
+          width={1300}
+          x={0}
+          y={0}
+        />
+        <rect
+          height="200"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#36485b",
+              "stroke": "#2a3a3f",
+              "strokeWidth": "5",
+            }
+          }
+          width="510"
+          x="50"
+          y="405"
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="25"
+          x="6%"
+          y="45%"
+        >
+          Space to Space Station
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="8%"
+          y="48%"
+        >
+          Radio1 Power
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="25%"
+          y="48%"
+        >
+          On
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="8%"
+          y="51%"
+        >
+          Radio1 Power
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="25%"
+          y="51%"
+        >
+          On
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="25"
+          x="6%"
+          y="57%"
+        >
+          UHF Sync Lcok
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="28%"
+          y="57%"
+        >
+          Frame Sync
+        </text>
+        <rect
+          height="140"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#36485b",
+              "stroke": "#2a3a3f",
+              "strokeWidth": "5",
+            }
+          }
+          width="410"
+          x="815"
+          y="435"
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="65%"
+          y="49%"
+        >
+          IAC1 Power
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="78%"
+          y="49%"
+        >
+          Active
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="65%"
+          y="53%"
+        >
+          IAC2 Power
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="78%"
+          y="53%"
+        >
+          Active
+        </text>
+      </svg>
+    </div>
+  </UCronusUHFCommsDisplay>
+</Styled(UCronusUHFCommsDisplay)>
+`;

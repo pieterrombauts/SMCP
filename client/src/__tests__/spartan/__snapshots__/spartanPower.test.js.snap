@@ -1,0 +1,581 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spartan Power display renders correctly 1`] = `
+.c0 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.c0 #spartan-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 #spartan-buttons .nav {
+  margin-left: 20px;
+  max-width: 300px;
+  background-color: #f8f9fa;
+  border-radius: 3px;
+}
+
+.c0 #spartan-buttons .nav-item a {
+  padding: 20px 30px;
+}
+
+<Styled(USpartanPower)>
+  <USpartanPower
+    className="c0"
+  >
+    <svg
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 1300 990"
+    >
+      <image
+        height={990}
+        href="/media/Spartan_1.png"
+        width={1300}
+        x={0}
+        y={0}
+      />
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="21%"
+        y="32%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="20.5%"
+        y="34.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="21%"
+        y="37%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="20.5%"
+        y="39.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="21%"
+        y="42%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="20.5%"
+        y="44.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="21%"
+        y="72%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="20.5%"
+        y="74.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="21%"
+        y="77%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="20.5%"
+        y="79.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="21%"
+        y="82%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="20.5%"
+        y="84.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="36%"
+        y="32%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="35.8%"
+        y="34.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="36%"
+        y="37%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="35.8%"
+        y="39.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="36%"
+        y="42%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="35.8%"
+        y="44.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="36%"
+        y="72%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="35.8%"
+        y="74.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="36%"
+        y="77%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="35.8%"
+        y="79.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="36%"
+        y="82%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="35.8%"
+        y="84.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="76.5%"
+        y="32%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="76.5%"
+        y="34.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="76.5%"
+        y="37%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="76.5%"
+        y="39.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="76.5%"
+        y="42%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="76.5%"
+        y="44.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="76.5%"
+        y="72%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="76.5%"
+        y="74.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="76.5%"
+        y="77%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="76.5%"
+        y="79.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="76.5%"
+        y="82%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="76.5%"
+        y="84.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="92%"
+        y="32%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="92%"
+        y="34.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="92%"
+        y="37%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="92%"
+        y="39.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="92%"
+        y="42%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="92%"
+        y="44.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="92%"
+        y="72%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="92%"
+        y="74.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="92%"
+        y="77%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="92%"
+        y="79.4%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#000000",
+          }
+        }
+        width="8%"
+        x="92%"
+        y="82%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="92%"
+        y="84.4%"
+      >
+        0
+      </text>
+    </svg>
+  </USpartanPower>
+</Styled(USpartanPower)>
+`;

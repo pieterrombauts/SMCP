@@ -17,7 +17,7 @@ const connector = connect(mapState, {})
 type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux & A3Props
 
-const Astronaut3: React.FC<Props> = ( props ) => {
+export const Astronaut3: React.FC<Props> = ( props ) => {
   const [newData, setNewData] = useState<{x: string, y: number}>({x:"2019-11-15T15:00:00", y:37})
   useEffect(() => {
     if (props.time !== "") setNewData({x: props.time, y: props.temps.astronaut3.temperature})

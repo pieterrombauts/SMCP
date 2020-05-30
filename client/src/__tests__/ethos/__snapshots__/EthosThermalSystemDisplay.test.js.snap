@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ethos Thermal System display renders correctly 1`] = `
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<Styled(UEthosThermalSystemDisplay)>
+  <UEthosThermalSystemDisplay
+    className="c0"
+  >
+    <div
+      className="c0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1300 990"
+      >
+        <image
+          height={990}
+          href="/media/Ethos_2.png"
+          width={1300}
+          x={0}
+          y={0}
+        />
+        <rect
+          height="305"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#36485b",
+              "stroke": "#2a3a3f",
+              "strokeWidth": "5",
+            }
+          }
+          width="1205"
+          x={45}
+          y={635}
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="25%"
+          y="68%"
+        >
+          Low T Loop
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="23%"
+          y="70%"
+        >
+          Coolant Quality
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="27.25%"
+          y="72%"
+        >
+          (%)
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="44%"
+          y="68%"
+        >
+          Moderate T Loop
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="44%"
+          y="70%"
+        >
+          Coolant Quality
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="48.25%"
+          y="72%"
+        >
+          (%)
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="65%"
+          y="68%"
+        >
+          Low Temp
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="65.5%"
+          y="70%"
+        >
+          Loop (°C)
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="80%"
+          y="68%"
+        >
+          Moderate Temp
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="81.5%"
+          y="70%"
+        >
+          Loop (°C)
+        </text>
+        <DestinyLab
+          values={
+            Object {
+              "destinyLab": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+              "harmonyNode": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+              "tranquilityNode": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+            }
+          }
+        >
+          <g
+            id="ethos-thermal-system-display-density-lab"
+          >
+            <text
+              fill="white"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="5%"
+              y="78%"
+            >
+              Destiny Lab
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="27.25%"
+              y="78%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="48.25%"
+              y="78%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="67.5%"
+              y="78%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="83%"
+              y="78%"
+            >
+              0
+            </text>
+          </g>
+        </DestinyLab>
+        <HarmonyNode
+          values={
+            Object {
+              "destinyLab": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+              "harmonyNode": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+              "tranquilityNode": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+            }
+          }
+        >
+          <g
+            id="ethos-thermal-system-display-density-lab"
+          >
+            <text
+              fill="white"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="5%"
+              y="86%"
+            >
+              Harmony Node
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="27.25%"
+              y="85.5%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="48.25%"
+              y="85.5%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="67.5%"
+              y="85.5%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="83%"
+              y="85.5%"
+            >
+              0
+            </text>
+          </g>
+        </HarmonyNode>
+        <TranquilityNode
+          values={
+            Object {
+              "destinyLab": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+              "harmonyNode": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+              "tranquilityNode": Object {
+                "lowTLoop": 0,
+                "lowTemp": 0,
+                "moderateTLoop": 0,
+                "moderateTemp": 0,
+              },
+            }
+          }
+        >
+          <g
+            id="ethos-thermal-system-display-density-lab"
+          >
+            <text
+              fill="white"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="5%"
+              y="93%"
+            >
+              Tranquility Node
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="27.25%"
+              y="93%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="48.25%"
+              y="93%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="67.5%"
+              y="93%"
+            >
+              0
+            </text>
+            <text
+              fill="#d6ab62"
+              fontFamily="Verdana"
+              fontSize="20"
+              x="83%"
+              y="93%"
+            >
+              0
+            </text>
+          </g>
+        </TranquilityNode>
+      </svg>
+    </div>
+  </UEthosThermalSystemDisplay>
+</Styled(UEthosThermalSystemDisplay)>
+`;

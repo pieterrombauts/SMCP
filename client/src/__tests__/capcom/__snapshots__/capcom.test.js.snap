@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Capcom display renders correctly 1`] = `
+<TabContainer
+  defaultActiveKey="capcom"
+  id="campcom-tab"
+>
+  <Row
+    noGutters={false}
+  >
+    <Col
+      id="capcom-content"
+      sm={10}
+    >
+      <Connect(Styled(UWarningSummary)) />
+      <Styled(UButtonsDisplay) />
+    </Col>
+  </Row>
+</TabContainer>
+`;

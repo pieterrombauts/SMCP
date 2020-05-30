@@ -4,9 +4,7 @@ import Astronaut1 from './Astronaut1';
 import Astronaut2 from './Astronaut2'
 import Astronaut3 from './Astronaut3'
 import Astronaut4 from './Astronaut4'
-import { generateRandVal } from '../../../dataGenerator';
-import { decreaseSystolic } from '../../../bloodPressureSystolic';
-import { increaseDiastolic } from '../../../bloodPressureDiastolic';
+import { generateRandVal, decreaseSystolic, increaseDiastolic } from '../../../dataGenerator';
 
 interface VSDProps {
     className?: string;
@@ -51,7 +49,7 @@ const defaultTemps = {
 }
 
 
-const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
+export const UVitalSignsDisplay: React.FC<VSDProps> = (props) => {
     var [values, setValues] = useState(defaultValues)
     var [temps, setTemps] = useState(defaultTemps)
     const intervalRef = useRef(0);

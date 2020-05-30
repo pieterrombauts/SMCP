@@ -6,13 +6,10 @@ import rootReducer from "./reducers/index.ts";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'animate.css/animate.min.css'
-//import './index.css';
-//import App from './components/Apptest';
 
 const store = configureStore({
   reducer: rootReducer,
 });
-
 
 ReactDOM.render(
   <Provider store={store}>

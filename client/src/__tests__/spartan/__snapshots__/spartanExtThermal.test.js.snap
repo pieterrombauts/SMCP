@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spartan External Thermal display renders correctly 1`] = `
+.c0 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.c0 #spartan-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 #spartan-buttons .nav {
+  margin-left: 20px;
+  max-width: 300px;
+  background-color: #f8f9fa;
+  border-radius: 3px;
+}
+
+.c0 #spartan-buttons .nav-item a {
+  padding: 20px 30px;
+}
+
+<Styled(USpartanExtThermal)>
+  <USpartanExtThermal
+    className="c0"
+  >
+    <svg
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 1300 990"
+    >
+      <image
+        height={990}
+        href="/media/Spartan_2.png"
+        width={1300}
+        x={0}
+        y={0}
+      />
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#1C4B5D",
+          }
+        }
+        width="8%"
+        x="45%"
+        y="22%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="46%"
+        y="24%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#1C4B5D",
+          }
+        }
+        width="8%"
+        x="55%"
+        y="22%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="56%"
+        y="24%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#1C4B5D",
+          }
+        }
+        width="8%"
+        x="45%"
+        y="25.75%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="46%"
+        y="27.75%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#1C4B5D",
+          }
+        }
+        width="8%"
+        x="55%"
+        y="25.75%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="56%"
+        y="27.75%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#1C4B5D",
+          }
+        }
+        width="8%"
+        x="45%"
+        y="29.5%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="46%"
+        y="31.5%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#1C4B5D",
+          }
+        }
+        width="8%"
+        x="55%"
+        y="29.5%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="56%"
+        y="31.5%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#1C4B5D",
+          }
+        }
+        width="8%"
+        x="45%"
+        y="33.25%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="46%"
+        y="35.25%"
+      >
+        0
+      </text>
+      <rect
+        height="3%"
+        rx="5"
+        ry="5"
+        style={
+          Object {
+            "fill": "#1C4B5D",
+          }
+        }
+        width="8%"
+        x="55%"
+        y="33.25%"
+      />
+      <text
+        fill="#d6ab62"
+        fontFamily="Verdana"
+        fontSize="17"
+        x="56%"
+        y="35.25%"
+      >
+        0
+      </text>
+    </svg>
+  </USpartanExtThermal>
+</Styled(USpartanExtThermal)>
+`;

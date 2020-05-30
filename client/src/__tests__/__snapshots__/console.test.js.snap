@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Overall console display renders correctly 1`] = `
+<div
+  id="game-container"
+>
+  <TabContainer
+    id="console-tabs"
+  >
+    <Row
+      noGutters={false}
+    >
+      <Col
+        id="console-buttons"
+        sm={2}
+      >
+        <Nav
+          className="flex-column"
+          fill={false}
+          justify={false}
+          variant="pills"
+        >
+          <NavItem>
+            <NavLink
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "SafeAnchor",
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey="spartan"
+              onClick={[Function]}
+            >
+              SPARTAN
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "SafeAnchor",
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey="cronus"
+              onClick={[Function]}
+            >
+              CRONUS
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "SafeAnchor",
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey="ethos"
+              onClick={[Function]}
+            >
+              ETHOS
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "SafeAnchor",
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey="flight"
+              onClick={[Function]}
+            >
+              FLIGHT
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "SafeAnchor",
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey="capcom"
+              onClick={[Function]}
+            >
+              CAPCOM
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "SafeAnchor",
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey="bme"
+              onClick={[Function]}
+            >
+              BME
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <Button
+          active={false}
+          className=""
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="outline-primary"
+        >
+          OSTPV
+        </Button>
+        <Button
+          active={false}
+          className=""
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="outline-primary"
+        >
+          EFN
+        </Button>
+      </Col>
+      <Col
+        id="console-content"
+        sm={10}
+      >
+        <ForwardRef
+          id="tab-content"
+        >
+          <TabPane
+            eventKey="spartan"
+          >
+            <Styled(USpartan) />
+          </TabPane>
+          <TabPane
+            eventKey="cronus"
+          >
+            <Connect(Styled(Cronus)) />
+          </TabPane>
+          <TabPane
+            eventKey="ethos"
+          >
+            <Styled(UEthos) />
+          </TabPane>
+          <TabPane
+            eventKey="flight"
+            id="flight-tab"
+          >
+            <Styled(UFlight)
+              handleView={[Function]}
+              reports={Array []}
+            />
+          </TabPane>
+          <TabPane
+            eventKey="capcom"
+          >
+            <Connect(Styled(UCapcom)) />
+          </TabPane>
+          <TabPane
+            eventKey="bme"
+          >
+            <Styled(UBme) />
+          </TabPane>
+        </ForwardRef>
+      </Col>
+    </Row>
+  </TabContainer>
+  <CSSTransition
+    classNames="modal"
+    in={false}
+    onEnter={[Function]}
+    onExit={[Function]}
+    timeout={500}
+  >
+    <Styled(UOSTPVModal)
+      closeFunction={[Function]}
+      show={false}
+    />
+  </CSSTransition>
+  <CSSTransition
+    classNames="modal"
+    in={false}
+    onEnter={[Function]}
+    onExit={[Function]}
+    timeout={500}
+  >
+    <Styled(USTATUSModal)
+      closeFunction={[Function]}
+      show={false}
+    />
+  </CSSTransition>
+  <CSSTransition
+    classNames="modal"
+    in={false}
+    onEnter={[Function]}
+    onExit={[Function]}
+    timeout={500}
+  >
+    <Styled(UViewEFNModal)
+      closeFunction={[Function]}
+      reports={Array []}
+      selectedEfn=""
+      show={false}
+    />
+  </CSSTransition>
+</div>
+`;

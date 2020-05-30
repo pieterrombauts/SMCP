@@ -1,0 +1,480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Warning summary display renders correctly 1`] = `
+.c0 {
+  min-height: 50%;
+  background-color: #FFF;
+  border-radius: 5px;
+}
+
+.c0 table {
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  color: black;
+  line-height: 8px;
+}
+
+.c0 table td,
+.c0 table th {
+  height: 25px;
+  vertical-align: middle;
+}
+
+.c0 .white {
+  color: white;
+}
+
+.c0 .yellow {
+  background-color: #fcea5d;
+}
+
+.c0 .red {
+  background-color: #f54242;
+  color: white;
+}
+
+<Styled(UWarningSummary)>
+  <UWarningSummary
+    className="c0"
+  >
+    <div
+      className="c0"
+    >
+      <ForwardRef
+        bordered={true}
+        hover={true}
+        size="sm"
+        variant="dark"
+      >
+        <table
+          className="table table-dark table-sm table-bordered table-hover"
+        >
+          <thead>
+            <tr
+              className="white"
+            >
+              <th
+                style={
+                  Object {
+                    "width": "100px",
+                  }
+                }
+              >
+                EVENT#
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "100px",
+                  }
+                }
+              >
+                ANNUN
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "100px",
+                  }
+                }
+              >
+                CL
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "100px",
+                  }
+                }
+              >
+                ACK
+              </th>
+              <th
+                style={
+                  Object {
+                    "width": "100px",
+                  }
+                }
+              >
+                SYS
+              </th>
+              <th>
+                C&W MESSAGE TEXT
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="yellow"
+              key="9413"
+            >
+              <td>
+                9413
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                TCS
+              </td>
+              <td>
+                Thermal Safing Load Shed Inhibited - LAB
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="12288"
+            >
+              <td>
+                12288
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                TCS
+              </td>
+              <td>
+                Thermal Thermal Safing Node 2 LTL Load Shed Timer Started - Node2
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="13463"
+            >
+              <td>
+                13463
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                CDH
+              </td>
+              <td>
+                DMS Mission Management Computer (MMC) Failure - COL
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="13598"
+            >
+              <td>
+                13598
+              </td>
+              <td>
+                ENA
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                EPS
+              </td>
+              <td>
+                Power Distribution Unit (PDU2) Output Overcurrent Trip - COL
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="13568"
+            >
+              <td>
+                13568
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                CDH
+              </td>
+              <td>
+                DMS System Bus Failure - COL
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="13578"
+            >
+              <td>
+                13578
+              </td>
+              <td>
+                ENA
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                EPS
+              </td>
+              <td>
+                Power Distribution Unit (PDU1) Nominal Controller Failure - COL
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="12592"
+            >
+              <td>
+                12592
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                ECL
+              </td>
+              <td>
+                Cabin Smoke Detector 2 Fail - COL
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="5049"
+            >
+              <td>
+                5049
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                TCS
+              </td>
+              <td>
+                Thermal Saffing Partial LTL Load Shed Timer Started
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="5050"
+            >
+              <td>
+                5050
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                TCS
+              </td>
+              <td>
+                Thermal Saffing Partial MTL Load Shed Timer Started
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="13529"
+            >
+              <td>
+                13529
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                ECL
+              </td>
+              <td>
+                ppO2 Sensor 2 Low - COL
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="13558"
+            >
+              <td>
+                13558
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                ECL
+              </td>
+              <td>
+                Loss of IMV Supply Function - COL
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="4173"
+            >
+              <td>
+                4173
+              </td>
+              <td>
+                ENA
+              </td>
+              <td>
+                C
+              </td>
+              <td />
+              <td>
+                TCS
+              </td>
+              <td>
+                ETCS Loop B PCVP Loss of Comm - P1
+              </td>
+            </tr>
+            <tr
+              className="red"
+              key="13535"
+            >
+              <td>
+                13535
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                W
+              </td>
+              <td />
+              <td>
+                TCS
+              </td>
+              <td>
+                Cooling Loop Delta Pressure Sensor 2 Low - COL
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="10472"
+            >
+              <td>
+                10472
+              </td>
+              <td>
+                ENA
+              </td>
+              <td>
+                C
+              </td>
+              <td>
+                X
+              </td>
+              <td>
+                TCS
+              </td>
+              <td>
+                ETCS Loop B Radiator Environment Temp Too Cold - P1
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="4248"
+            >
+              <td>
+                4248
+              </td>
+              <td>
+                ENA
+              </td>
+              <td>
+                C
+              </td>
+              <td>
+                X
+              </td>
+              <td>
+                TCS
+              </td>
+              <td>
+                ETCS Loop B TRRJ Switchover Sequence Failure - P1
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="5100"
+            >
+              <td>
+                5100
+              </td>
+              <td>
+                SUPP
+              </td>
+              <td>
+                C
+              </td>
+              <td>
+                X
+              </td>
+              <td>
+                CNT
+              </td>
+              <td>
+                Loss of Active IAC Handover to Backup IAC
+              </td>
+            </tr>
+            <tr
+              className="yellow"
+              key="11099"
+            >
+              <td>
+                11099
+              </td>
+              <td>
+                ENA
+              </td>
+              <td>
+                C
+              </td>
+              <td>
+                X
+              </td>
+              <td>
+                EPS
+              </td>
+              <td>
+                RPCM S32B_A Observed vs Last Commanded State Discrepancy - S3
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ForwardRef>
+    </div>
+  </UWarningSummary>
+</Styled(UWarningSummary)>
+`;

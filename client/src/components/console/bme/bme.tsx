@@ -12,7 +12,7 @@ interface AppProps {
   className?: string;
 };
 
-const UBme: React.FC<AppProps> = (props) => {
+export const UBme: React.FC<AppProps> = (props) => {
   const [ firstOpensVS, setFirstOpensVS ] = useState<boolean>(true);
   function updateFirstConsoleVSOpen(event: React.MouseEvent<any>) {
     if (firstOpensVS) {

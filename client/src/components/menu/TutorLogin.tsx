@@ -75,7 +75,7 @@ const UTutorLogin: React.FC<Props> = ( props ) => {
   );
 }
 
-const TutorLogin = styled(UTutorLogin)`
+export const TutorLogin = styled(UTutorLogin)`
   color: #f8f9fa;
   z-index: 0;
   position: absolute;
