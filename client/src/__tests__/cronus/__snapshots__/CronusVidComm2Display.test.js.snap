@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cronus UHF communications display renders correctly 1`] = `
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<Styled(UCronusVidComm2Display)>
+  <UCronusVidComm2Display
+    className="c0"
+  >
+    <div
+      className="c0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1300 990"
+      >
+        <image
+          height={990}
+          href="/media/Cronus_5.png"
+          width={1300}
+          x={0}
+          y={0}
+        />
+        <rect
+          height="160"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#36485b",
+              "stroke": "#2a3a3f",
+              "strokeWidth": "5",
+            }
+          }
+          width="370"
+          x="650"
+          y="630"
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="17"
+          x="51%"
+          y="68%"
+        >
+          1)
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="54%"
+          y="68%"
+        >
+          P1 Upper Outboard (P1UPOB)
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="17"
+          x="51%"
+          y="71%"
+        >
+          2)
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="54%"
+          y="71%"
+        >
+          P1 Lower Outboard (P1LOOB)
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="17"
+          x="51%"
+          y="74%"
+        >
+          3)
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="54%"
+          y="74%"
+        >
+          Labs Starboard (LABS)
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="17"
+          x="51%"
+          y="77%"
+        >
+          4)
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="54%"
+          y="77%"
+        >
+          0E
+        </text>
+      </svg>
+    </div>
+  </UCronusVidComm2Display>
+</Styled(UCronusVidComm2Display)>
+`;

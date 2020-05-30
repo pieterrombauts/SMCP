@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Astronaut4 display renders correctly 1`] = `
+<g
+  id="bme-vital-signs-astronaut1"
+>
+  <rect
+    height="450"
+    rx="5"
+    ry="5"
+    style={
+      Object {
+        "fill": "#333333",
+        "opacity": 0.5,
+        "stroke": "#393939",
+        "strokeWidth": 5,
+      }
+    }
+    width="650"
+    x="50%"
+    y="51%"
+  />
+  <image
+    height={150}
+    href="/media/Bme_4.gif"
+    width={150}
+    x="72%"
+    y="55.5%"
+  />
+  <image
+    height={500}
+    href="/media/Bme_Jessica_Meir.jpg"
+    width={250}
+    x="52%"
+    y="48%"
+  />
+  <text
+    fill="#EBB249"
+    fontFamily="Verdana"
+    fontSize="20"
+    x="52%"
+    y="56%"
+  >
+    Jessica Meir
+  </text>
+  <text
+    fill="#EBB249"
+    fontFamily="Verdana"
+    fontSize="20"
+    x="52%"
+    y="91%"
+  >
+    Flight Engineer 5
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="20"
+    x="72%"
+    y="55.5%"
+  >
+    Heart Rate (BPM)
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="12"
+    x="84%"
+    y="59.5%"
+  >
+    Current BPM
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="12"
+    x="91%"
+    y="59.5%"
+  >
+    Max BPM
+  </text>
+  <text
+    fill="#7ef56e"
+    fontFamily="Verdana"
+    fontSize="20"
+    x="84%"
+    y="62.5%"
+  >
+    0
+  </text>
+  <text
+    fill="#f74848"
+    fontFamily="Verdana"
+    fontSize="20"
+    x="91%"
+    y="62.5%"
+  >
+    0
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="20"
+    x="72%"
+    y="72.5%"
+  >
+    Blood Pressure (mmHg)
+  </text>
+  <text
+    fill="#7ef56e"
+    fontFamily="Verdana"
+    fontSize="20"
+    x="72%"
+    y="75.5%"
+  >
+    115 / 70 
+  </text>
+  <text
+    fill="white"
+    fontFamily="Verdana"
+    fontSize="20"
+    x="72%"
+    y="80.5%"
+  >
+    Temperature (°C)
+  </text>
+  <foreignObject
+    fill="black"
+    height="125px"
+    width="300px"
+    x="72%"
+    y="81.5%"
+  >
+    <Styled(UChart)
+      data={
+        Object {
+          "x": "2019-11-15T15:00:00",
+          "y": 37,
+        }
+      }
+    />
+  </foreignObject>
+</g>
+`;

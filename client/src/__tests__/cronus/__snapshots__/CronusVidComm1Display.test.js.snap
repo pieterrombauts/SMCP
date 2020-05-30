@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cronus UHF communications display renders correctly 1`] = `
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<Styled(UCronusVidComm1Display)
+  values={
+    Object {
+      "vComms1": Object {
+        "crossElevationGimbal": 45,
+        "elevationGimbal": 48,
+      },
+    }
+  }
+>
+  <UCronusVidComm1Display
+    className="c0"
+    values={
+      Object {
+        "vComms1": Object {
+          "crossElevationGimbal": 45,
+          "elevationGimbal": 48,
+        },
+      }
+    }
+  >
+    <div
+      className="c0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1300 990"
+      >
+        <image
+          height={990}
+          href="/media/Cronus_4.png"
+          width={1300}
+          x={0}
+          y={0}
+        />
+        <rect
+          height="335"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#36485b",
+              "stroke": "#2a3a3f",
+              "strokeWidth": "5",
+            }
+          }
+          width="435"
+          x="450"
+          y="375"
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="45"
+          x="37%"
+          y="45%"
+        >
+          Ku-Band Status
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="37%"
+          y="50%"
+        >
+          Downlink 1 Status
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="55%"
+          y="50%"
+        >
+          ACTIVE
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="37%"
+          y="53%"
+        >
+          Downlink 2 Status
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="55%"
+          y="53%"
+        >
+          ACTIVE
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="37%"
+          y="56%"
+        >
+          Downlink 3 Status
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="55%"
+          y="56%"
+        >
+          ACTIVE
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="37%"
+          y="59%"
+        >
+          Downlink 4 Status
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="55%"
+          y="59%"
+        >
+          ACTIVE
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="37%"
+          y="64%"
+        >
+          Elevation Gimbal
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="64%"
+        >
+          48
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="63%"
+          y="64%"
+        >
+          °
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="37%"
+          y="67%"
+        >
+          Cross-Elevation Gimbal
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="67%"
+        >
+          45
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="63%"
+          y="67%"
+        >
+          °
+        </text>
+      </svg>
+    </div>
+  </UCronusVidComm1Display>
+</Styled(UCronusVidComm1Display)>
+`;

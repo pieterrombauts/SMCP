@@ -1,0 +1,234 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cronus S-Band communications display renders correctly 1`] = `
+.c0 svg {
+  width: 100%;
+  height: 100%;
+}
+
+<Styled(UCronusSBandCommsDisplay)
+  values={
+    Object {
+      "sBand": Object {
+        "azimuthGimbal": 2,
+        "elevationGimbal": 60,
+      },
+    }
+  }
+>
+  <UCronusSBandCommsDisplay
+    className="c0"
+    values={
+      Object {
+        "sBand": Object {
+          "azimuthGimbal": 2,
+          "elevationGimbal": 60,
+        },
+      }
+    }
+  >
+    <div
+      className="c0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1300 990"
+      >
+        <image
+          height={990}
+          href="/media/Cronus_3.png"
+          width={1300}
+          x={0}
+          y={0}
+        />
+        <rect
+          height="385"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#36485b",
+              "stroke": "#2a3a3f",
+              "strokeWidth": "5",
+            }
+          }
+          width="450"
+          x="450"
+          y="380"
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="45"
+          x="38%"
+          y="45%"
+        >
+          S-Band Status
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="38%"
+          y="51%"
+        >
+          Active S-Band
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="51%"
+        >
+          1
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="38%"
+          y="56%"
+        >
+          S-Band1 Power
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="56%"
+        >
+          On
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="41%"
+          y="59%"
+        >
+          Elevation Gimbal
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="59%"
+        >
+          60
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="63%"
+          y="59%"
+        >
+          °
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="41%"
+          y="62%"
+        >
+          Azimuth Gimbal
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="62%"
+        >
+          2
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="63%"
+          y="62%"
+        >
+          °
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="38%"
+          y="67%"
+        >
+          S-Band2 Power
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="67%"
+        >
+          Off
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="41%"
+          y="70%"
+        >
+          Elevation Gimbal
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="70%"
+        >
+          0.00
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="63%"
+          y="70%"
+        >
+          °
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="41%"
+          y="73%"
+        >
+          Azimuth Gimbal
+        </text>
+        <text
+          fill="#d6ab62"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="58%"
+          y="73%"
+        >
+          0.00
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="20"
+          x="63%"
+          y="73%"
+        >
+          °
+        </text>
+      </svg>
+    </div>
+  </UCronusSBandCommsDisplay>
+</Styled(UCronusSBandCommsDisplay)>
+`;

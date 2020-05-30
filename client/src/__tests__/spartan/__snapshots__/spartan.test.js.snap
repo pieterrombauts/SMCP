@@ -1,0 +1,1090 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spartan display renders correctly 1`] = `
+.c2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.c2 #spartan-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c2 #spartan-buttons .nav {
+  margin-left: 20px;
+  max-width: 300px;
+  background-color: #f8f9fa;
+  border-radius: 3px;
+}
+
+.c2 #spartan-buttons .nav-item a {
+  padding: 20px 30px;
+}
+
+.c1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.c1 #spartan-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 #spartan-buttons .nav {
+  margin-left: 20px;
+  max-width: 300px;
+  background-color: #f8f9fa;
+  border-radius: 3px;
+}
+
+.c1 #spartan-buttons .nav-item a {
+  padding: 20px 30px;
+}
+
+.c0 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.c0 #spartan-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 #spartan-buttons .nav {
+  margin-left: 20px;
+  max-width: 300px;
+  background-color: #f8f9fa;
+  border-radius: 3px;
+}
+
+.c0 #spartan-buttons .nav-item a {
+  padding: 20px 30px;
+}
+
+<Styled(USpartan)>
+  <USpartan
+    className="c0"
+  >
+    <TabContainer
+      defaultActiveKey="power"
+      id="spartan-tabs"
+    >
+      <Row
+        className="c0"
+        noGutters={false}
+      >
+        <div
+          className="c0 row"
+        >
+          <Col
+            id="spartan-content"
+            sm={10}
+          >
+            <div
+              className="col-sm-10"
+              id="spartan-content"
+            >
+              <ForwardRef>
+                <div
+                  className="tab-content"
+                >
+                  <TabPane
+                    eventKey="power"
+                  >
+                    <Fade
+                      appear={false}
+                      in={true}
+                      mountOnEnter={false}
+                      timeout={300}
+                      unmountOnExit={false}
+                    >
+                      <Transition
+                        addEndListener={[Function]}
+                        appear={false}
+                        enter={true}
+                        exit={true}
+                        in={true}
+                        mountOnEnter={false}
+                        onEnter={[Function]}
+                        onEntered={[Function]}
+                        onEntering={[Function]}
+                        onExit={[Function]}
+                        onExited={[Function]}
+                        onExiting={[Function]}
+                        timeout={300}
+                        unmountOnExit={false}
+                      >
+                        <div
+                          aria-hidden={false}
+                          aria-labelledby="spartan-tabs-tab-power"
+                          className="fade tab-pane active show"
+                          id="spartan-tabs-tabpane-power"
+                          role="tabpanel"
+                        >
+                          <Styled(USpartanPower)>
+                            <USpartanPower
+                              className="c1"
+                            >
+                              <svg
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 1300 990"
+                              >
+                                <image
+                                  height={990}
+                                  href="/media/Spartan_1.png"
+                                  width={1300}
+                                  x={0}
+                                  y={0}
+                                />
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="21%"
+                                  y="32%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="20.5%"
+                                  y="34.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="21%"
+                                  y="37%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="20.5%"
+                                  y="39.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="21%"
+                                  y="42%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="20.5%"
+                                  y="44.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="21%"
+                                  y="72%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="20.5%"
+                                  y="74.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="21%"
+                                  y="77%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="20.5%"
+                                  y="79.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="21%"
+                                  y="82%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="20.5%"
+                                  y="84.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="36%"
+                                  y="32%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="35.8%"
+                                  y="34.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="36%"
+                                  y="37%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="35.8%"
+                                  y="39.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="36%"
+                                  y="42%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="35.8%"
+                                  y="44.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="36%"
+                                  y="72%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="35.8%"
+                                  y="74.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="36%"
+                                  y="77%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="35.8%"
+                                  y="79.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="36%"
+                                  y="82%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="35.8%"
+                                  y="84.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="76.5%"
+                                  y="32%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="76.5%"
+                                  y="34.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="76.5%"
+                                  y="37%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="76.5%"
+                                  y="39.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="76.5%"
+                                  y="42%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="76.5%"
+                                  y="44.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="76.5%"
+                                  y="72%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="76.5%"
+                                  y="74.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="76.5%"
+                                  y="77%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="76.5%"
+                                  y="79.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="76.5%"
+                                  y="82%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="76.5%"
+                                  y="84.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="92%"
+                                  y="32%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="92%"
+                                  y="34.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="92%"
+                                  y="37%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="92%"
+                                  y="39.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="92%"
+                                  y="42%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="92%"
+                                  y="44.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="92%"
+                                  y="72%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="92%"
+                                  y="74.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="92%"
+                                  y="77%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="92%"
+                                  y="79.4%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#000000",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="92%"
+                                  y="82%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="92%"
+                                  y="84.4%"
+                                >
+                                  0
+                                </text>
+                              </svg>
+                            </USpartanPower>
+                          </Styled(USpartanPower)>
+                        </div>
+                      </Transition>
+                    </Fade>
+                  </TabPane>
+                  <TabPane
+                    eventKey="ext-thermal"
+                  >
+                    <Fade
+                      appear={false}
+                      in={false}
+                      mountOnEnter={false}
+                      timeout={300}
+                      unmountOnExit={false}
+                    >
+                      <Transition
+                        addEndListener={[Function]}
+                        appear={false}
+                        enter={true}
+                        exit={true}
+                        in={false}
+                        mountOnEnter={false}
+                        onEnter={[Function]}
+                        onEntered={[Function]}
+                        onEntering={[Function]}
+                        onExit={[Function]}
+                        onExited={[Function]}
+                        onExiting={[Function]}
+                        timeout={300}
+                        unmountOnExit={false}
+                      >
+                        <div
+                          aria-hidden={true}
+                          aria-labelledby="spartan-tabs-tab-ext-thermal"
+                          className="fade tab-pane"
+                          id="spartan-tabs-tabpane-ext-thermal"
+                          role="tabpanel"
+                        >
+                          <Styled(USpartanExtThermal)>
+                            <USpartanExtThermal
+                              className="c2"
+                            >
+                              <svg
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 1300 990"
+                              >
+                                <image
+                                  height={990}
+                                  href="/media/Spartan_2.png"
+                                  width={1300}
+                                  x={0}
+                                  y={0}
+                                />
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#1C4B5D",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="45%"
+                                  y="22%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="46%"
+                                  y="24%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#1C4B5D",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="55%"
+                                  y="22%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="56%"
+                                  y="24%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#1C4B5D",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="45%"
+                                  y="25.75%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="46%"
+                                  y="27.75%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#1C4B5D",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="55%"
+                                  y="25.75%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="56%"
+                                  y="27.75%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#1C4B5D",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="45%"
+                                  y="29.5%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="46%"
+                                  y="31.5%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#1C4B5D",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="55%"
+                                  y="29.5%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="56%"
+                                  y="31.5%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#1C4B5D",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="45%"
+                                  y="33.25%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="46%"
+                                  y="35.25%"
+                                >
+                                  0
+                                </text>
+                                <rect
+                                  height="3%"
+                                  rx="5"
+                                  ry="5"
+                                  style={
+                                    Object {
+                                      "fill": "#1C4B5D",
+                                    }
+                                  }
+                                  width="8%"
+                                  x="55%"
+                                  y="33.25%"
+                                />
+                                <text
+                                  fill="#d6ab62"
+                                  fontFamily="Verdana"
+                                  fontSize="17"
+                                  x="56%"
+                                  y="35.25%"
+                                >
+                                  0
+                                </text>
+                              </svg>
+                            </USpartanExtThermal>
+                          </Styled(USpartanExtThermal)>
+                        </div>
+                      </Transition>
+                    </Fade>
+                  </TabPane>
+                </div>
+              </ForwardRef>
+            </div>
+          </Col>
+          <Col
+            id="spartan-buttons"
+            sm={2}
+          >
+            <div
+              className="col-sm-2"
+              id="spartan-buttons"
+            >
+              <Nav
+                className="flex-column"
+                fill={false}
+                justify={false}
+                variant="pills"
+              >
+                <ForwardRef
+                  as="div"
+                  className="flex-column nav nav-pills"
+                  onSelect={[Function]}
+                >
+                  <div
+                    className="flex-column nav nav-pills"
+                    onKeyDown={[Function]}
+                    role="tablist"
+                  >
+                    <NavItem>
+                      <div
+                        className="nav-item"
+                      >
+                        <NavLink
+                          as={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "displayName": "SafeAnchor",
+                              "render": [Function],
+                            }
+                          }
+                          disabled={false}
+                          eventKey="power"
+                        >
+                          <ForwardRef
+                            as={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "displayName": "SafeAnchor",
+                                "render": [Function],
+                              }
+                            }
+                            className="nav-link"
+                            disabled={false}
+                            eventKey="power"
+                          >
+                            <SafeAnchor
+                              aria-controls="spartan-tabs-tabpane-power"
+                              aria-selected={true}
+                              className="nav-link active"
+                              data-rb-event-key="power"
+                              disabled={false}
+                              id="spartan-tabs-tab-power"
+                              onClick={[Function]}
+                              role="tab"
+                            >
+                              <a
+                                aria-controls="spartan-tabs-tabpane-power"
+                                aria-selected={true}
+                                className="nav-link active"
+                                data-rb-event-key="power"
+                                href="#"
+                                id="spartan-tabs-tab-power"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="tab"
+                              >
+                                POWER CONSOLE
+                              </a>
+                            </SafeAnchor>
+                          </ForwardRef>
+                        </NavLink>
+                      </div>
+                    </NavItem>
+                    <NavItem>
+                      <div
+                        className="nav-item"
+                      >
+                        <NavLink
+                          as={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "displayName": "SafeAnchor",
+                              "render": [Function],
+                            }
+                          }
+                          disabled={false}
+                          eventKey="ext-thermal"
+                          onClick={[Function]}
+                        >
+                          <ForwardRef
+                            as={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "displayName": "SafeAnchor",
+                                "render": [Function],
+                              }
+                            }
+                            className="nav-link"
+                            disabled={false}
+                            eventKey="ext-thermal"
+                            onClick={[Function]}
+                          >
+                            <SafeAnchor
+                              aria-controls="spartan-tabs-tabpane-ext-thermal"
+                              aria-selected={false}
+                              className="nav-link"
+                              data-rb-event-key="ext-thermal"
+                              disabled={false}
+                              id="spartan-tabs-tab-ext-thermal"
+                              onClick={[Function]}
+                              role="tab"
+                              tabIndex={-1}
+                            >
+                              <a
+                                aria-controls="spartan-tabs-tabpane-ext-thermal"
+                                aria-selected={false}
+                                className="nav-link"
+                                data-rb-event-key="ext-thermal"
+                                href="#"
+                                id="spartan-tabs-tab-ext-thermal"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="tab"
+                                tabIndex={-1}
+                              >
+                                EXT. THERMAL CONTROL
+                              </a>
+                            </SafeAnchor>
+                          </ForwardRef>
+                        </NavLink>
+                      </div>
+                    </NavItem>
+                  </div>
+                </ForwardRef>
+              </Nav>
+            </div>
+          </Col>
+        </div>
+      </Row>
+    </TabContainer>
+  </USpartan>
+</Styled(USpartan)>
+`;

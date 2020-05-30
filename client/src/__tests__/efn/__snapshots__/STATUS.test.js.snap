@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EFN form renders correctly 1`] = `
+<Styled(USTATUS)
+  closeFunction={[MockFunction]}
+  lobbyID="111111"
+  userRole="spartan"
+>
+  <USTATUS
+    className=""
+    closeFunction={[MockFunction]}
+    lobbyID="111111"
+    userRole="spartan"
+  >
+    <Form
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <form
+        className=""
+        onSubmit={[Function]}
+      >
+        <FormGroup
+          controlId="EFN.Subject"
+        >
+          <div
+            className="form-group"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              <label
+                className="form-label"
+                htmlFor="EFN.Subject"
+              >
+                 Subject 
+              </label>
+            </FormLabel>
+            <FormControl
+              name="subject"
+              placeholder="Brief description of the status report"
+              type="text"
+            >
+              <input
+                className="form-control"
+                id="EFN.Subject"
+                name="subject"
+                placeholder="Brief description of the status report"
+                type="text"
+              />
+            </FormControl>
+          </div>
+        </FormGroup>
+        <FormGroup
+          controlId="EFN.Body"
+        >
+          <div
+            className="form-group"
+          >
+            <FormLabel
+              column={false}
+              srOnly={false}
+            >
+              <label
+                className="form-label"
+                htmlFor="EFN.Body"
+              >
+                Status Report
+              </label>
+            </FormLabel>
+            <FormControl
+              as="textarea"
+              name="content"
+              rows="5"
+            >
+              <textarea
+                className="form-control"
+                id="EFN.Body"
+                name="content"
+                rows="5"
+              />
+            </FormControl>
+          </div>
+        </FormGroup>
+        <Button
+          active={false}
+          disabled={false}
+          type="submit"
+          variant="primary"
+        >
+          <button
+            className="btn btn-primary"
+            disabled={false}
+            type="submit"
+          >
+            Submit EFN
+          </button>
+        </Button>
+      </form>
+    </Form>
+  </USTATUS>
+</Styled(USTATUS)>
+`;

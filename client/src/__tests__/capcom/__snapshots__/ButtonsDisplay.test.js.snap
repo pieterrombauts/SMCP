@@ -1,0 +1,283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons display display renders correctly 1`] = `
+.c0 svg {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%,0%);
+  -ms-transform: translate(-50%,0%);
+  transform: translate(-50%,0%);
+}
+
+<Styled(UButtonsDisplay)
+  time="2019-11-19T15:00:00"
+>
+  <UButtonsDisplay
+    className="c0"
+    time="2019-11-19T15:00:00"
+  >
+    <div
+      className="c0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 1300 990"
+      >
+        <rect
+          height="400"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#393939",
+              "opacity": 0.5,
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="560"
+          x="740"
+          y="20"
+        />
+        <rect
+          height="100"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#004000",
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="200"
+          x="770"
+          y="40"
+        />
+        <text
+          fill="grey"
+          fontFamily="Verdana"
+          fontSize="50"
+          x="810"
+          y="110"
+        >
+          AOS
+        </text>
+        <rect
+          height="100"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#FF0000",
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="200"
+          x="1060"
+          y="40"
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="50"
+          x="1110"
+          y="110"
+        >
+          LOS
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="50"
+          x="780"
+          y="230"
+        >
+          Next AOS 
+        </text>
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="50"
+          x="780"
+          y="310"
+        >
+          Next LOS 
+        </text>
+        <rect
+          height="400"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#333333",
+              "opacity": 0.5,
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="700"
+          x="0"
+          y="20"
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="50"
+          textDecoration="underline"
+          x="30"
+          y="100"
+        >
+          Caution & Warning 
+        </text>
+        <rect
+          height="90"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "white",
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="110"
+          x="20"
+          y="140"
+        />
+        <text
+          fill="black"
+          fontFamily="Verdana"
+          fontSize="30"
+          x="40"
+          y="195"
+        >
+          FIRE
+        </text>
+        <rect
+          height="90"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "white",
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="110"
+          x="160"
+          y="140"
+        />
+        <text
+          fill="black"
+          fontFamily="Verdana"
+          fontSize="30"
+          x="180"
+          y="195"
+        >
+          ΔP
+        </text>
+        <rect
+          height="90"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "white",
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="110"
+          x="300"
+          y="140"
+        />
+        <text
+          fill="black"
+          fontFamily="Verdana"
+          fontSize="30"
+          x="320"
+          y="195"
+        >
+          ATM
+        </text>
+        <rect
+          height="90"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "#F54242",
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="110"
+          x="440"
+          y="140"
+        />
+        <text
+          fill="white"
+          fontFamily="Verdana"
+          fontSize="18"
+          x="450"
+          y="195"
+        >
+          WARNING
+        </text>
+        <rect
+          height="90"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "white",
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="110"
+          x="580"
+          y="140"
+        />
+        <text
+          fill="black"
+          fontFamily="Verdana"
+          fontSize="18"
+          x="590"
+          y="195"
+        >
+          CAUTION
+        </text>
+        <rect
+          height="90"
+          rx="5"
+          ry="5"
+          style={
+            Object {
+              "fill": "white",
+              "stroke": "#393939",
+              "strokeWidth": 5,
+            }
+          }
+          width="110"
+          x="580"
+          y="300"
+        />
+        <text
+          fill="black"
+          fontFamily="Verdana"
+          fontSize="30"
+          x="595"
+          y="355"
+        >
+          TEST
+        </text>
+      </svg>
+    </div>
+  </UButtonsDisplay>
+</Styled(UButtonsDisplay)>
+`;
