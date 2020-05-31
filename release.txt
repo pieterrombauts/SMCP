@@ -1,0 +1,2 @@
+Known Bugs/Issues:
+1. When enough EFNs are sent, the FLIGHT director's EFN table will fill up and overflow, causing a scroll bar to appear. If FLIGHT attempts to change the status of one of the EFN's at the bottom of the table, the drop-down box will force all of the other content up, causing a white bar to appear along the bottom of the screen.
